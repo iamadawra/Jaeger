@@ -22,7 +22,7 @@ RSpec.describe UsersController, type: :controller do
 
     it "renders the :edit template" do
       get :edit
-      expect(response).to render_template(:edi)
+      expect(response).to render_template(:edit)
     end
   end
 
@@ -94,14 +94,18 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe "POST /login" do
+    before :each do
+      @user = create(:user, email: "test@cucu.com", password: "pwd")
+    end
 
-  end
+    it "finds the requested @user" do
+      put :login, id: @user.id, user: attributes_for(:user)
+      expect(assigns(:user)).to eq(@user)
+    end
 
-  describe "POST /logout" do
-
-  end
-
-  describe "POST /reset_password" do
-
+    it "redirects to root path" do
+      post :create, user: attributes_for(:user)
+      expect(response).to redirect_to(root_path)
+    end
   end
 end
