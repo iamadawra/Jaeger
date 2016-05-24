@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160519013232) do
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           limit: 255
-    t.string   "password_digest", limit: 255
+    t.string   "password_hash",   limit: 255
+    t.string   "password_salt",   limit: 255
     t.string   "username",        limit: 255
     t.string   "first_name",      limit: 255
     t.string   "middle_name",     limit: 255
@@ -34,16 +34,6 @@ ActiveRecord::Schema.define(version: 20160519013232) do
     t.string   "activation_code", limit: 255
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-=======
-ActiveRecord::Schema.define(version: 20160524050726) do
-
-  create_table "users", force: :cascade do |t|
-    t.string   "email"
-    t.string   "password_hash"
-    t.string   "password_salt"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
->>>>>>> a4515572853a0d6a5ebbcbfe536c9e98872dbd2e
   end
 
 end
