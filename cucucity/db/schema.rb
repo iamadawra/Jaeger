@@ -34,6 +34,5 @@ ActiveRecord::Schema.define(version: 20160524050726) do
     t.string   "password_salt"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-  end
 
 end
