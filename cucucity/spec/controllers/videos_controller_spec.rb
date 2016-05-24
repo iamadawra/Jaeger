@@ -35,7 +35,13 @@ RSpec.describe VideosController, type: :controller do
     		post :upload,
     			video: attributes_for(:valid_video)
     		expect(response).to redirect_to video_path(assigns[:video])
-    	end
+    	end 
+    end
+      
+    context "if it is not logged in" do
+      it "is invalid to upload video" do
+           
+      end 
     end
 
     context "with invalid attributes" do
