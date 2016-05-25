@@ -28,9 +28,6 @@ gem 'protected_attributes'
 # Gem for codeclimate Test Coverage
 gem "codeclimate-test-reporter", group: :test, require: nil
 
-# Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
-
 gem 'mysql2'
 
 # Use Unicorn as the app server
