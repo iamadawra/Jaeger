@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-# TODO 1. validate email format
-# TODO 2. password should ont contains blank
-# TODO 3. validate length of username, email, password
+# 1. validate email format
+# 2. password should ont contains blank
+# 3. validate length of username, email, password
 
 describe User, type: :model do
   include EmailSpec::Helpers
