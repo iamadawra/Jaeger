@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-  get 'videos/new'
+  
   root 'users#new'
-
+  
   get 'register' => 'users#new', :as => 'register'
   get 'login' => 'sessions#new', :as => 'login'
   get 'logout' => 'sessions#destroy', :as => 'logout'
+  get 'videos/:id' => 'videos#show'
 
-  resources :users, :sessions
+  resources :users, :sessions, :videos
 
 
   # The priority is based upon order of creation: first created -> highest priority.

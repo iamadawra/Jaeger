@@ -38,7 +38,8 @@ ActiveRecord::Schema.define(version: 20160522155312) do
 
   create_table "videos", force: :cascade do |t|
     t.string   "title",             limit: 255
-    t.string   "url",               limit: 255
+    t.string   "video_url",         limit: 255
+    t.string   "poster_url",        limit: 255
     t.boolean  "is_in_competition"
     t.integer  "competition_id",    limit: 4
     t.integer  "uploader_id",       limit: 4
