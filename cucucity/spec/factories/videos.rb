@@ -1,7 +1,8 @@
 FactoryGirl.define do
   factory :video do
     title "MyString"
-    url "MyString"
+    video_url "MyString"
+    poster_url "MyString"
     is_in_competition false
     competition_id 1
     uploader_id 1

@@ -2,17 +2,24 @@ require 'rails_helper'
 
 RSpec.describe VideosController, type: :controller do
 
-  describe "GET /play" do
-    it "renders the :video_box template" do
+  describe "GET /show" do
+    it "assigns the requested video to @video" do
       video = create(:video)
-      get :play, id: video
-      expect(response).to render_template(:video_box)
+      get :show, id: video.id
+      expect(assigns(:video)).to eq(video)
     end
 
-    it "renders the :video_list template" do
+    it "renders the :show template" do
       video = create(:video)
-      get :play, id: video
-      expect(response).to render_template(:video_list)
+      get :show, id: video.id
+      expect(response).to render_template(:show)
+    end
+  end
+
+  describe "GET /index" do
+    it "renders the :index template" do
+      get :index
+      expect(response).to render_template(:index)
     end
   end
 
@@ -31,7 +38,7 @@ RSpec.describe VideosController, type: :controller do
     		}.to change(Video, :count).by(1)
     	end
 
-    	it "redirects to the video#{show} page" do
+    	it "redirects to the video/show page" do
     		post :upload,
     			video: attributes_for(:valid_video)
     		expect(response).to redirect_to video_path(assigns[:video])
