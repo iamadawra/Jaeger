@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519013232) do
+ActiveRecord::Schema.define(version: 20160522155312) do
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           limit: 255
@@ -34,6 +34,22 @@ ActiveRecord::Schema.define(version: 20160519013232) do
     t.string   "activation_code", limit: 255
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+  end
+
+  create_table "videos", force: :cascade do |t|
+    t.string   "title",             limit: 255
+    t.string   "url",               limit: 255
+    t.boolean  "is_in_competition"
+    t.integer  "competition_id",    limit: 4
+    t.integer  "uploader_id",       limit: 4
+    t.string   "tags",              limit: 255
+    t.datetime "uploaded_at"
+    t.float    "rating",            limit: 24
+    t.float    "voting",            limit: 24
+    t.integer  "rate_num",          limit: 4
+    t.integer  "vote_num",          limit: 4
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
 end

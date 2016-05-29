@@ -1,4 +1,5 @@
-Rails.application.routes.draw do  
+Rails.application.routes.draw do
+  get 'videos/new'
   root 'users#new'
 
   get 'register' => 'users#new', :as => 'register'
