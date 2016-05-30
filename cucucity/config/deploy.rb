@@ -10,7 +10,7 @@ set :password,        ''
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
 set :scm, :git
-set :repo_url,  'http://deepfly:zzp123567@github.com/iamadawra/CucuCity.git'
+set :repo_url,  'http://deepfly:zzp123567@github.com/iamadawra/Jaeger.git'
 # set :scm_username, "deepfly"
 # set :scm_password, "zzp123567"
 
