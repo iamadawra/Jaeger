@@ -1293,3 +1293,784 @@ tar: Exiting with failure status due to previous errors
  DEBUG [38a8e75e] Command: cd /home/deploy/CucuCity/releases/20160530182422 && ~/.rvm/bin/rvm default do bundle install --path /home/deploy/CucuCity/shared/bundle --without development test --deployment --quiet
  DEBUG [38a8e75e] 	[31mCould not locate Gemfile[0m
  DEBUG [38a8e75e] 	
+  INFO ---------------------------------------------------------------------------
+  INFO START 2016-05-30 14:34:20 -0400 cap staging deploy:initial
+  INFO ---------------------------------------------------------------------------
+ DEBUG [5a100682] Running [ -d ~/.rvm ] on 52.10.113.111
+ DEBUG [5a100682] Command: [ -d ~/.rvm ]
+ DEBUG [5a100682] Finished in 1.594 seconds with exit status 0 (successful).
+ DEBUG [e809ab90] Running ~/.rvm/bin/rvm version on 52.10.113.111
+ DEBUG [e809ab90] Command: ~/.rvm/bin/rvm version
+ DEBUG [e809ab90] 	rvm 1.27.0 (latest) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
+ DEBUG [e809ab90] 	
+ DEBUG [e809ab90] Finished in 0.308 seconds with exit status 0 (successful).
+ DEBUG [98f471f5] Running ~/.rvm/bin/rvm current on 52.10.113.111
+ DEBUG [98f471f5] Command: ~/.rvm/bin/rvm current
+ DEBUG [98f471f5] 	ruby-2.3.1
+ DEBUG [98f471f5] 	
+ DEBUG [98f471f5] Finished in 0.309 seconds with exit status 0 (successful).
+ DEBUG [a40410bc] Running ~/.rvm/bin/rvm default do ruby --version on 52.10.113.111
+ DEBUG [a40410bc] Command: ~/.rvm/bin/rvm default do ruby --version
+ DEBUG [a40410bc] 	ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-linux]
+ DEBUG [a40410bc] 	
+ DEBUG [a40410bc] Finished in 0.475 seconds with exit status 0 (successful).
+  INFO [822f05ec] Running /usr/bin/env mkdir -p /tmp/CucuCity/ on 52.10.113.111
+ DEBUG [822f05ec] Command: /usr/bin/env mkdir -p /tmp/CucuCity/
+  INFO [822f05ec] Finished in 0.172 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/CucuCity/git-ssh.sh 0.0%
+  INFO Uploading /tmp/CucuCity/git-ssh.sh 100.0%
+  INFO [fc221910] Running /usr/bin/env chmod +rx /tmp/CucuCity/git-ssh.sh on 52.10.113.111
+ DEBUG [fc221910] Command: /usr/bin/env chmod +rx /tmp/CucuCity/git-ssh.sh
+  INFO [fc221910] Finished in 0.173 seconds with exit status 0 (successful).
+  INFO [523779e2] Running /usr/bin/env git ls-remote --heads http://deepfly:zzp123567@github.com/iamadawra/Jaeger.git on 52.10.113.111
+ DEBUG [523779e2] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/CucuCity/git-ssh.sh" ; /usr/bin/env git ls-remote --heads http://deepfly:zzp123567@github.com/iamadawra/Jaeger.git )
+ DEBUG [523779e2] 	0ed12f9067f5c7aedb623cc88563c5aae72cf19e
+ DEBUG [523779e2] 		
+ DEBUG [523779e2] 	refs/heads/aayush
+ DEBUG [523779e2] 	
+ DEBUG [523779e2] 	4fe35440425685925d31b777cab4a8fbcd304917
+ DEBUG [523779e2] 		
+ DEBUG [523779e2] 	refs/heads/lander
+ DEBUG [523779e2] 	
+ DEBUG [523779e2] 	68a2fcf31a8f0de1715dfa2458c53c0d6c8dc53f
+ DEBUG [523779e2] 		
+ DEBUG [523779e2] 	refs/heads/master
+ DEBUG [523779e2] 	
+ DEBUG [523779e2] 	65d6bf0d001491a803946c189a2528a811a23038
+ DEBUG [523779e2] 		
+ DEBUG [523779e2] 	refs/heads/staging
+ DEBUG [523779e2] 	
+ DEBUG [523779e2] 	65d6bf0d001491a803946c189a2528a811a23038
+ DEBUG [523779e2] 		
+ DEBUG [523779e2] 	refs/heads/ziping
+ DEBUG [523779e2] 	
+  INFO [523779e2] Finished in 1.030 seconds with exit status 0 (successful).
+  INFO [9ebc4d21] Running /usr/bin/env mkdir -p /home/deploy/CucuCity/shared /home/deploy/CucuCity/releases on 52.10.113.111
+ DEBUG [9ebc4d21] Command: /usr/bin/env mkdir -p /home/deploy/CucuCity/shared /home/deploy/CucuCity/releases
+  INFO [9ebc4d21] Finished in 0.171 seconds with exit status 0 (successful).
+  INFO [8abdc9cf] Running /usr/bin/env mkdir -p /home/deploy/CucuCity/shared/public/assets on 52.10.113.111
+ DEBUG [8abdc9cf] Command: /usr/bin/env mkdir -p /home/deploy/CucuCity/shared/public/assets
+  INFO [8abdc9cf] Finished in 0.170 seconds with exit status 0 (successful).
+ DEBUG [24dbccd6] Running [ -f /home/deploy/CucuCity/shared/puma.rb ] on 52.10.113.111
+ DEBUG [24dbccd6] Command: [ -f /home/deploy/CucuCity/shared/puma.rb ]
+ DEBUG [24dbccd6] Finished in 0.171 seconds with exit status 0 (successful).
+ DEBUG [0d7ed254] Running [ -f /home/deploy/CucuCity/current/REVISION ] on 52.10.113.111
+ DEBUG [0d7ed254] Command: [ -f /home/deploy/CucuCity/current/REVISION ]
+ DEBUG [0d7ed254] Finished in 0.170 seconds with exit status 1 (failed).
+ DEBUG [ac4d5dac] Running [ -f /home/deploy/CucuCity/repo/HEAD ] on 52.10.113.111
+ DEBUG [ac4d5dac] Command: [ -f /home/deploy/CucuCity/repo/HEAD ]
+ DEBUG [ac4d5dac] Finished in 0.171 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/deploy/CucuCity/repo
+ DEBUG [a217f60c] Running if test ! -d /home/deploy/CucuCity/repo; then echo "Directory does not exist '/home/deploy/CucuCity/repo'" 1>&2; false; fi on 52.10.113.111
+ DEBUG [a217f60c] Command: if test ! -d /home/deploy/CucuCity/repo; then echo "Directory does not exist '/home/deploy/CucuCity/repo'" 1>&2; false; fi
+ DEBUG [a217f60c] Finished in 0.170 seconds with exit status 0 (successful).
+  INFO [07c86601] Running /usr/bin/env git remote update --prune on 52.10.113.111
+ DEBUG [07c86601] Command: cd /home/deploy/CucuCity/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/CucuCity/git-ssh.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [07c86601] 	Fetching origin
+ DEBUG [07c86601] 	remote: Counting objects: 209, done.[K
+ DEBUG [07c86601] 	
+ DEBUG [07c86601] 	remote: Compressing objects:   0% (1/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:   1% (2/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:   2% (4/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:   3% (5/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:   4% (7/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:   5% (9/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:   6% (10/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:   7% (12/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:   8% (13/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:   9% (15/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  10% (17/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  11% (18/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  12% (20/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  13% (21/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  14% (23/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  15% (25/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  16% (26/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  17% (28/161)   [K
+ DEBUG [07c86601] 	remote: Compressing ob
+ DEBUG [07c86601] 	jects:  18% (29/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  19% (31/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  20% (33/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  21% (3
+ DEBUG [07c86601] 	4/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  22% (36/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  23% (38/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  24% (39/161)   [K
+ DEBUG [07c86601] 	remote: Comp
+ DEBUG [07c86601] 	ressing objects:  25% (41/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  26% (42/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  27% (44/161)   [K
+ DEBUG [07c86601] 	remote: Compressing object
+ DEBUG [07c86601] 	s:  28% (46/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  29% (47/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  30% (49/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  31% (50/16
+ DEBUG [07c86601] 	1)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  32% (52/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  33% (54/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  34% (55/161)   [K
+ DEBUG [07c86601] 	remote: Compress
+ DEBUG [07c86601] 	ing objects:  35% (57/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  36% (58/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  37% (60/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  
+ DEBUG [07c86601] 	38% (62/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  39% (63/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  40% (65/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  41% (67/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  42% (68/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  43% (70/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  44% (71/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  45% (73/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  46% (75/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  47% (76/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  48% (78/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  49% (79/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  50% (81/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  51% (83/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  52% (84/161)   [K
+ DEBUG [07c86601] 	remote: Compressing ob
+ DEBUG [07c86601] 	jects:  53% (86/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  54% (87/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  55% (89/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  56% (9
+ DEBUG [07c86601] 	1/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  57% (92/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  58% (94/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  59% (95/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  60% (97/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  61% (99/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  62% (100/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  63% (102/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  64% (104/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  65% (105/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  66% (107/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  67% (108/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  68% (110/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  69% (112/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  70% (113/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  71% (115/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  72% (116/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  73% (118/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  74% (120/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  75% (121/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  76% (123/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  77% (124/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  78% (126/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  79% (128/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  80% (129/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  81% (131/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  82% (133/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  83% (134/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  84% (136/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  85% (137/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  86% (139/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  87% (141/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  88% (142/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  89% (144/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  90% (145/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  91% (147/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  92% (149/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  93% (150/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  94% (152/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  95% (153/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  96% (155/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  97% (157/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  98% (158/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects:  99% (160/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects: 100% (161/161)   [K
+ DEBUG [07c86601] 	remote: Compressing objects: 100% (161/161), done.[K
+ DEBUG [07c86601] 	
+ DEBUG [07c86601] 	Receiving objects:   0% (1/209)   
+ DEBUG [07c86601] 	Receiving objects:   1% (3/209)   
+ DEBUG [07c86601] 	Receiving objects:   2% (5/209)   
+ DEBUG [07c86601] 	Receiving objects:   3% (7/209)   
+ DEBUG [07c86601] 	Receiving objects:   4% (9/209)   
+ DEBUG [07c86601] 	Receiving objects:   5% (11/209)   
+ DEBUG [07c86601] 	Receiving objects:   6% (13/209)   
+ DEBUG [07c86601] 	Receiving objects:   7% (15/209)   
+ DEBUG [07c86601] 	Receiving objects:   8% (17/209)   
+ DEBUG [07c86601] 	Receiving objects:   9% (19/209)   
+ DEBUG [07c86601] 	Receiving objects:  10% (21/209)   
+ DEBUG [07c86601] 	Receiving objects:  11% (23/209)   
+ DEBUG [07c86601] 	Receiving objects:  12% (26/209)   
+ DEBUG [07c86601] 	Receiving objects:  13% (28/209)   
+ DEBUG [07c86601] 	Receiving objects:  14% (30/209)   
+ DEBUG [07c86601] 	Receiving objects:  15% (32/209)   
+ DEBUG [07c86601] 	Receiving objects:  16% (34/209)   
+ DEBUG [07c86601] 	Receiving objects:  17% (36/209)   
+ DEBUG [07c86601] 	Receiving objects:  18% (38/209)   
+ DEBUG [07c86601] 	Receiving objects:  19% (40/209)   
+ DEBUG [07c86601] 	Receiving objects:  20% (42/209)   
+ DEBUG [07c86601] 	Receiving objects:  21% (44/209)   
+ DEBUG [07c86601] 	Receiving objects:  22% (46/209)   
+ DEBUG [07c86601] 	Receiving objects:  23% (49/209)   
+ DEBUG [07c86601] 	Receiving objects:  24% (51/209)   
+ DEBUG [07c86601] 	Receiving objects:  25% (53/209)   
+ DEBUG [07c86601] 	Receiving objects:  26% (55/209)   
+ DEBUG [07c86601] 	Receiving objects:  27% (57/209)   
+ DEBUG [07c86601] 	Receiving objects:  28% (59/209)   
+ DEBUG [07c86601] 	Receiving objects:  29% (61/209)   
+ DEBUG [07c86601] 	Receiving objects:  30% (63/209)   
+ DEBUG [07c86601] 	Receiving objects:  31% (65/209)   
+ DEBUG [07c86601] 	Receiving objects:  32% (67/209)   
+ DEBUG [07c86601] 	Receiving objects:  33% (69/209)   
+ DEBUG [07c86601] 	Receiving objects:  34% (72/209)   
+ DEBUG [07c86601] 	Receiving objects:  35% (74/209)   
+ DEBUG [07c86601] 	Receiving objects:  36% (76/209)   
+ DEBUG [07c86601] 	Receiving objects:  37% (78/209)   
+ DEBUG [07c86601] 	Receiving objects:  38% (80/209)   
+ DEBUG [07c86601] 	Receiving objects:  39% (82/209)   
+ DEBUG [07c86601] 	Receiving objects:  40% (84/209)   
+ DEBUG [07c86601] 	Receiving objects:  41% (86/209)   
+ DEBUG [07c86601] 	Receiving objects:  42% (88/209)   
+ DEBUG [07c86601] 	Receiving objects:  43% (90/209)   
+ DEBUG [07c86601] 	Receiving objects:  44% (92/209)   
+ DEBUG [07c86601] 	Receiving objects:  45% (95/209)   
+ DEBUG [07c86601] 	Receiving objects:  46% (97/209)   
+ DEBUG [07c86601] 	Receiving objects:  47% (99/209)   
+ DEBUG [07c86601] 	Receiving objects:  48% (101/209)   
+ DEBUG [07c86601] 	Receiving objects:  49% (103/209)   
+ DEBUG [07c86601] 	Receiving objects:  50% (105/209)   
+ DEBUG [07c86601] 	Receiving objects:  51% (107/209)   
+ DEBUG [07c86601] 	Receiving objects:  52% (109/209)   
+ DEBUG [07c86601] 	Receiving objects:  53% (111/209)   
+ DEBUG [07c86601] 	Receiving objects:  54% (113/209)   
+ DEBUG [07c86601] 	Receiving objects:  55% (115/209)   
+ DEBUG [07c86601] 	Receiving objects:  56% (118/209)   
+ DEBUG [07c86601] 	Receiving objects:  57% (120/209)   
+ DEBUG [07c86601] 	Receiving objects:  58% (122/209)   
+ DEBUG [07c86601] 	Receiving objects:  59% (124/209)   
+ DEBUG [07c86601] 	Receiving objects:  60% (126/209)   
+ DEBUG [07c86601] 	Receiving objects:  61% (128/209)   
+ DEBUG [07c86601] 	Receiving objects:  62% (130/209)   
+ DEBUG [07c86601] 	Receiving objects:  63% (132/209)   
+ DEBUG [07c86601] 	Receiving objects:  64% (134/209)   
+ DEBUG [07c86601] 	Receiving objects:  65% (136/209)   
+ DEBUG [07c86601] 	Receiving objects:  66% (138/209)   
+ DEBUG [07c86601] 	Receiving objects:  67% (141/209)   
+ DEBUG [07c86601] 	Receiving objects:  68% (143/209)   
+ DEBUG [07c86601] 	Receiving objects:  69% (145/209)   
+ DEBUG [07c86601] 	Receiving objects:  70% (147/209)   
+ DEBUG [07c86601] 	Receiving objects:  71% (149/209)   
+ DEBUG [07c86601] 	Receiving objects:  72% (151/209)   
+ DEBUG [07c86601] 	Receiving objects:  73% (153/209)   
+ DEBUG [07c86601] 	Receiving objects:  74% (155/209)   
+ DEBUG [07c86601] 	Receiving objects:  75% (157/209)   
+ DEBUG [07c86601] 	Receiving objects:  76% (159/209)   
+ DEBUG [07c86601] 	Receiving objects:  77% (161/209)   
+ DEBUG [07c86601] 	Receiving objects:  78% (164/209)   
+ DEBUG [07c86601] 	Receiving objects:  79% (166/209)   
+ DEBUG [07c86601] 	Receiving objects:  80% (168/209)   
+ DEBUG [07c86601] 	Receiving objects:  81% (170/209)   
+ DEBUG [07c86601] 	Receiving objects:  82% (172/209)   
+ DEBUG [07c86601] 	Receiving objects:  83% (174/209)   
+ DEBUG [07c86601] 	Receiving objects:  84% (176/209)   
+ DEBUG [07c86601] 	Receiving objects:  85% (178/209)   
+ DEBUG [07c86601] 	Receiving objects:  86% (180/209)   
+ DEBUG [07c86601] 	Receiving objects:  87% (182/209)   
+ DEBUG [07c86601] 	Receiving objects:  88% (184/209)   
+ DEBUG [07c86601] 	Receiving objects:  89% (187/209)   
+ DEBUG [07c86601] 	Receiving objects:  90% (189/209)   
+ DEBUG [07c86601] 	Receiving objects:  91% (191/209), 804.00 KiB | 1.37 MiB/s   
+ DEBUG [07c86601] 	Receiving objects:  92% (193/209), 804.00 KiB | 1.37 MiB/s   
+ DEBUG [07c86601] 	Receiving objects:  93% (195/209), 804.00 KiB | 1.37 MiB/s   
+ DEBUG [07c86601] 	Receiving objects:  94% (197/209), 804.00 KiB | 1.37 MiB/s   
+ DEBUG [07c86601] 	Receiving objects:  95% (199/209), 804.00 KiB | 1.37 MiB/s   
+ DEBUG [07c86601] 	remote: Total 209 (delta 23), reused 208 (delta 22), pack-reused 0[K
+ DEBUG [07c86601] 	
+ DEBUG [07c86601] 	Receiving objects:  96% (201/209), 804.00 KiB | 1.37 MiB/s   
+ DEBUG [07c86601] 	Receiving objects:  97% (203/209), 804.00 KiB | 1.37 MiB/s   
+ DEBUG [07c86601] 	Receiving objects:  98% (205/209), 804.00 KiB | 1.37 MiB/s   
+ DEBUG [07c86601] 	Receiving objects:  99% (207/209), 804.00 KiB | 1.37 MiB/s   
+ DEBUG [07c86601] 	Receiving objects: 100% (209/209), 804.00 KiB | 1.37 MiB/s   
+ DEBUG [07c86601] 	Receiving objects: 100% (209/209), 1.03 MiB | 1.37 MiB/s, done.
+ DEBUG [07c86601] 	
+ DEBUG [07c86601] 	Resolving deltas:   0% (0/23)   
+ DEBUG [07c86601] 	Resolving deltas:   4% (1/23)   
+ DEBUG [07c86601] 	Resolving deltas:  26% (6/23)   
+ DEBUG [07c86601] 	Resolving deltas:  52% (12/23)   
+ DEBUG [07c86601] 	Resolving deltas:  69% (16/23)   
+ DEBUG [07c86601] 	Resolving deltas:  73% (17/23)   
+ DEBUG [07c86601] 	Resolving deltas:  82% (19/23)   
+ DEBUG [07c86601] 	Resolving deltas:  91% (21/23)   
+ DEBUG [07c86601] 	Resolving deltas:  95% (22/23)   
+ DEBUG [07c86601] 	Resolving deltas: 100% (23/23)   
+ DEBUG [07c86601] 	Resolving deltas: 100% (23/23), completed with 1 local objects.
+ DEBUG [07c86601] 	
+ DEBUG [07c86601] 	From http://github.com/iamadawra/Jaeger
+ DEBUG [07c86601] 	
+ DEBUG [07c86601] 	   db478cd..68a2fcf  master     -> master
+ DEBUG [07c86601] 	
+ DEBUG [07c86601] 	   2e2b740..65d6bf0  staging    -> staging
+ DEBUG [07c86601] 	
+ DEBUG [07c86601] 	   2e2b740..65d6bf0  ziping     -> ziping
+ DEBUG [07c86601] 	
+  INFO [07c86601] Finished in 2.230 seconds with exit status 0 (successful).
+ DEBUG [ee403c86] Running if test ! -d /home/deploy/CucuCity/repo; then echo "Directory does not exist '/home/deploy/CucuCity/repo'" 1>&2; false; fi on 52.10.113.111
+ DEBUG [ee403c86] Command: if test ! -d /home/deploy/CucuCity/repo; then echo "Directory does not exist '/home/deploy/CucuCity/repo'" 1>&2; false; fi
+ DEBUG [ee403c86] Finished in 0.170 seconds with exit status 0 (successful).
+  INFO [d567ad17] Running /usr/bin/env mkdir -p /home/deploy/CucuCity/releases/20160530183426 on 52.10.113.111
+ DEBUG [d567ad17] Command: cd /home/deploy/CucuCity/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/CucuCity/git-ssh.sh" ; /usr/bin/env mkdir -p /home/deploy/CucuCity/releases/20160530183426 )
+  INFO [d567ad17] Finished in 0.171 seconds with exit status 0 (successful).
+  INFO [7d6b2430] Running /usr/bin/env git archive staging | tar -x -f - -C /home/deploy/CucuCity/releases/20160530183426 on 52.10.113.111
+ DEBUG [7d6b2430] Command: cd /home/deploy/CucuCity/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/CucuCity/git-ssh.sh" ; /usr/bin/env git archive staging | tar -x -f - -C /home/deploy/CucuCity/releases/20160530183426 )
+  INFO [7d6b2430] Finished in 0.479 seconds with exit status 0 (successful).
+ DEBUG [3ecc901e] Running if test ! -d /home/deploy/CucuCity/repo; then echo "Directory does not exist '/home/deploy/CucuCity/repo'" 1>&2; false; fi on 52.10.113.111
+ DEBUG [3ecc901e] Command: if test ! -d /home/deploy/CucuCity/repo; then echo "Directory does not exist '/home/deploy/CucuCity/repo'" 1>&2; false; fi
+ DEBUG [3ecc901e] Finished in 0.178 seconds with exit status 0 (successful).
+ DEBUG [d03d72b7] Running /usr/bin/env git rev-list --max-count=1 staging on 52.10.113.111
+ DEBUG [d03d72b7] Command: cd /home/deploy/CucuCity/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/CucuCity/git-ssh.sh" ; /usr/bin/env git rev-list --max-count=1 staging )
+ DEBUG [d03d72b7] 	65d6bf0d001491a803946c189a2528a811a23038
+ DEBUG [d03d72b7] Finished in 0.460 seconds with exit status 0 (successful).
+ DEBUG [4c05ef23] Running if test ! -d /home/deploy/CucuCity/releases/20160530183426; then echo "Directory does not exist '/home/deploy/CucuCity/releases/20160530183426'" 1>&2; false; fi on 52.10.113.111
+ DEBUG [4c05ef23] Command: if test ! -d /home/deploy/CucuCity/releases/20160530183426; then echo "Directory does not exist '/home/deploy/CucuCity/releases/20160530183426'" 1>&2; false; fi
+ DEBUG [4c05ef23] Finished in 0.170 seconds with exit status 0 (successful).
+  INFO [b22b1b12] Running /usr/bin/env echo "65d6bf0d001491a803946c189a2528a811a23038" >> REVISION on 52.10.113.111
+ DEBUG [b22b1b12] Command: cd /home/deploy/CucuCity/releases/20160530183426 && /usr/bin/env echo "65d6bf0d001491a803946c189a2528a811a23038" >> REVISION
+  INFO [b22b1b12] Finished in 0.170 seconds with exit status 0 (successful).
+  INFO [3f86e5df] Running /usr/bin/env mkdir -p /home/deploy/CucuCity/releases/20160530183426/public on 52.10.113.111
+ DEBUG [3f86e5df] Command: /usr/bin/env mkdir -p /home/deploy/CucuCity/releases/20160530183426/public
+  INFO [3f86e5df] Finished in 0.171 seconds with exit status 0 (successful).
+ DEBUG [7b5093cf] Running [ -L /home/deploy/CucuCity/releases/20160530183426/public/assets ] on 52.10.113.111
+ DEBUG [7b5093cf] Command: [ -L /home/deploy/CucuCity/releases/20160530183426/public/assets ]
+ DEBUG [7b5093cf] Finished in 0.458 seconds with exit status 1 (failed).
+ DEBUG [c8cf01b7] Running [ -d /home/deploy/CucuCity/releases/20160530183426/public/assets ] on 52.10.113.111
+ DEBUG [c8cf01b7] Command: [ -d /home/deploy/CucuCity/releases/20160530183426/public/assets ]
+ DEBUG [c8cf01b7] Finished in 0.169 seconds with exit status 1 (failed).
+  INFO [eb319b8b] Running /usr/bin/env ln -s /home/deploy/CucuCity/shared/public/assets /home/deploy/CucuCity/releases/20160530183426/public/assets on 52.10.113.111
+ DEBUG [eb319b8b] Command: /usr/bin/env ln -s /home/deploy/CucuCity/shared/public/assets /home/deploy/CucuCity/releases/20160530183426/public/assets
+  INFO [eb319b8b] Finished in 0.170 seconds with exit status 0 (successful).
+ DEBUG [64152350] Running if test ! -d /home/deploy/CucuCity/releases/20160530183426; then echo "Directory does not exist '/home/deploy/CucuCity/releases/20160530183426'" 1>&2; false; fi on 52.10.113.111
+ DEBUG [64152350] Command: if test ! -d /home/deploy/CucuCity/releases/20160530183426; then echo "Directory does not exist '/home/deploy/CucuCity/releases/20160530183426'" 1>&2; false; fi
+ DEBUG [64152350] Finished in 0.169 seconds with exit status 0 (successful).
+  INFO [2e76b7b0] Running ~/.rvm/bin/rvm default do bundle install --path /home/deploy/CucuCity/shared/bundle --without development test --deployment --quiet on 52.10.113.111
+ DEBUG [2e76b7b0] Command: cd /home/deploy/CucuCity/releases/20160530183426 && ~/.rvm/bin/rvm default do bundle install --path /home/deploy/CucuCity/shared/bundle --without development test --deployment --quiet
+  INFO [2e76b7b0] Finished in 70.583 seconds with exit status 0 (successful).
+  INFO [3fea3ff7] Running /usr/bin/env ln -s /home/deploy/CucuCity/releases/20160530183426 /home/deploy/CucuCity/releases/current on 52.10.113.111
+ DEBUG [3fea3ff7] Command: /usr/bin/env ln -s /home/deploy/CucuCity/releases/20160530183426 /home/deploy/CucuCity/releases/current
+  INFO [3fea3ff7] Finished in 0.171 seconds with exit status 0 (successful).
+  INFO [ecc9eccb] Running /usr/bin/env mv /home/deploy/CucuCity/releases/current /home/deploy/CucuCity on 52.10.113.111
+ DEBUG [ecc9eccb] Command: /usr/bin/env mv /home/deploy/CucuCity/releases/current /home/deploy/CucuCity
+  INFO [ecc9eccb] Finished in 0.169 seconds with exit status 0 (successful).
+ DEBUG [e64d20f9] Running /usr/bin/env ls -xtr /home/deploy/CucuCity/releases on 52.10.113.111
+ DEBUG [e64d20f9] Command: /usr/bin/env ls -xtr /home/deploy/CucuCity/releases
+ DEBUG [e64d20f9] 	20160530182110	20160530182259	20160530182422	20160530183426
+ DEBUG [e64d20f9] Finished in 0.170 seconds with exit status 0 (successful).
+  INFO [895d44cc] Running mkdir /home/deploy/CucuCity/shared/tmp/sockets -p on 52.10.113.111
+ DEBUG [895d44cc] Command: mkdir /home/deploy/CucuCity/shared/tmp/sockets -p
+  INFO [895d44cc] Finished in 0.168 seconds with exit status 0 (successful).
+  INFO [25aaff2f] Running mkdir /home/deploy/CucuCity/shared/tmp/pids -p on 52.10.113.111
+ DEBUG [25aaff2f] Command: mkdir /home/deploy/CucuCity/shared/tmp/pids -p
+  INFO [25aaff2f] Finished in 0.169 seconds with exit status 0 (successful).
+ DEBUG [272b5ec5] Running [ -f /home/deploy/CucuCity/shared/puma.rb ] on 52.10.113.111
+ DEBUG [272b5ec5] Command: [ -f /home/deploy/CucuCity/shared/puma.rb ]
+ DEBUG [272b5ec5] Finished in 0.171 seconds with exit status 0 (successful).
+  INFO using conf file /home/deploy/CucuCity/shared/puma.rb
+ DEBUG [9f14f0ae] Running if test ! -d /home/deploy/CucuCity/current; then echo "Directory does not exist '/home/deploy/CucuCity/current'" 1>&2; false; fi on 52.10.113.111
+ DEBUG [9f14f0ae] Command: if test ! -d /home/deploy/CucuCity/current; then echo "Directory does not exist '/home/deploy/CucuCity/current'" 1>&2; false; fi
+ DEBUG [9f14f0ae] Finished in 0.168 seconds with exit status 0 (successful).
+  INFO [e0692a4b] Running ~/.rvm/bin/rvm default do bundle exec puma -C /home/deploy/CucuCity/shared/puma.rb --daemon on 52.10.113.111
+ DEBUG [e0692a4b] Command: cd /home/deploy/CucuCity/current && ( export RACK_ENV="production" ; ~/.rvm/bin/rvm default do bundle exec puma -C /home/deploy/CucuCity/shared/puma.rb --daemon )
+ DEBUG [e0692a4b] 	Puma starting in single mode...
+ DEBUG [e0692a4b] 	
+ DEBUG [e0692a4b] 	* Version 3.4.0 (ruby 2.3.1-p112), codename: Owl Bowl Brawl
+ DEBUG [e0692a4b] 	
+ DEBUG [e0692a4b] 	* Min threads: 4, max threads: 16
+ DEBUG [e0692a4b] 	
+ DEBUG [e0692a4b] 	* Environment: production
+ DEBUG [e0692a4b] 	
+ DEBUG [e0692a4b] 	* Daemonizing...
+ DEBUG [e0692a4b] 	
+  INFO [e0692a4b] Finished in 0.936 seconds with exit status 0 (successful).
+ DEBUG [dac6f855] Running if test ! -d /home/deploy/CucuCity/current; then echo "Directory does not exist '/home/deploy/CucuCity/current'" 1>&2; false; fi on 52.10.113.111
+ DEBUG [dac6f855] Command: if test ! -d /home/deploy/CucuCity/current; then echo "Directory does not exist '/home/deploy/CucuCity/current'" 1>&2; false; fi
+ DEBUG [dac6f855] Finished in 0.168 seconds with exit status 0 (successful).
+ DEBUG [a9e1c958] Running [ -f /home/deploy/CucuCity/shared/tmp/pids/puma.pid ] on 52.10.113.111
+ DEBUG [a9e1c958] Command: [ -f /home/deploy/CucuCity/shared/tmp/pids/puma.pid ]
+ DEBUG [a9e1c958] Finished in 0.228 seconds with exit status 1 (failed).
+ DEBUG [6aef469a] Running if test ! -d /home/deploy/CucuCity/releases; then echo "Directory does not exist '/home/deploy/CucuCity/releases'" 1>&2; false; fi on 52.10.113.111
+ DEBUG [6aef469a] Command: if test ! -d /home/deploy/CucuCity/releases; then echo "Directory does not exist '/home/deploy/CucuCity/releases'" 1>&2; false; fi
+ DEBUG [6aef469a] Finished in 0.175 seconds with exit status 0 (successful).
+  INFO [d93bf080] Running /usr/bin/env echo "Branch staging (at 65d6bf0d001491a803946c189a2528a811a23038) deployed as release 20160530183426 by zipingz" >> /home/deploy/CucuCity/revisions.log on 52.10.113.111
+ DEBUG [d93bf080] Command: cd /home/deploy/CucuCity/releases && /usr/bin/env echo "Branch staging (at 65d6bf0d001491a803946c189a2528a811a23038) deployed as release 20160530183426 by zipingz" >> /home/deploy/CucuCity/revisions.log
+  INFO [d93bf080] Finished in 0.169 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2016-05-30 14:47:05 -0400 cap staging deploy:initial
+  INFO ---------------------------------------------------------------------------
+ DEBUG [601c7c3f] Running [ -d ~/.rvm ] on 52.10.113.111
+ DEBUG [601c7c3f] Command: [ -d ~/.rvm ]
+ DEBUG [601c7c3f] Finished in 1.723 seconds with exit status 0 (successful).
+ DEBUG [2e8d4a11] Running ~/.rvm/bin/rvm version on 52.10.113.111
+ DEBUG [2e8d4a11] Command: ~/.rvm/bin/rvm version
+ DEBUG [2e8d4a11] 	rvm 1.27.0 (latest) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
+ DEBUG [2e8d4a11] 	
+ DEBUG [2e8d4a11] Finished in 0.303 seconds with exit status 0 (successful).
+ DEBUG [17f0ddb7] Running ~/.rvm/bin/rvm current on 52.10.113.111
+ DEBUG [17f0ddb7] Command: ~/.rvm/bin/rvm current
+ DEBUG [17f0ddb7] 	ruby-2.3.1
+ DEBUG [17f0ddb7] 	
+ DEBUG [17f0ddb7] Finished in 0.304 seconds with exit status 0 (successful).
+ DEBUG [2862553c] Running ~/.rvm/bin/rvm default do ruby --version on 52.10.113.111
+ DEBUG [2862553c] Command: ~/.rvm/bin/rvm default do ruby --version
+ DEBUG [2862553c] 	ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-linux]
+ DEBUG [2862553c] 	
+ DEBUG [2862553c] Finished in 0.432 seconds with exit status 0 (successful).
+  INFO [6d6e1301] Running /usr/bin/env mkdir -p /tmp/CucuCity/ on 52.10.113.111
+ DEBUG [6d6e1301] Command: /usr/bin/env mkdir -p /tmp/CucuCity/
+  INFO [6d6e1301] Finished in 0.197 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/CucuCity/git-ssh.sh 0.0%
+  INFO Uploading /tmp/CucuCity/git-ssh.sh 100.0%
+  INFO [b06261c0] Running /usr/bin/env chmod +rx /tmp/CucuCity/git-ssh.sh on 52.10.113.111
+ DEBUG [b06261c0] Command: /usr/bin/env chmod +rx /tmp/CucuCity/git-ssh.sh
+  INFO [b06261c0] Finished in 0.173 seconds with exit status 0 (successful).
+  INFO [1512d9ff] Running /usr/bin/env git ls-remote --heads http://deepfly:zzp123567@github.com/iamadawra/Jaeger.git on 52.10.113.111
+ DEBUG [1512d9ff] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/CucuCity/git-ssh.sh" ; /usr/bin/env git ls-remote --heads http://deepfly:zzp123567@github.com/iamadawra/Jaeger.git )
+ DEBUG [1512d9ff] 	0ed12f9067f5c7aedb623cc88563c5aae72cf19e
+ DEBUG [1512d9ff] 		
+ DEBUG [1512d9ff] 	refs/heads/aayush
+ DEBUG [1512d9ff] 	
+ DEBUG [1512d9ff] 	4fe35440425685925d31b777cab4a8fbcd304917
+ DEBUG [1512d9ff] 		
+ DEBUG [1512d9ff] 	refs/heads/lander
+ DEBUG [1512d9ff] 	
+ DEBUG [1512d9ff] 	68a2fcf31a8f0de1715dfa2458c53c0d6c8dc53f
+ DEBUG [1512d9ff] 		
+ DEBUG [1512d9ff] 	refs/heads/master
+ DEBUG [1512d9ff] 	
+ DEBUG [1512d9ff] 	65d6bf0d001491a803946c189a2528a811a23038
+ DEBUG [1512d9ff] 		
+ DEBUG [1512d9ff] 	refs/heads/staging
+ DEBUG [1512d9ff] 	
+ DEBUG [1512d9ff] 	65d6bf0d001491a803946c189a2528a811a23038
+ DEBUG [1512d9ff] 		
+ DEBUG [1512d9ff] 	refs/heads/ziping
+ DEBUG [1512d9ff] 	
+  INFO [1512d9ff] Finished in 1.270 seconds with exit status 0 (successful).
+  INFO [a410d8c0] Running /usr/bin/env mkdir -p /home/deploy/CucuCity/shared /home/deploy/CucuCity/releases on 52.10.113.111
+ DEBUG [a410d8c0] Command: /usr/bin/env mkdir -p /home/deploy/CucuCity/shared /home/deploy/CucuCity/releases
+  INFO [a410d8c0] Finished in 0.170 seconds with exit status 0 (successful).
+  INFO [9f6105f0] Running /usr/bin/env mkdir -p /home/deploy/CucuCity/shared/public/assets on 52.10.113.111
+ DEBUG [9f6105f0] Command: /usr/bin/env mkdir -p /home/deploy/CucuCity/shared/public/assets
+  INFO [9f6105f0] Finished in 0.171 seconds with exit status 0 (successful).
+ DEBUG [ccf78866] Running [ -f /home/deploy/CucuCity/shared/puma.rb ] on 52.10.113.111
+ DEBUG [ccf78866] Command: [ -f /home/deploy/CucuCity/shared/puma.rb ]
+ DEBUG [ccf78866] Finished in 0.170 seconds with exit status 0 (successful).
+ DEBUG [d986b148] Running [ -f /home/deploy/CucuCity/current/REVISION ] on 52.10.113.111
+ DEBUG [d986b148] Command: [ -f /home/deploy/CucuCity/current/REVISION ]
+ DEBUG [d986b148] Finished in 0.188 seconds with exit status 0 (successful).
+ DEBUG [bf9fc096] Running /usr/bin/env cat /home/deploy/CucuCity/current/REVISION 2>/dev/null on 52.10.113.111
+ DEBUG [bf9fc096] Command: /usr/bin/env cat /home/deploy/CucuCity/current/REVISION 2>/dev/null
+ DEBUG [bf9fc096] 	65d6bf0d001491a803946c189a2528a811a23038
+ DEBUG [bf9fc096] Finished in 0.184 seconds with exit status 0 (successful).
+ DEBUG [27322f8b] Running [ -f /home/deploy/CucuCity/repo/HEAD ] on 52.10.113.111
+ DEBUG [27322f8b] Command: [ -f /home/deploy/CucuCity/repo/HEAD ]
+ DEBUG [27322f8b] Finished in 0.182 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/deploy/CucuCity/repo
+ DEBUG [81108861] Running if test ! -d /home/deploy/CucuCity/repo; then echo "Directory does not exist '/home/deploy/CucuCity/repo'" 1>&2; false; fi on 52.10.113.111
+ DEBUG [81108861] Command: if test ! -d /home/deploy/CucuCity/repo; then echo "Directory does not exist '/home/deploy/CucuCity/repo'" 1>&2; false; fi
+ DEBUG [81108861] Finished in 0.172 seconds with exit status 0 (successful).
+  INFO [623fc30f] Running /usr/bin/env git remote update --prune on 52.10.113.111
+ DEBUG [623fc30f] Command: cd /home/deploy/CucuCity/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/CucuCity/git-ssh.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [623fc30f] 	Fetching origin
+ DEBUG [623fc30f] 	
+  INFO [623fc30f] Finished in 1.023 seconds with exit status 0 (successful).
+ DEBUG [61f013a3] Running if test ! -d /home/deploy/CucuCity/repo; then echo "Directory does not exist '/home/deploy/CucuCity/repo'" 1>&2; false; fi on 52.10.113.111
+ DEBUG [61f013a3] Command: if test ! -d /home/deploy/CucuCity/repo; then echo "Directory does not exist '/home/deploy/CucuCity/repo'" 1>&2; false; fi
+ DEBUG [61f013a3] Finished in 0.169 seconds with exit status 0 (successful).
+  INFO [21e6f239] Running /usr/bin/env mkdir -p /home/deploy/CucuCity/releases/20160530184711 on 52.10.113.111
+ DEBUG [21e6f239] Command: cd /home/deploy/CucuCity/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/CucuCity/git-ssh.sh" ; /usr/bin/env mkdir -p /home/deploy/CucuCity/releases/20160530184711 )
+  INFO [21e6f239] Finished in 0.170 seconds with exit status 0 (successful).
+  INFO [0cc69681] Running /usr/bin/env git archive staging | tar -x -f - -C /home/deploy/CucuCity/releases/20160530184711 on 52.10.113.111
+ DEBUG [0cc69681] Command: cd /home/deploy/CucuCity/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/CucuCity/git-ssh.sh" ; /usr/bin/env git archive staging | tar -x -f - -C /home/deploy/CucuCity/releases/20160530184711 )
+  INFO [0cc69681] Finished in 0.190 seconds with exit status 0 (successful).
+ DEBUG [02e13d3a] Running if test ! -d /home/deploy/CucuCity/repo; then echo "Directory does not exist '/home/deploy/CucuCity/repo'" 1>&2; false; fi on 52.10.113.111
+ DEBUG [02e13d3a] Command: if test ! -d /home/deploy/CucuCity/repo; then echo "Directory does not exist '/home/deploy/CucuCity/repo'" 1>&2; false; fi
+ DEBUG [02e13d3a] Finished in 0.170 seconds with exit status 0 (successful).
+ DEBUG [1ebedd2e] Running /usr/bin/env git rev-list --max-count=1 staging on 52.10.113.111
+ DEBUG [1ebedd2e] Command: cd /home/deploy/CucuCity/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/CucuCity/git-ssh.sh" ; /usr/bin/env git rev-list --max-count=1 staging )
+ DEBUG [1ebedd2e] 	65d6bf0d001491a803946c189a2528a811a23038
+ DEBUG [1ebedd2e] Finished in 0.172 seconds with exit status 0 (successful).
+ DEBUG [fd1ba7f9] Running if test ! -d /home/deploy/CucuCity/releases/20160530184711; then echo "Directory does not exist '/home/deploy/CucuCity/releases/20160530184711'" 1>&2; false; fi on 52.10.113.111
+ DEBUG [fd1ba7f9] Command: if test ! -d /home/deploy/CucuCity/releases/20160530184711; then echo "Directory does not exist '/home/deploy/CucuCity/releases/20160530184711'" 1>&2; false; fi
+ DEBUG [fd1ba7f9] Finished in 0.170 seconds with exit status 0 (successful).
+  INFO [25fade12] Running /usr/bin/env echo "65d6bf0d001491a803946c189a2528a811a23038" >> REVISION on 52.10.113.111
+ DEBUG [25fade12] Command: cd /home/deploy/CucuCity/releases/20160530184711 && /usr/bin/env echo "65d6bf0d001491a803946c189a2528a811a23038" >> REVISION
+  INFO [25fade12] Finished in 0.170 seconds with exit status 0 (successful).
+  INFO [0afed7f9] Running /usr/bin/env mkdir -p /home/deploy/CucuCity/releases/20160530184711/public on 52.10.113.111
+ DEBUG [0afed7f9] Command: /usr/bin/env mkdir -p /home/deploy/CucuCity/releases/20160530184711/public
+  INFO [0afed7f9] Finished in 0.170 seconds with exit status 0 (successful).
+ DEBUG [148650c2] Running [ -L /home/deploy/CucuCity/releases/20160530184711/public/assets ] on 52.10.113.111
+ DEBUG [148650c2] Command: [ -L /home/deploy/CucuCity/releases/20160530184711/public/assets ]
+ DEBUG [148650c2] Finished in 0.178 seconds with exit status 1 (failed).
+ DEBUG [ca37a750] Running [ -d /home/deploy/CucuCity/releases/20160530184711/public/assets ] on 52.10.113.111
+ DEBUG [ca37a750] Command: [ -d /home/deploy/CucuCity/releases/20160530184711/public/assets ]
+ DEBUG [ca37a750] Finished in 0.180 seconds with exit status 1 (failed).
+  INFO [63e0081c] Running /usr/bin/env ln -s /home/deploy/CucuCity/shared/public/assets /home/deploy/CucuCity/releases/20160530184711/public/assets on 52.10.113.111
+ DEBUG [63e0081c] Command: /usr/bin/env ln -s /home/deploy/CucuCity/shared/public/assets /home/deploy/CucuCity/releases/20160530184711/public/assets
+  INFO [63e0081c] Finished in 0.171 seconds with exit status 0 (successful).
+ DEBUG [2f94b412] Running if test ! -d /home/deploy/CucuCity/releases/20160530184711; then echo "Directory does not exist '/home/deploy/CucuCity/releases/20160530184711'" 1>&2; false; fi on 52.10.113.111
+ DEBUG [2f94b412] Command: if test ! -d /home/deploy/CucuCity/releases/20160530184711; then echo "Directory does not exist '/home/deploy/CucuCity/releases/20160530184711'" 1>&2; false; fi
+ DEBUG [2f94b412] Finished in 0.173 seconds with exit status 0 (successful).
+  INFO [99fd7189] Running ~/.rvm/bin/rvm default do bundle install --path /home/deploy/CucuCity/shared/bundle --without development test --deployment --quiet on 52.10.113.111
+ DEBUG [99fd7189] Command: cd /home/deploy/CucuCity/releases/20160530184711 && ~/.rvm/bin/rvm default do bundle install --path /home/deploy/CucuCity/shared/bundle --without development test --deployment --quiet
+  INFO [99fd7189] Finished in 1.331 seconds with exit status 0 (successful).
+  INFO [27ea785c] Running /usr/bin/env ln -s /home/deploy/CucuCity/releases/20160530184711 /home/deploy/CucuCity/releases/current on 52.10.113.111
+ DEBUG [27ea785c] Command: /usr/bin/env ln -s /home/deploy/CucuCity/releases/20160530184711 /home/deploy/CucuCity/releases/current
+  INFO [27ea785c] Finished in 0.172 seconds with exit status 0 (successful).
+  INFO [3e5d35e7] Running /usr/bin/env mv /home/deploy/CucuCity/releases/current /home/deploy/CucuCity on 52.10.113.111
+ DEBUG [3e5d35e7] Command: /usr/bin/env mv /home/deploy/CucuCity/releases/current /home/deploy/CucuCity
+  INFO [3e5d35e7] Finished in 0.171 seconds with exit status 0 (successful).
+ DEBUG [2e4aa875] Running /usr/bin/env ls -xtr /home/deploy/CucuCity/releases on 52.10.113.111
+ DEBUG [2e4aa875] Command: /usr/bin/env ls -xtr /home/deploy/CucuCity/releases
+ DEBUG [2e4aa875] 	20160530182110	20160530182259	20160530182422	20160530183426	20160530184711
+ DEBUG [2e4aa875] Finished in 0.179 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 5 deployed releases on 52.10.113.111
+  INFO No old releases (keeping newest 5) on 52.10.113.111
+  INFO [75be6d37] Running mkdir /home/deploy/CucuCity/shared/tmp/sockets -p on 52.10.113.111
+ DEBUG [75be6d37] Command: mkdir /home/deploy/CucuCity/shared/tmp/sockets -p
+  INFO [75be6d37] Finished in 0.177 seconds with exit status 0 (successful).
+  INFO [891acf7a] Running mkdir /home/deploy/CucuCity/shared/tmp/pids -p on 52.10.113.111
+ DEBUG [891acf7a] Command: mkdir /home/deploy/CucuCity/shared/tmp/pids -p
+  INFO [891acf7a] Finished in 0.170 seconds with exit status 0 (successful).
+ DEBUG [5afefd2b] Running [ -f /home/deploy/CucuCity/shared/puma.rb ] on 52.10.113.111
+ DEBUG [5afefd2b] Command: [ -f /home/deploy/CucuCity/shared/puma.rb ]
+ DEBUG [5afefd2b] Finished in 0.172 seconds with exit status 0 (successful).
+  INFO using conf file /home/deploy/CucuCity/shared/puma.rb
+ DEBUG [458a1439] Running if test ! -d /home/deploy/CucuCity/current; then echo "Directory does not exist '/home/deploy/CucuCity/current'" 1>&2; false; fi on 52.10.113.111
+ DEBUG [458a1439] Command: if test ! -d /home/deploy/CucuCity/current; then echo "Directory does not exist '/home/deploy/CucuCity/current'" 1>&2; false; fi
+ DEBUG [458a1439] Finished in 0.169 seconds with exit status 0 (successful).
+  INFO [c508a569] Running ~/.rvm/bin/rvm default do bundle exec puma -C /home/deploy/CucuCity/shared/puma.rb --daemon on 52.10.113.111
+ DEBUG [c508a569] Command: cd /home/deploy/CucuCity/current && ( export RACK_ENV="production" ; ~/.rvm/bin/rvm default do bundle exec puma -C /home/deploy/CucuCity/shared/puma.rb --daemon )
+ DEBUG [c508a569] 	Puma starting in single mode...
+ DEBUG [c508a569] 	
+ DEBUG [c508a569] 	* Version 3.4.0 (ruby 2.3.1-p112), codename: Owl Bowl Brawl
+ DEBUG [c508a569] 	
+ DEBUG [c508a569] 	* Min threads: 4, max threads: 16
+ DEBUG [c508a569] 	
+ DEBUG [c508a569] 	* Environment: production
+ DEBUG [c508a569] 	
+ DEBUG [c508a569] 	* Daemonizing...
+ DEBUG [c508a569] 	
+  INFO [c508a569] Finished in 0.865 seconds with exit status 0 (successful).
+ DEBUG [f8a027ce] Running if test ! -d /home/deploy/CucuCity/current; then echo "Directory does not exist '/home/deploy/CucuCity/current'" 1>&2; false; fi on 52.10.113.111
+ DEBUG [f8a027ce] Command: if test ! -d /home/deploy/CucuCity/current; then echo "Directory does not exist '/home/deploy/CucuCity/current'" 1>&2; false; fi
+ DEBUG [f8a027ce] Finished in 0.169 seconds with exit status 0 (successful).
+ DEBUG [96934b48] Running [ -f /home/deploy/CucuCity/shared/tmp/pids/puma.pid ] on 52.10.113.111
+ DEBUG [96934b48] Command: [ -f /home/deploy/CucuCity/shared/tmp/pids/puma.pid ]
+ DEBUG [96934b48] Finished in 0.169 seconds with exit status 0 (successful).
+ DEBUG [11b63182] Running kill -0 $( cat /home/deploy/CucuCity/shared/tmp/pids/puma.pid ) on 52.10.113.111
+ DEBUG [11b63182] Command: kill -0 $( cat /home/deploy/CucuCity/shared/tmp/pids/puma.pid )
+ DEBUG [11b63182] Finished in 0.170 seconds with exit status 0 (successful).
+  INFO [1cc8d65b] Running ~/.rvm/bin/rvm default do bundle exec pumactl -S /home/deploy/CucuCity/shared/tmp/pids/puma.state restart on 52.10.113.111
+ DEBUG [1cc8d65b] Command: cd /home/deploy/CucuCity/current && ( export RACK_ENV="production" ; ~/.rvm/bin/rvm default do bundle exec pumactl -S /home/deploy/CucuCity/shared/tmp/pids/puma.state restart )
+ DEBUG [1cc8d65b] 	Command restart sent success
+ DEBUG [1cc8d65b] 	
+  INFO [1cc8d65b] Finished in 1.259 seconds with exit status 0 (successful).
+ DEBUG [3376fef4] Running if test ! -d /home/deploy/CucuCity/releases; then echo "Directory does not exist '/home/deploy/CucuCity/releases'" 1>&2; false; fi on 52.10.113.111
+ DEBUG [3376fef4] Command: if test ! -d /home/deploy/CucuCity/releases; then echo "Directory does not exist '/home/deploy/CucuCity/releases'" 1>&2; false; fi
+ DEBUG [3376fef4] Finished in 0.188 seconds with exit status 0 (successful).
+  INFO [90ee861e] Running /usr/bin/env echo "Branch staging (at 65d6bf0d001491a803946c189a2528a811a23038) deployed as release 20160530184711 by zipingz" >> /home/deploy/CucuCity/revisions.log on 52.10.113.111
+ DEBUG [90ee861e] Command: cd /home/deploy/CucuCity/releases && /usr/bin/env echo "Branch staging (at 65d6bf0d001491a803946c189a2528a811a23038) deployed as release 20160530184711 by zipingz" >> /home/deploy/CucuCity/revisions.log
+  INFO [90ee861e] Finished in 0.173 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2016-05-30 14:52:53 -0400 cap staging deploy:initial
+  INFO ---------------------------------------------------------------------------
+ DEBUG [e6609ee2] Running [ -d ~/.rvm ] on 52.10.113.111
+ DEBUG [e6609ee2] Command: [ -d ~/.rvm ]
+ DEBUG [e6609ee2] Finished in 1.718 seconds with exit status 0 (successful).
+ DEBUG [243eeae2] Running ~/.rvm/bin/rvm version on 52.10.113.111
+ DEBUG [243eeae2] Command: ~/.rvm/bin/rvm version
+ DEBUG [243eeae2] 	rvm 1.27.0 (latest) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
+ DEBUG [243eeae2] 	
+ DEBUG [243eeae2] Finished in 0.324 seconds with exit status 0 (successful).
+ DEBUG [8509adc8] Running ~/.rvm/bin/rvm current on 52.10.113.111
+ DEBUG [8509adc8] Command: ~/.rvm/bin/rvm current
+ DEBUG [8509adc8] 	ruby-2.3.1
+ DEBUG [8509adc8] 	
+ DEBUG [8509adc8] Finished in 0.316 seconds with exit status 0 (successful).
+ DEBUG [ddcda4af] Running ~/.rvm/bin/rvm default do ruby --version on 52.10.113.111
+ DEBUG [ddcda4af] Command: ~/.rvm/bin/rvm default do ruby --version
+ DEBUG [ddcda4af] 	ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-linux]
+ DEBUG [ddcda4af] 	
+ DEBUG [ddcda4af] Finished in 0.429 seconds with exit status 0 (successful).
+  INFO [529dc694] Running /usr/bin/env mkdir -p /tmp/CucuCity/ on 52.10.113.111
+ DEBUG [529dc694] Command: /usr/bin/env mkdir -p /tmp/CucuCity/
+  INFO [529dc694] Finished in 0.184 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/CucuCity/git-ssh.sh 0.0%
+  INFO Uploading /tmp/CucuCity/git-ssh.sh 100.0%
+  INFO [f970d6f7] Running /usr/bin/env chmod +rx /tmp/CucuCity/git-ssh.sh on 52.10.113.111
+ DEBUG [f970d6f7] Command: /usr/bin/env chmod +rx /tmp/CucuCity/git-ssh.sh
+  INFO [f970d6f7] Finished in 0.169 seconds with exit status 0 (successful).
+  INFO [741686c9] Running /usr/bin/env git ls-remote --heads http://deepfly:zzp123567@github.com/iamadawra/Jaeger.git on 52.10.113.111
+ DEBUG [741686c9] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/CucuCity/git-ssh.sh" ; /usr/bin/env git ls-remote --heads http://deepfly:zzp123567@github.com/iamadawra/Jaeger.git )
+ DEBUG [741686c9] 	0ed12f9067f5c7aedb623cc88563c5aae72cf19e
+ DEBUG [741686c9] 		
+ DEBUG [741686c9] 	refs/heads/aayush
+ DEBUG [741686c9] 	
+ DEBUG [741686c9] 	4fe35440425685925d31b777cab4a8fbcd304917
+ DEBUG [741686c9] 		
+ DEBUG [741686c9] 	refs/heads/lander
+ DEBUG [741686c9] 	
+ DEBUG [741686c9] 	68a2fcf31a8f0de1715dfa2458c53c0d6c8dc53f
+ DEBUG [741686c9] 		
+ DEBUG [741686c9] 	refs/heads/master
+ DEBUG [741686c9] 	
+ DEBUG [741686c9] 	65d6bf0d001491a803946c189a2528a811a23038
+ DEBUG [741686c9] 		
+ DEBUG [741686c9] 	refs/heads/staging
+ DEBUG [741686c9] 	
+ DEBUG [741686c9] 	65d6bf0d001491a803946c189a2528a811a23038
+ DEBUG [741686c9] 		
+ DEBUG [741686c9] 	refs/heads/ziping
+ DEBUG [741686c9] 	
+  INFO [741686c9] Finished in 1.182 seconds with exit status 0 (successful).
+  INFO [1458f3c3] Running /usr/bin/env mkdir -p /home/deploy/CucuCity/shared /home/deploy/CucuCity/releases on 52.10.113.111
+ DEBUG [1458f3c3] Command: /usr/bin/env mkdir -p /home/deploy/CucuCity/shared /home/deploy/CucuCity/releases
+  INFO [1458f3c3] Finished in 0.169 seconds with exit status 0 (successful).
+  INFO [314b49fb] Running /usr/bin/env mkdir -p /home/deploy/CucuCity/shared/public/assets on 52.10.113.111
+ DEBUG [314b49fb] Command: /usr/bin/env mkdir -p /home/deploy/CucuCity/shared/public/assets
+  INFO [314b49fb] Finished in 0.169 seconds with exit status 0 (successful).
+ DEBUG [07c347ef] Running [ -f /home/deploy/CucuCity/shared/puma.rb ] on 52.10.113.111
+ DEBUG [07c347ef] Command: [ -f /home/deploy/CucuCity/shared/puma.rb ]
+ DEBUG [07c347ef] Finished in 0.176 seconds with exit status 0 (successful).
+ DEBUG [ae29a429] Running [ -f /home/deploy/CucuCity/current/REVISION ] on 52.10.113.111
+ DEBUG [ae29a429] Command: [ -f /home/deploy/CucuCity/current/REVISION ]
+ DEBUG [ae29a429] Finished in 0.169 seconds with exit status 0 (successful).
+ DEBUG [2a491119] Running /usr/bin/env cat /home/deploy/CucuCity/current/REVISION 2>/dev/null on 52.10.113.111
+ DEBUG [2a491119] Command: /usr/bin/env cat /home/deploy/CucuCity/current/REVISION 2>/dev/null
+ DEBUG [2a491119] 	65d6bf0d001491a803946c189a2528a811a23038
+ DEBUG [2a491119] Finished in 0.173 seconds with exit status 0 (successful).
+ DEBUG [5eeddab2] Running [ -f /home/deploy/CucuCity/repo/HEAD ] on 52.10.113.111
+ DEBUG [5eeddab2] Command: [ -f /home/deploy/CucuCity/repo/HEAD ]
+ DEBUG [5eeddab2] Finished in 0.182 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/deploy/CucuCity/repo
+ DEBUG [41389b2a] Running if test ! -d /home/deploy/CucuCity/repo; then echo "Directory does not exist '/home/deploy/CucuCity/repo'" 1>&2; false; fi on 52.10.113.111
+ DEBUG [41389b2a] Command: if test ! -d /home/deploy/CucuCity/repo; then echo "Directory does not exist '/home/deploy/CucuCity/repo'" 1>&2; false; fi
+ DEBUG [41389b2a] Finished in 0.176 seconds with exit status 0 (successful).
+  INFO [823bcbbe] Running /usr/bin/env git remote update --prune on 52.10.113.111
+ DEBUG [823bcbbe] Command: cd /home/deploy/CucuCity/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/CucuCity/git-ssh.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [823bcbbe] 	Fetching origin
+  INFO [823bcbbe] Finished in 1.047 seconds with exit status 0 (successful).
+ DEBUG [eea5f491] Running if test ! -d /home/deploy/CucuCity/repo; then echo "Directory does not exist '/home/deploy/CucuCity/repo'" 1>&2; false; fi on 52.10.113.111
+ DEBUG [eea5f491] Command: if test ! -d /home/deploy/CucuCity/repo; then echo "Directory does not exist '/home/deploy/CucuCity/repo'" 1>&2; false; fi
+ DEBUG [eea5f491] Finished in 0.169 seconds with exit status 0 (successful).
+  INFO [1180b18e] Running /usr/bin/env mkdir -p /home/deploy/CucuCity/releases/20160530185258 on 52.10.113.111
+ DEBUG [1180b18e] Command: cd /home/deploy/CucuCity/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/CucuCity/git-ssh.sh" ; /usr/bin/env mkdir -p /home/deploy/CucuCity/releases/20160530185258 )
+  INFO [1180b18e] Finished in 0.170 seconds with exit status 0 (successful).
+  INFO [c5aa3610] Running /usr/bin/env git archive staging | tar -x -f - -C /home/deploy/CucuCity/releases/20160530185258 on 52.10.113.111
+ DEBUG [c5aa3610] Command: cd /home/deploy/CucuCity/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/CucuCity/git-ssh.sh" ; /usr/bin/env git archive staging | tar -x -f - -C /home/deploy/CucuCity/releases/20160530185258 )
+  INFO [c5aa3610] Finished in 0.191 seconds with exit status 0 (successful).
+ DEBUG [8eb73d25] Running if test ! -d /home/deploy/CucuCity/repo; then echo "Directory does not exist '/home/deploy/CucuCity/repo'" 1>&2; false; fi on 52.10.113.111
+ DEBUG [8eb73d25] Command: if test ! -d /home/deploy/CucuCity/repo; then echo "Directory does not exist '/home/deploy/CucuCity/repo'" 1>&2; false; fi
+ DEBUG [8eb73d25] Finished in 0.168 seconds with exit status 0 (successful).
+ DEBUG [b30c8dea] Running /usr/bin/env git rev-list --max-count=1 staging on 52.10.113.111
+ DEBUG [b30c8dea] Command: cd /home/deploy/CucuCity/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/CucuCity/git-ssh.sh" ; /usr/bin/env git rev-list --max-count=1 staging )
+ DEBUG [b30c8dea] 	65d6bf0d001491a803946c189a2528a811a23038
+ DEBUG [b30c8dea] Finished in 0.179 seconds with exit status 0 (successful).
+ DEBUG [abd2f4d6] Running if test ! -d /home/deploy/CucuCity/releases/20160530185258; then echo "Directory does not exist '/home/deploy/CucuCity/releases/20160530185258'" 1>&2; false; fi on 52.10.113.111
+ DEBUG [abd2f4d6] Command: if test ! -d /home/deploy/CucuCity/releases/20160530185258; then echo "Directory does not exist '/home/deploy/CucuCity/releases/20160530185258'" 1>&2; false; fi
+ DEBUG [abd2f4d6] Finished in 0.179 seconds with exit status 0 (successful).
+  INFO [b345cd69] Running /usr/bin/env echo "65d6bf0d001491a803946c189a2528a811a23038" >> REVISION on 52.10.113.111
+ DEBUG [b345cd69] Command: cd /home/deploy/CucuCity/releases/20160530185258 && /usr/bin/env echo "65d6bf0d001491a803946c189a2528a811a23038" >> REVISION
+  INFO [b345cd69] Finished in 0.169 seconds with exit status 0 (successful).
+  INFO [7aca8d0e] Running /usr/bin/env mkdir -p /home/deploy/CucuCity/releases/20160530185258/public on 52.10.113.111
+ DEBUG [7aca8d0e] Command: /usr/bin/env mkdir -p /home/deploy/CucuCity/releases/20160530185258/public
+  INFO [7aca8d0e] Finished in 0.171 seconds with exit status 0 (successful).
+ DEBUG [33f4e43c] Running [ -L /home/deploy/CucuCity/releases/20160530185258/public/assets ] on 52.10.113.111
+ DEBUG [33f4e43c] Command: [ -L /home/deploy/CucuCity/releases/20160530185258/public/assets ]
+ DEBUG [33f4e43c] Finished in 0.168 seconds with exit status 1 (failed).
+ DEBUG [0f1d46db] Running [ -d /home/deploy/CucuCity/releases/20160530185258/public/assets ] on 52.10.113.111
+ DEBUG [0f1d46db] Command: [ -d /home/deploy/CucuCity/releases/20160530185258/public/assets ]
+ DEBUG [0f1d46db] Finished in 0.176 seconds with exit status 1 (failed).
+  INFO [8f00bd93] Running /usr/bin/env ln -s /home/deploy/CucuCity/shared/public/assets /home/deploy/CucuCity/releases/20160530185258/public/assets on 52.10.113.111
+ DEBUG [8f00bd93] Command: /usr/bin/env ln -s /home/deploy/CucuCity/shared/public/assets /home/deploy/CucuCity/releases/20160530185258/public/assets
+  INFO [8f00bd93] Finished in 0.172 seconds with exit status 0 (successful).
+ DEBUG [2dff7c58] Running if test ! -d /home/deploy/CucuCity/releases/20160530185258; then echo "Directory does not exist '/home/deploy/CucuCity/releases/20160530185258'" 1>&2; false; fi on 52.10.113.111
+ DEBUG [2dff7c58] Command: if test ! -d /home/deploy/CucuCity/releases/20160530185258; then echo "Directory does not exist '/home/deploy/CucuCity/releases/20160530185258'" 1>&2; false; fi
+ DEBUG [2dff7c58] Finished in 0.171 seconds with exit status 0 (successful).
+  INFO [451110f7] Running ~/.rvm/bin/rvm default do bundle install --path /home/deploy/CucuCity/shared/bundle --without development test --deployment --quiet on 52.10.113.111
+ DEBUG [451110f7] Command: cd /home/deploy/CucuCity/releases/20160530185258 && ~/.rvm/bin/rvm default do bundle install --path /home/deploy/CucuCity/shared/bundle --without development test --deployment --quiet
+  INFO [451110f7] Finished in 1.229 seconds with exit status 0 (successful).
+  INFO [9063e8d0] Running /usr/bin/env ln -s /home/deploy/CucuCity/releases/20160530185258 /home/deploy/CucuCity/releases/current on 52.10.113.111
+ DEBUG [9063e8d0] Command: /usr/bin/env ln -s /home/deploy/CucuCity/releases/20160530185258 /home/deploy/CucuCity/releases/current
+  INFO [9063e8d0] Finished in 0.169 seconds with exit status 0 (successful).
+  INFO [bc58e05b] Running /usr/bin/env mv /home/deploy/CucuCity/releases/current /home/deploy/CucuCity on 52.10.113.111
+ DEBUG [bc58e05b] Command: /usr/bin/env mv /home/deploy/CucuCity/releases/current /home/deploy/CucuCity
+  INFO [bc58e05b] Finished in 0.169 seconds with exit status 0 (successful).
+ DEBUG [5bea097e] Running /usr/bin/env ls -xtr /home/deploy/CucuCity/releases on 52.10.113.111
+ DEBUG [5bea097e] Command: /usr/bin/env ls -xtr /home/deploy/CucuCity/releases
+ DEBUG [5bea097e] 	20160530182110	20160530182259	20160530182422	20160530183426	20160530184711
+20160530185258
+ DEBUG [5bea097e] Finished in 0.190 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on 52.10.113.111
+  INFO [c2f6562b] Running /usr/bin/env rm -rf /home/deploy/CucuCity/releases/20160530182110 on 52.10.113.111
+ DEBUG [c2f6562b] Command: /usr/bin/env rm -rf /home/deploy/CucuCity/releases/20160530182110
+  INFO [c2f6562b] Finished in 0.189 seconds with exit status 0 (successful).
+  INFO [e7b1a043] Running mkdir /home/deploy/CucuCity/shared/tmp/sockets -p on 52.10.113.111
+ DEBUG [e7b1a043] Command: mkdir /home/deploy/CucuCity/shared/tmp/sockets -p
+  INFO [e7b1a043] Finished in 0.168 seconds with exit status 0 (successful).
+  INFO [0bdaebf4] Running mkdir /home/deploy/CucuCity/shared/tmp/pids -p on 52.10.113.111
+ DEBUG [0bdaebf4] Command: mkdir /home/deploy/CucuCity/shared/tmp/pids -p
+  INFO [0bdaebf4] Finished in 0.171 seconds with exit status 0 (successful).
+ DEBUG [fcd12189] Running [ -f /home/deploy/CucuCity/shared/puma.rb ] on 52.10.113.111
+ DEBUG [fcd12189] Command: [ -f /home/deploy/CucuCity/shared/puma.rb ]
+ DEBUG [fcd12189] Finished in 0.168 seconds with exit status 0 (successful).
+  INFO using conf file /home/deploy/CucuCity/shared/puma.rb
+ DEBUG [42621877] Running if test ! -d /home/deploy/CucuCity/current; then echo "Directory does not exist '/home/deploy/CucuCity/current'" 1>&2; false; fi on 52.10.113.111
+ DEBUG [42621877] Command: if test ! -d /home/deploy/CucuCity/current; then echo "Directory does not exist '/home/deploy/CucuCity/current'" 1>&2; false; fi
+ DEBUG [42621877] Finished in 0.167 seconds with exit status 0 (successful).
+  INFO [742f70ef] Running ~/.rvm/bin/rvm default do bundle exec puma -C /home/deploy/CucuCity/shared/puma.rb --daemon on 52.10.113.111
+ DEBUG [742f70ef] Command: cd /home/deploy/CucuCity/current && ( export RACK_ENV="production" ; ~/.rvm/bin/rvm default do bundle exec puma -C /home/deploy/CucuCity/shared/puma.rb --daemon )
+ DEBUG [742f70ef] 	Puma starting in single mode...
+ DEBUG [742f70ef] 	
+ DEBUG [742f70ef] 	* Version 3.4.0 (ruby 2.3.1-p112), codename: Owl Bowl Brawl
+ DEBUG [742f70ef] 	
+ DEBUG [742f70ef] 	* Min threads: 4, max threads: 16
+ DEBUG [742f70ef] 	
+ DEBUG [742f70ef] 	* Environment: production
+ DEBUG [742f70ef] 	
+ DEBUG [742f70ef] 	* Daemonizing...
+ DEBUG [742f70ef] 	
+  INFO [742f70ef] Finished in 0.890 seconds with exit status 0 (successful).
+ DEBUG [4756f8c3] Running if test ! -d /home/deploy/CucuCity/current; then echo "Directory does not exist '/home/deploy/CucuCity/current'" 1>&2; false; fi on 52.10.113.111
+ DEBUG [4756f8c3] Command: if test ! -d /home/deploy/CucuCity/current; then echo "Directory does not exist '/home/deploy/CucuCity/current'" 1>&2; false; fi
+ DEBUG [4756f8c3] Finished in 0.169 seconds with exit status 0 (successful).
+ DEBUG [2b9da89c] Running [ -f /home/deploy/CucuCity/shared/tmp/pids/puma.pid ] on 52.10.113.111
+ DEBUG [2b9da89c] Command: [ -f /home/deploy/CucuCity/shared/tmp/pids/puma.pid ]
+ DEBUG [2b9da89c] Finished in 0.168 seconds with exit status 0 (successful).
+ DEBUG [78417ee4] Running kill -0 $( cat /home/deploy/CucuCity/shared/tmp/pids/puma.pid ) on 52.10.113.111
+ DEBUG [78417ee4] Command: kill -0 $( cat /home/deploy/CucuCity/shared/tmp/pids/puma.pid )
+ DEBUG [78417ee4] Finished in 0.169 seconds with exit status 0 (successful).
+  INFO [6a0208a5] Running ~/.rvm/bin/rvm default do bundle exec pumactl -S /home/deploy/CucuCity/shared/tmp/pids/puma.state restart on 52.10.113.111
+ DEBUG [6a0208a5] Command: cd /home/deploy/CucuCity/current && ( export RACK_ENV="production" ; ~/.rvm/bin/rvm default do bundle exec pumactl -S /home/deploy/CucuCity/shared/tmp/pids/puma.state restart )
+ DEBUG [6a0208a5] 	Command restart sent success
+ DEBUG [6a0208a5] 	
+  INFO [6a0208a5] Finished in 1.125 seconds with exit status 0 (successful).
+ DEBUG [5e7c7fb7] Running if test ! -d /home/deploy/CucuCity/releases; then echo "Directory does not exist '/home/deploy/CucuCity/releases'" 1>&2; false; fi on 52.10.113.111
+ DEBUG [5e7c7fb7] Command: if test ! -d /home/deploy/CucuCity/releases; then echo "Directory does not exist '/home/deploy/CucuCity/releases'" 1>&2; false; fi
+ DEBUG [5e7c7fb7] Finished in 0.169 seconds with exit status 0 (successful).
+  INFO [0ff0062c] Running /usr/bin/env echo "Branch staging (at 65d6bf0d001491a803946c189a2528a811a23038) deployed as release 20160530185258 by zipingz" >> /home/deploy/CucuCity/revisions.log on 52.10.113.111
+ DEBUG [0ff0062c] Command: cd /home/deploy/CucuCity/releases && /usr/bin/env echo "Branch staging (at 65d6bf0d001491a803946c189a2528a811a23038) deployed as release 20160530185258 by zipingz" >> /home/deploy/CucuCity/revisions.log
+  INFO [0ff0062c] Finished in 0.168 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2016-05-31 11:43:47 -0400 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [fe18ff97] Running [ -d ~/.rvm ] on 52.10.113.111
+ DEBUG [fe18ff97] Command: [ -d ~/.rvm ]
+ DEBUG [fe18ff97] Finished in 1.147 seconds with exit status 0 (successful).
+ DEBUG [d647bb59] Running ~/.rvm/bin/rvm version on 52.10.113.111
+ DEBUG [d647bb59] Command: ~/.rvm/bin/rvm version
+ DEBUG [d647bb59] 	rvm 1.27.0 (latest) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
+ DEBUG [d647bb59] 	
+ DEBUG [d647bb59] Finished in 0.287 seconds with exit status 0 (successful).
+ DEBUG [9df11f62] Running ~/.rvm/bin/rvm current on 52.10.113.111
+ DEBUG [9df11f62] Command: ~/.rvm/bin/rvm current
+ DEBUG [9df11f62] 	ruby-2.3.1
+ DEBUG [9df11f62] 	
+ DEBUG [9df11f62] Finished in 0.286 seconds with exit status 0 (successful).
+ DEBUG [73af3e9f] Running ~/.rvm/bin/rvm default do ruby --version on 52.10.113.111
+ DEBUG [73af3e9f] Command: ~/.rvm/bin/rvm default do ruby --version
+ DEBUG [73af3e9f] 	ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-linux]
+ DEBUG [73af3e9f] 	
+ DEBUG [73af3e9f] Finished in 0.421 seconds with exit status 0 (successful).
