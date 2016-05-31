@@ -2105,3 +2105,24 @@ tar: Exiting with failure status due to previous errors
  DEBUG [6936bf5c] 	ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-linux]
  DEBUG [6936bf5c] 	
  DEBUG [6936bf5c] Finished in 0.440 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2016-05-31 16:08:51 -0400 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [fc7a2bf5] Running [ -d ~/.rvm ] on 52.10.113.111
+ DEBUG [fc7a2bf5] Command: [ -d ~/.rvm ]
+ DEBUG [fc7a2bf5] Finished in 1.484 seconds with exit status 0 (successful).
+ DEBUG [f55c5d3d] Running ~/.rvm/bin/rvm version on 52.10.113.111
+ DEBUG [f55c5d3d] Command: ~/.rvm/bin/rvm version
+ DEBUG [f55c5d3d] 	rvm 1.27.0 (latest) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
+ DEBUG [f55c5d3d] 	
+ DEBUG [f55c5d3d] Finished in 0.331 seconds with exit status 0 (successful).
+ DEBUG [419b8ccc] Running ~/.rvm/bin/rvm current on 52.10.113.111
+ DEBUG [419b8ccc] Command: ~/.rvm/bin/rvm current
+ DEBUG [419b8ccc] 	ruby-2.3.1
+ DEBUG [419b8ccc] 	
+ DEBUG [419b8ccc] Finished in 0.335 seconds with exit status 0 (successful).
+ DEBUG [eb92f028] Running ~/.rvm/bin/rvm default do ruby --version on 52.10.113.111
+ DEBUG [eb92f028] Command: ~/.rvm/bin/rvm default do ruby --version
+ DEBUG [eb92f028] 	ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-linux]
+ DEBUG [eb92f028] 	
+ DEBUG [eb92f028] Finished in 0.425 seconds with exit status 0 (successful).
