@@ -2074,3 +2074,34 @@ tar: Exiting with failure status due to previous errors
  DEBUG [73af3e9f] 	ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-linux]
  DEBUG [73af3e9f] 	
  DEBUG [73af3e9f] Finished in 0.421 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2016-05-31 16:05:49 -0400 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [7165fd12] Running [ -d ~/.rvm ] on 52.10.113.111
+ DEBUG [7165fd12] Command: [ -d ~/.rvm ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2016-05-31 16:06:13 -0400 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [619c12e8] Running [ -d ~/.rvm ] on 52.10.113.111
+ DEBUG [619c12e8] Command: [ -d ~/.rvm ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2016-05-31 16:06:43 -0400 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [5204dd21] Running [ -d ~/.rvm ] on 52.10.113.111
+ DEBUG [5204dd21] Command: [ -d ~/.rvm ]
+ DEBUG [5204dd21] Finished in 1.451 seconds with exit status 0 (successful).
+ DEBUG [684e9dab] Running ~/.rvm/bin/rvm version on 52.10.113.111
+ DEBUG [684e9dab] Command: ~/.rvm/bin/rvm version
+ DEBUG [684e9dab] 	rvm 1.27.0 (latest) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
+ DEBUG [684e9dab] 	
+ DEBUG [684e9dab] Finished in 0.437 seconds with exit status 0 (successful).
+ DEBUG [7105a5be] Running ~/.rvm/bin/rvm current on 52.10.113.111
+ DEBUG [7105a5be] Command: ~/.rvm/bin/rvm current
+ DEBUG [7105a5be] 	ruby-2.3.1
+ DEBUG [7105a5be] 	
+ DEBUG [7105a5be] Finished in 0.350 seconds with exit status 0 (successful).
+ DEBUG [6936bf5c] Running ~/.rvm/bin/rvm default do ruby --version on 52.10.113.111
+ DEBUG [6936bf5c] Command: ~/.rvm/bin/rvm default do ruby --version
+ DEBUG [6936bf5c] 	ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-linux]
+ DEBUG [6936bf5c] 	
+ DEBUG [6936bf5c] Finished in 0.440 seconds with exit status 0 (successful).
