@@ -31,6 +31,9 @@ gem "codeclimate-test-reporter", group: :test, require: nil
 gem 'mysql2'
 
 gem 'puma'
+
+gem 'will_paginate'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

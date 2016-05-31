@@ -1,8 +1,10 @@
 class VideosController < ApplicationController
   @@CDN_DNS = "http://d3bowxm1hun7br.cloudfront.net/"
+  @@PER_PAGE = 2
 
   def index
-   @videos = Video.find_by_sql("SELECT *, CONCAT('#@@CDN_DNS', poster_url) as poster_url FROM videos")
+    sql = "SELECT *, CONCAT('#@@CDN_DNS', poster_url) as c_poster_url FROM videos"
+    @videos = Video.paginate_by_sql(sql, page: params[:page], per_page: @@PER_PAGE)
   end
 
   def show
