@@ -1,6 +1,5 @@
 .DS_Store
-log/capistrano.log
-log/development.log
+log/*
 tmp/*
 
 
