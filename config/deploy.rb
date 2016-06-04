@@ -77,8 +77,6 @@ namespace :deploy do
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       invoke 'puma:restart'
-      invoke `lsof -i:3000 | grep "deploy"  | awk '{print $2}' | xargs kill`
-      invode 'rails s -b 0.0.0.0'
     end
   end
 
