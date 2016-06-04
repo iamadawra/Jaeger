@@ -566,3 +566,51 @@ Processing by VideosController#index as HTML
   [1m[36mVideo Count (73.4ms)[0m  [1mSELECT COUNT(*) FROM (SELECT *, CONCAT('http://d3bowxm1hun7br.cloudfront.net/', poster_url) as c_poster_url FROM videos) AS count_table[0m
   Rendered videos/index.html.erb within layouts/application (3.3ms)
 Completed 200 OK in 339ms (Views: 26.2ms | ActiveRecord: 295.6ms)
+
+
+Started GET "/videos" for ::1 at 2016-06-04 15:32:29 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (73.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by VideosController#index as HTML
+  [1m[35mVideo Load (73.8ms)[0m  SELECT *, CONCAT('http://d3bowxm1hun7br.cloudfront.net/', poster_url) as c_poster_url FROM videos LIMIT 2 OFFSET 0
+  [1m[36mVideo Count (73.5ms)[0m  [1mSELECT COUNT(*) FROM (SELECT *, CONCAT('http://d3bowxm1hun7br.cloudfront.net/', poster_url) as c_poster_url FROM videos) AS count_table[0m
+  Rendered videos/index.html.erb within layouts/application (25.4ms)
+Completed 200 OK in 2271ms (Views: 1867.8ms | ActiveRecord: 367.7ms)
+
+
+Started GET "/assets/application.self-6d7f30f9ba3e4d482d3b8e98f06b950eeb63c3323681f9afc697095724cdee71.css?body=1" for ::1 at 2016-06-04 15:32:33 -0400
+
+
+Started GET "/assets/video-js.self-25a5614f0e946e324104d8850bab0ee3e9af17c5ce2e2503ab567155a6e0136f.css?body=1" for ::1 at 2016-06-04 15:32:33 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-04 15:32:33 -0400
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-04 15:32:33 -0400
+
+
+Started GET "/assets/videos.self-82aff1e90485fb422ef249f28f44772f6dc8f394ecc211543c6c7d829d82ccdd.css?body=1" for ::1 at 2016-06-04 15:32:33 -0400
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-04 15:32:33 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-04 15:32:33 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-04 15:32:33 -0400
+
+
+Started GET "/assets/video.self-a3f10994088ad9a34ef405975c8f959f56308ab8a48df60b2fc40fad59c30457.js?body=1" for ::1 at 2016-06-04 15:32:33 -0400
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-04 15:32:33 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-04 15:32:33 -0400
+
+
+Started GET "/assets/videos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-04 15:32:33 -0400
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-06-04 15:32:33 -0400
