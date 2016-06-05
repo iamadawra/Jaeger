@@ -614,3 +614,276 @@ Started GET "/assets/videos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde4
 
 
 Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-06-04 15:32:33 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (82.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (82.6ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (82.8ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'cucucity_dev'
+  AND fk.table_name = 'users'
+[0m
+  [1m[35m (82.6ms)[0m  SHOW CREATE TABLE `users`
+  [1m[36m (82.4ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'cucucity_dev'
+  AND fk.table_name = 'videos'
+[0m
+  [1m[35m (82.4ms)[0m  SHOW CREATE TABLE `videos`
+
+
+Started GET "/" for ::1 at 2016-06-05 18:21:15 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (177.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (23.4ms)
+Completed 200 OK in 3042ms (Views: 2397.3ms | ActiveRecord: 597.7ms)
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-05 18:21:20 -0400
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-05 18:21:20 -0400
+
+
+Started GET "/assets/video-js.self-25a5614f0e946e324104d8850bab0ee3e9af17c5ce2e2503ab567155a6e0136f.css?body=1" for ::1 at 2016-06-05 18:21:20 -0400
+
+
+Started GET "/assets/videos.self-b84e15a37c6f2b57c984cd22bf979efe464b2476ac7e523432900cd4338351c3.css?body=1" for ::1 at 2016-06-05 18:21:20 -0400
+
+
+Started GET "/assets/application.self-6d7f30f9ba3e4d482d3b8e98f06b950eeb63c3323681f9afc697095724cdee71.css?body=1" for ::1 at 2016-06-05 18:21:20 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-05 18:21:20 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-05 18:21:20 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-05 18:21:21 -0400
+
+
+Started GET "/assets/video.self-a3f10994088ad9a34ef405975c8f959f56308ab8a48df60b2fc40fad59c30457.js?body=1" for ::1 at 2016-06-05 18:21:21 -0400
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-05 18:21:21 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-05 18:21:21 -0400
+
+
+Started GET "/assets/videos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-05 18:21:21 -0400
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-06-05 18:21:21 -0400
+
+
+Started GET "/login" for ::1 at 2016-06-05 18:21:32 -0400
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 29ms (Views: 27.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-06-05 18:21:35 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"n5jwZDL/lf1fsm7P3mXKjciIQZo6jG+0b6Zuz+1JkRFY45oUmH1V3fjlRy921SQfFJYNVfh71n3p1KR8Oq2udA==", "email"=>"test@test.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[35mUser Load (81.7ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test@test.com' LIMIT 1
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 110ms (Views: 19.1ms | ActiveRecord: 81.7ms)
+
+
+Started GET "/register" for ::1 at 2016-06-05 18:21:37 -0400
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 24ms (Views: 22.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2016-06-05 18:21:42 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"E9HQA1qZrJPoz3a0G4/+xrm9PGfBP5NvZJ+0FDjT2mrUqrpz8Btss0+YX1SzPxBUZaNwqAPIKqbi7X6n7zflDw==", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36m (81.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (81.6ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@test.com' LIMIT 1
+  [1m[36m (81.7ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 263ms (ActiveRecord: 244.5ms)
+
+NameError (uninitialized constant User::BCrypt):
+  app/models/user.rb:23:in `encrypt_password'
+  app/controllers/users_controller.rb:8:in `create'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (24.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (48.8ms)
+
+
+Started GET "/" for ::1 at 2016-06-05 18:25:37 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (82.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 1039ms (Views: 581.4ms | ActiveRecord: 418.0ms)
+
+
+Started POST "/users" for ::1 at 2016-06-05 18:25:53 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OEsw299GF6G4N2o2iZ136iIH3z5ZwTaY7yn1PCVVvC3/MFqrdcTXgR9gQ9YhLZl4/hmT8Zs2j1FpWz+P8rGDSA==", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (82.3ms)[0m  BEGIN
+  [1m[36mUser Exists (122.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@test.com' LIMIT 1[0m
+  [1m[35mSQL (82.2ms)[0m  INSERT INTO `users` (`email`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test@test.com', '$2a$10$N7RzBDIGhp3/E7fxbIDXy.', '$2a$10$N7RzBDIGhp3/E7fxbIDXy.gGFkmp3oiNcZkja6NFaCMLqCQW9ak2G', '2016-06-05 22:25:53', '2016-06-05 22:25:53')
+  [1m[36m (93.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 471ms (ActiveRecord: 380.0ms)
+
+
+Started GET "/" for ::1 at 2016-06-05 18:25:53 -0400
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2016-06-05 18:25:55 -0400
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 19ms (Views: 18.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-06-05 18:25:59 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8hidrfmLdILh1bm7cDVNh3XvLBwHenKDRDaYEktwy8g1Y/fdUwm0okaCkFvYhaMVqfFg08WNy0rCRFKhnJT0rQ==", "email"=>"test@test.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[35mUser Load (82.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test@test.com' LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 157ms (ActiveRecord: 82.5ms)
+
+
+Started GET "/" for ::1 at 2016-06-05 18:25:59 -0400
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (82.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 105ms (Views: 20.9ms | ActiveRecord: 82.4ms)
+
+
+Started GET "/videos/1" for ::1 at 2016-06-05 18:26:30 -0400
+Processing by VideosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mVideo Load (82.5ms)[0m  SELECT  `videos`.* FROM `videos` WHERE `videos`.`id` = 1 LIMIT 1
+  Rendered videos/show.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (84.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 368ms (Views: 19.2ms | ActiveRecord: 331.8ms)
+
+
+Started GET "/videos/2" for ::1 at 2016-06-05 18:26:37 -0400
+Processing by VideosController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mVideo Load (83.2ms)[0m  SELECT  `videos`.* FROM `videos` WHERE `videos`.`id` = 2 LIMIT 1
+  Rendered videos/show.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (84.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 188ms (Views: 18.0ms | ActiveRecord: 167.4ms)
+
+
+Started GET "/videos/3" for ::1 at 2016-06-05 18:26:40 -0400
+Processing by VideosController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mVideo Load (82.6ms)[0m  SELECT  `videos`.* FROM `videos` WHERE `videos`.`id` = 3 LIMIT 1
+  Rendered videos/show.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (82.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 186ms (Views: 19.3ms | ActiveRecord: 165.1ms)
+
+
+Started GET "/videos/4" for ::1 at 2016-06-05 18:26:44 -0400
+Processing by VideosController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mVideo Load (82.6ms)[0m  SELECT  `videos`.* FROM `videos` WHERE `videos`.`id` = 4 LIMIT 1
+  Rendered videos/show.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (82.7ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 184ms (Views: 17.3ms | ActiveRecord: 165.3ms)
+
+
+Started GET "/videos/5" for ::1 at 2016-06-05 18:26:47 -0400
+Processing by VideosController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mVideo Load (82.6ms)[0m  SELECT  `videos`.* FROM `videos` WHERE `videos`.`id` = 5 LIMIT 1
+  Rendered videos/show.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (82.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 186ms (Views: 19.0ms | ActiveRecord: 165.0ms)
+
+
+Started GET "/videos/6" for ::1 at 2016-06-05 18:26:51 -0400
+Processing by VideosController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mVideo Load (82.6ms)[0m  SELECT  `videos`.* FROM `videos` WHERE `videos`.`id` = 6 LIMIT 1
+  Rendered videos/show.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (82.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 248ms (Views: 80.8ms | ActiveRecord: 165.0ms)
+
+
+Started GET "/videos/" for ::1 at 2016-06-05 18:26:56 -0400
+Processing by VideosController#index as HTML
+  [1m[35mVideo Load (83.3ms)[0m  SELECT *, CONCAT('http://d3bowxm1hun7br.cloudfront.net/', poster_url) as c_poster_url FROM videos LIMIT 2 OFFSET 0
+  [1m[36mVideo Count (82.2ms)[0m  [1mSELECT COUNT(*) FROM (SELECT *, CONCAT('http://d3bowxm1hun7br.cloudfront.net/', poster_url) as c_poster_url FROM videos) AS count_table[0m
+  Rendered videos/index.html.erb within layouts/application (3.3ms)
+  [1m[35mUser Load (82.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Completed 200 OK in 273ms (Views: 22.6ms | ActiveRecord: 247.9ms)
+
+
+Started GET "/videos?page=2" for ::1 at 2016-06-05 18:26:58 -0400
+Processing by VideosController#index as HTML
+  Parameters: {"page"=>"2"}
+  [1m[36mVideo Load (82.9ms)[0m  [1mSELECT *, CONCAT('http://d3bowxm1hun7br.cloudfront.net/', poster_url) as c_poster_url FROM videos LIMIT 2 OFFSET 2[0m
+  [1m[35mVideo Count (82.4ms)[0m  SELECT COUNT(*) FROM (SELECT *, CONCAT('http://d3bowxm1hun7br.cloudfront.net/', poster_url) as c_poster_url FROM videos) AS count_table
+  Rendered videos/index.html.erb within layouts/application (3.2ms)
+  [1m[36mUser Load (82.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 270ms (Views: 20.3ms | ActiveRecord: 247.8ms)
+
+
+Started GET "/videos?page=3" for ::1 at 2016-06-05 18:26:59 -0400
+Processing by VideosController#index as HTML
+  Parameters: {"page"=>"3"}
+  [1m[35mVideo Load (83.1ms)[0m  SELECT *, CONCAT('http://d3bowxm1hun7br.cloudfront.net/', poster_url) as c_poster_url FROM videos LIMIT 2 OFFSET 4
+  [1m[36mVideo Count (82.5ms)[0m  [1mSELECT COUNT(*) FROM (SELECT *, CONCAT('http://d3bowxm1hun7br.cloudfront.net/', poster_url) as c_poster_url FROM videos) AS count_table[0m
+  Rendered videos/index.html.erb within layouts/application (2.2ms)
+  [1m[35mUser Load (82.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Completed 200 OK in 269ms (Views: 19.3ms | ActiveRecord: 247.8ms)
+
+
+Started GET "/videos?page=4" for ::1 at 2016-06-05 18:27:00 -0400
+Processing by VideosController#index as HTML
+  Parameters: {"page"=>"4"}
+  [1m[36mVideo Load (82.6ms)[0m  [1mSELECT *, CONCAT('http://d3bowxm1hun7br.cloudfront.net/', poster_url) as c_poster_url FROM videos LIMIT 2 OFFSET 6[0m
+  [1m[35mVideo Count (82.3ms)[0m  SELECT COUNT(*) FROM (SELECT *, CONCAT('http://d3bowxm1hun7br.cloudfront.net/', poster_url) as c_poster_url FROM videos) AS count_table
+  Rendered videos/index.html.erb within layouts/application (3.4ms)
+  [1m[36mUser Load (82.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 271ms (Views: 21.8ms | ActiveRecord: 247.6ms)
+
+
+Started GET "/videos?page=5" for ::1 at 2016-06-05 18:27:01 -0400
+Processing by VideosController#index as HTML
+  Parameters: {"page"=>"5"}
+  [1m[35mVideo Load (84.3ms)[0m  SELECT *, CONCAT('http://d3bowxm1hun7br.cloudfront.net/', poster_url) as c_poster_url FROM videos LIMIT 2 OFFSET 8
+  [1m[36mVideo Count (83.1ms)[0m  [1mSELECT COUNT(*) FROM (SELECT *, CONCAT('http://d3bowxm1hun7br.cloudfront.net/', poster_url) as c_poster_url FROM videos) AS count_table[0m
+  Rendered videos/index.html.erb within layouts/application (2.5ms)
+  [1m[35mUser Load (83.7ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Completed 200 OK in 272ms (Views: 19.0ms | ActiveRecord: 251.0ms)
+
+
+Started GET "/videos?page=1" for ::1 at 2016-06-05 18:27:03 -0400
+Processing by VideosController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mVideo Load (82.8ms)[0m  [1mSELECT *, CONCAT('http://d3bowxm1hun7br.cloudfront.net/', poster_url) as c_poster_url FROM videos LIMIT 2 OFFSET 0[0m
+  [1m[35mVideo Count (82.9ms)[0m  SELECT COUNT(*) FROM (SELECT *, CONCAT('http://d3bowxm1hun7br.cloudfront.net/', poster_url) as c_poster_url FROM videos) AS count_table
+  Rendered videos/index.html.erb within layouts/application (2.5ms)
+  [1m[36mUser Load (83.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 269ms (Views: 18.5ms | ActiveRecord: 248.9ms)
