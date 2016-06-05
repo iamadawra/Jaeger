@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
   
+  
   root 'users#new'
   
   get 'register' => 'users#new', :as => 'register'
   get 'login' => 'sessions#new', :as => 'login'
   get 'logout' => 'sessions#destroy', :as => 'logout'
   get 'videos/:id' => 'videos#show'
-
-  resources :users, :sessions, :videos
+  post '/rate' => 'rater#create', :as => 'rate'
+  
+  resources :users, :sessions, :videos, :rater
 
 
   # The priority is based upon order of creation: first created -> highest priority.
