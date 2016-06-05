@@ -17,18 +17,26 @@ RSpec.describe VideosController, type: :controller do
 
     it "can search content filtered by only video names" do
       skip("pending")
+      post :search, video: attributes_for(:)
+      expect(response).to redirect_to()
     end 
 
     it "can search content filtered by only user names" do
       skip("pending")
+      post :search, video: attributes_for(:)
+      expect(response).to redirect_to()
     end 
 
     it "can search content filtered by only tags names" do
       skip("pending")
+      post :search, video: attributes_for(:)
+      expect(response).to redirect_to()
     end
 
     it "can search content filtered by competition" do
       skip("pending")
+      post :search, video: attributes_for(:)
+      expect(response).to redirect_to()
     end
   end
 
