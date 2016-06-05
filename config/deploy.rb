@@ -15,7 +15,7 @@ set :repo_url,  'http://deepfly:zzp123567@github.com/iamadawra/Jaeger.git'
 # set :scm_password, "zzp123567"
 
 # Don't change these unless you know what you're doing
-set :pty,             true
+set :pty,             false
 set :use_sudo,        true
 set :stage,           :production
 set :deploy_via,      :remote_cache
@@ -77,6 +77,8 @@ namespace :deploy do
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       invoke 'puma:restart'
+      execute("if [ -n \"$(lsof -i:3000 | grep 'deploy'  | awk '{print $2}')\" ] ; then kill -9 \"$(lsof -i:3000 | grep 'deploy'  | awk 'NR==1{print $2}')\" ; fi")
+      execute("cd /home/deploy/CucuCity/current && ~/.rvm/bin/rvm default do rails s -b 0.0.0.0 > /dev/null 2>&1 &")
     end
   end
 
