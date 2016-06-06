@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
   @@CDN_DNS = "http://d3bowxm1hun7br.cloudfront.net/"
-  @@PER_PAGE = 2
+  @@PER_PAGE = 6
 
   def index
     sql = "SELECT *, CONCAT('#@@CDN_DNS', poster_url) as c_poster_url FROM videos"

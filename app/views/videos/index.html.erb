@@ -1,10 +1,107 @@
-<h1>Video Browsing</h1>
-<%= will_paginate @videos %>
-<ul class="video-browsing">
-  <% @videos.each do |v| %>
-    <li>
-      <%= link_to image_tag(v.c_poster_url), "#{videos_path}/#{v.id}", title: v.title, class: "video-link" %>
-    </li>
-  <% end %>
-</ul>
-<%= will_paginate @videos %>
+<!DOCTYPE HTML>
+	<head>
+		<title>CucuCity</title>
+	</head>
+	<body>
+			<div class="header">
+				<div class="wrap">
+				<div class="logo">
+					<a href="index.html"><%= link_to image_tag('logo.png', height: '42px'), title: 'logo' %></a>
+				</div>
+				<div class="top-menu">
+					
+					<div class="search">
+						<form>
+							<input type="text" class="textbox" value="Search.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+							<input type="submit" value=" " />
+						</form>
+					</div>
+					<div class="top-nav">
+						<ul>
+							<li><a href="#">Trending</a></li>
+							<li><a href="#">Compete</a></li>
+							<li><a href="#">About</a></li>
+							<li><a href="#">Login</a></li>
+						</ul>
+					</div>
+					<div class="clear"> </div>
+				</div>
+				<div class="clear"> </div>
+			</div>
+		</div>
+		<div class="clear"> </div>
+		<div class="main-content">
+			<div class="wrap">
+			<div class="left-sidebar">
+				<div class="sidebar-boxs">
+					
+					<div class="clear"> </div>
+					<div class="type-videos">
+						<h3>Active Competitions</h3>
+						<ul>
+							<li><a href="#">Competition 1</a></li>
+							<li><a href="#">Competition 2</a></li>
+							<li><a href="#">Competition 3</a></li>
+							<li><a href="#">Competition 4</a></li>
+							<li><a href="#">Competition 5</a></li>
+							<li><a href="#">Competition 6</a></li>
+							<li><a href="#">Competition 7</a></li>
+							<li><a href="#">Competition 8</a></li>
+							<li><a href="#">Competition 9</a></li>
+							<li><a href="#">Competition 10</a></li>
+							<li><a href="#">Competition 11</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="right-content">
+				<div class="right-content-heading">
+					<div class="right-content-heading-left">
+						<h3>Trending Videos</h3>
+					</div>
+					<div class="right-content-heading-right">
+						<div class="social-icons">
+			                <ul>
+			                    <li><a class="facebook" href="#" target="_blank"> </a></li>
+			                    <li><a class="twitter" href="#" target="_blank"></a></li>
+			                    <li><a class="googleplus" href="#" target="_blank"></a></li>
+			                    <li><a class="pinterest" href="#" target="_blank"></a></li>
+			                    <li><a class="dribbble" href="#" target="_blank"></a></li>
+			                    <li><a class="vimeo" href="#" target="_blank"></a></li>
+			                </ul>
+					</div>
+					</div>
+					<div class="clear"> </div>
+				</div>
+				<div class="content-grids">
+							<ul class="video-browsing">
+							  <% @videos.each do |v| %>
+							 	<div class="content-grid">
+									<%= link_to image_tag(v.c_poster_url), "#{videos_path}/#{v.id}", title: v.title, class: "video-link" %>
+									<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
+									<ul>
+										<li><a href="#"><%= link_to image_tag('likes.png'), title: 'likes' %></a></li>
+										<li><a href="#"><%= link_to image_tag('views.png'), title: 'views' %></a></li>
+										<li><a href="#"><%= link_to image_tag('link.png'), title: 'link' %></a></li>
+									</ul>
+									<a class="button" href="singlepage.html">Watch now</a>
+								</div>
+							  <% end %>
+							</ul>
+					<div class="clear"> </div>
+					<div class="pagenation">
+						<%= will_paginate @videos %>		
+					</div>
+					<div class="clear"> </div>
+				</div>
+			</div>
+			<div class="clear"> </div>
+			</div>
+		</div>
+		<div class="clear"> </div>
+		<div class="copy-right">
+			<p>Copyright 2016. All Rights Reserved</p>
+		</div>
+	</body>
+</html>
+
