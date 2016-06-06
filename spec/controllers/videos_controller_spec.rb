@@ -8,7 +8,7 @@ RSpec.describe VideosController, type: :controller do
       @video1 = create(:video, title: "Independent Day", is_in_competition: false, tags: "[war, English]", uploader_id: 1)
       @video2 = create(:video, title: "Spider Man", is_in_competition: true, competition_id: 1, tags: "[comic, English]", uploader_id: 2)
       @user1 = = create(:user, id: 1, first_name: "Uploader1")
-      @user1 = = create(:user, id: 1, username: "Uploader2")
+      @user1 = = create(:user, id: 2, username: "Uploader2")
     end
 
     it "can search all contents" do
