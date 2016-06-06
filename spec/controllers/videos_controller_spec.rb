@@ -3,40 +3,55 @@ require 'rails_helper'
 RSpec.describe VideosController, type: :controller do
 
 
-  describe "POST /search" do
+  describe "GET /search" do
     before :each do
-      @video1 = create(:video, is_in_competition: false, tags: "[sports, music]")
-      @video2 = create(:video, is_in_competition: true, competition_id: 1, tags: "[music, English]")
+      @video1 = create(:video, title: "Independent Day", is_in_competition: false, tags: "[war, English]", uploader_id: 1)
+      @video2 = create(:video, title: "Spider Man", is_in_competition: true, competition_id: 1, tags: "[comic, English]", uploader_id: 2)
+      @user1 = = create(:user, id: 1, first_name: "Uploader1")
+      @user1 = = create(:user, id: 1, username: "Uploader2")
     end
 
     it "can search all contents" do
       skip("pending")
-      post :search, video: attributes_for(:)
-      expect(response).to redirect_to()
+      get :search, mode: "all", keyword: "English"
+      expect((assigns(:video)).to match_array([@video1, @video2])
     end
 
     it "can search content filtered by only video names" do
       skip("pending")
-      post :search, video: attributes_for(:)
-      expect(response).to redirect_to()
+      get :search, mode: "vname", keyword: "Spider"
+      expect((assigns(:video)).to match_array([@video2])
     end 
 
-    it "can search content filtered by only user names" do
+    it "can search content filtered by only username(user id)" do
       skip("pending")
-      post :search, video: attributes_for(:)
-      expect(response).to redirect_to()
+      get :search, mode: "uname", keyword: "Uploader1"
+      expect((assigns(:video)).to match_array([@video1])
+    end 
+
+    it "can search content filtered by only first_name(user id)" do
+      skip("pending")
+      get :search, mode: "uname", keyword: "Uploader1"
+      expect((assigns(:video)).to match_array([@video2])
     end 
 
     it "can search content filtered by only tags names" do
       skip("pending")
-      post :search, video: attributes_for(:)
-      expect(response).to redirect_to()
+      get :search, mode: "tag", keyword: "war"
+      expect((assigns(:video)).to match_array([@video1])
     end
 
+    //TODO: HAVE NOT CREATED SCHEMA FOR COMPETITION YET
     it "can search content filtered by competition" do
       skip("pending")
-      post :search, video: attributes_for(:)
-      expect(response).to redirect_to()
+      get :search, mode: "competition", keyword: "1"
+      expect((assigns(:video)).to match_array([@video1])
+    end
+
+    it "renders the :search_result template" do
+      skip("pending")
+      get :search
+      expect(response).to render_template :search_result
     end
   end
 
