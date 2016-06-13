@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE HTML>
 	<head>
 		<title>CucuCity</title>
@@ -105,3 +106,14 @@
 	</body>
 </html>
 
+<h1>Video Browsing</h1>
+<%= will_paginate @videos %>
+<ul class="video-browsing">
+  <% @videos.each do |v| %>
+    <li>
+      <%= link_to image_tag(v.c_poster_url), "#{videos_path}/#{v.id}", title: v.title, class: "video-link" %>
+      <%= rating_for v, "entertainment", { readonly: true } %>
+    </li>
+  <% end %>
+</ul>
+<%= will_paginate @videos %>

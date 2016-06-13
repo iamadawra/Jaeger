@@ -35,6 +35,9 @@ gem 'puma'
 gem 'will_paginate'
 
 gem "bcrypt-ruby", :require => "bcrypt"
+gem 'ratyrate'
+
+gem 'bcrypt'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
