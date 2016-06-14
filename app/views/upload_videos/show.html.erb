@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @upload_video.title %>
+</p>
+
+<p>
+  <strong>Video url:</strong>
+  <%= @upload_video.video_url %>
+</p>
+
+<p>
+  <strong>Poster url:</strong>
+  <%= @upload_video.poster_url %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @upload_video.tags %>
+</p>
+
+<p>
+  <strong>Video desc:</strong>
+  <%= @upload_video.video_desc %>
+</p>
+
+<p>
+  <strong>Is approved:</strong>
+  <%= @upload_video.is_approved %>
+</p>
+
+<%= link_to 'Edit', edit_upload_video_path(@upload_video) %> |
+<%= link_to 'Back', upload_videos_path %>

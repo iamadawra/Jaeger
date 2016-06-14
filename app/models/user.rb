@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
+  ratyrate_rater
   attr_accessible :email, :password, :password_confirmation
-  
+
   attr_accessor :password
   before_save :encrypt_password
   
