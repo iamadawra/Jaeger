@@ -38,6 +38,8 @@ gem 'ratyrate'
 
 gem 'bcrypt'
 
+gem 'aws-sdk', '~> 2'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
