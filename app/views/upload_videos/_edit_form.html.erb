@@ -12,21 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label :title, "Title: "  %><br>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :tags, "tags (seperated by ;)"%><br>
+    <%= f.label :tags, "Tags: (seperated by ;)"%><br>
     <%= f.text_field :tags %>
   </div>
   <div class="field">
-    <%= f.label :video_desc %><br>
+    <%= f.label :video_desc, "Description: " %><br>
     <%= f.text_field :video_desc %>
   </div>
- <!--  <div class="field">
-    <%= f.label :is_approved %><br>
-    <%= f.text_field :is_approved %>
-  </div> -->
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -23,7 +23,7 @@
         <td><%= upload_video.poster_url %></td>
         <td><%= upload_video.tags %></td>
         <td><%= upload_video.video_desc %></td>
-        <td><%= upload_video.is_approved %></td>
+        <td><%= (upload_video.is_approved == true ? "Yes" : "No") %></td>
         <td><%= link_to 'Show', upload_video %></td>
         <td><%= link_to 'Edit', edit_upload_video_path(upload_video) %></td>
         <td><%= link_to 'Destroy', { action: :destroy, id: upload_video.id }, method: :delete, data: { confirm: 'Are you sure?' } %></td>
