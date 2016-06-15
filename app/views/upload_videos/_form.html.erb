@@ -12,23 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label :title, "Title: " %><br>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :video_url %><br>
+    <%= f.label :video_url, "Video File: " %><br>
     <%= f.file_field :video_url %>
   </div>
   <div class="field">
-    <%= f.label :poster_url %><br>
+    <%= f.label :poster_url, "Poster File: " %><br>
     <%= f.file_field :poster_url %>
   </div>
   <div class="field">
-    <%= f.label :tags, "tags (seperated by ;)"%><br>
+    <%= f.label :tags, "Tags: (seperated by ;)"%><br>
     <%= f.text_field :tags %>
   </div>
   <div class="field">
-    <%= f.label :video_desc %><br>
+    <%= f.label :video_desc, "Description: " %><br>
     <%= f.text_field :video_desc %>
   </div>
  <!--  <div class="field">
@@ -74,7 +74,9 @@ $(function() {
       },
       progressall: function (e, data) {
         var progress = parseInt(data.loaded / data.total * 100, 10);
-        progressBar.css('width', progress + '%')
+        progressBar.
+          css('width', progress + '%').
+          text("Loading...(" + progress + "%)");
       },
       start: function (e) {
         submitButton.prop('disabled', true);
