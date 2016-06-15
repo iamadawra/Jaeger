@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160604185812) do
+ActiveRecord::Schema.define(version: 20160615022839) do
 
   create_table "average_caches", force: :cascade do |t|
     t.integer  "rater_id",      limit: 4
@@ -79,20 +79,46 @@ ActiveRecord::Schema.define(version: 20160604185812) do
   end
 
   create_table "videos", force: :cascade do |t|
-    t.string   "title",             limit: 255
-    t.string   "video_url",         limit: 255
-    t.string   "poster_url",        limit: 255
+    t.string   "title",                   limit: 255
+    t.string   "video_url",               limit: 255
+    t.string   "poster_url",              limit: 255
     t.boolean  "is_in_competition"
-    t.integer  "competition_id",    limit: 4
-    t.integer  "uploader_id",       limit: 4
-    t.string   "tags",              limit: 255
+    t.integer  "competition_id",          limit: 4
+    t.integer  "uploader_id",             limit: 4
+    t.string   "tags",                    limit: 255
     t.datetime "uploaded_at"
-    t.float    "rating",            limit: 24
-    t.float    "voting",            limit: 24
-    t.integer  "rate_num",          limit: 4
-    t.integer  "vote_num",          limit: 4
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.integer  "cached_votes_total",      limit: 4,   default: 0
+    t.integer  "cached_votes_score",      limit: 4,   default: 0
+    t.integer  "cached_votes_up",         limit: 4,   default: 0
+    t.integer  "cached_votes_down",       limit: 4,   default: 0
+    t.integer  "cached_weighted_score",   limit: 4,   default: 0
+    t.integer  "cached_weighted_total",   limit: 4,   default: 0
+    t.float    "cached_weighted_average", limit: 24,  default: 0.0
   end
+
+  add_index "videos", ["cached_votes_down"], name: "index_videos_on_cached_votes_down", using: :btree
+  add_index "videos", ["cached_votes_score"], name: "index_videos_on_cached_votes_score", using: :btree
+  add_index "videos", ["cached_votes_total"], name: "index_videos_on_cached_votes_total", using: :btree
+  add_index "videos", ["cached_votes_up"], name: "index_videos_on_cached_votes_up", using: :btree
+  add_index "videos", ["cached_weighted_average"], name: "index_videos_on_cached_weighted_average", using: :btree
+  add_index "videos", ["cached_weighted_score"], name: "index_videos_on_cached_weighted_score", using: :btree
+  add_index "videos", ["cached_weighted_total"], name: "index_videos_on_cached_weighted_total", using: :btree
+
+  create_table "votes", force: :cascade do |t|
+    t.integer  "votable_id",   limit: 4
+    t.string   "votable_type", limit: 255
+    t.integer  "voter_id",     limit: 4
+    t.string   "voter_type",   limit: 255
+    t.boolean  "vote_flag"
+    t.string   "vote_scope",   limit: 255
+    t.integer  "vote_weight",  limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
+  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
 end

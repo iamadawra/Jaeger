@@ -9,7 +9,13 @@ Rails.application.routes.draw do
   get 'videos/:id' => 'videos#show'
   post '/rate' => 'rater#create', :as => 'rate'
   
-  resources :users, :sessions, :videos, :rater
+  resources :users, :sessions, :rater
+  resources :videos do
+    member do
+      put "like" => "videos#upvote"
+      put "unlike" => "videos#downvote"
+    end
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

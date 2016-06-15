@@ -38,6 +38,8 @@ gem 'ratyrate'
 
 gem 'bcrypt'
 
+gem  'acts_as_votable'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

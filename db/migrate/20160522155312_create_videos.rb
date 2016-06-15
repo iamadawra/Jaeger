@@ -9,10 +9,6 @@ class CreateVideos < ActiveRecord::Migration
       t.integer :uploader_id
       t.string :tags
       t.datetime :uploaded_at
-      t.float :rating
-      t.float :voting
-      t.integer :rate_num
-      t.integer :vote_num
 
       t.timestamps null: false
     end
