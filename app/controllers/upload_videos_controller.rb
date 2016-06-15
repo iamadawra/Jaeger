@@ -74,6 +74,7 @@ class UploadVideosController < ApplicationController
     end
 
     def set_s3_direct_post
-      @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
+      @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/video", success_action_status: '201', acl: 'public-read')
+      @s3_direct_post_poster = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/poster", success_action_status: '201', acl: 'public-read')
     end
 end
