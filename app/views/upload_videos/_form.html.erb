@@ -10,17 +10,19 @@
       </ul>
     </div>
   <% end %>
+  <div id="error_msg">
+    <ul></ul>
+  </div>
 
-  <div class="field">
-    <%= f.label :title, "Title: " %><br>
+    <%= f.label :title, "*Title: " %><br>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :video_url, "Video File: " %><br>
+    <%= f.label :video_url, "*Video File: " %><br>
     <%= f.file_field :video_url %>
   </div>
   <div class="field">
-    <%= f.label :poster_url, "Poster File: " %><br>
+    <%= f.label :poster_url, "*Poster File: " %><br>
     <%= f.file_field :poster_url %>
   </div>
   <div class="field">
@@ -37,7 +39,8 @@
 <% end %>
 <script>
 $(function() {
-  var times = 0;
+  var done_times = 0;
+  var add_times = 0;
   $('.directUpload').find("input:file").each(function(i, elem) {
     var fileInput    = $(elem);
     console.log(fileInput);
@@ -64,8 +67,9 @@ $(function() {
       dataType:         'XML',  // S3 returns XML if success_action_status is set to 201
       replaceFileInput: false,
       add: function (e, data){
+        add_times++;
         submitButton.click(function () {
-          data.submit();
+          if (add_times == 2) data.submit();
         });
       },
       progressall: function (e, data) {
@@ -84,7 +88,7 @@ $(function() {
           text("Loading...");
       },
       done: function(e, data) {
-        times++;
+        done_times++;
         progressBar.text("Uploading done");
 
         // extract key and generate URL from response
@@ -94,7 +98,7 @@ $(function() {
         // create hidden field
         var input = $("<input />", { type:'hidden', name: fileInput.attr('name'), value: url })
         form.append(input);
-        if (times == 2){
+        if (done_times == 2){
           submitButton.prop('disabled', false);
           form.submit();
         }
@@ -107,6 +111,47 @@ $(function() {
           text("Failed");
       }
     });
+  });
+});
+
+$(function() {
+  function validate() {
+     // console.log($('#error_msg ul').has("#no_title").length);
+
+     if ($('#video_title').val() == "") {
+        if($('#error_msg ul').has("#no_title").length == 0)
+          $('#error_msg ul').append("<li id=\"no_title\">Title can't be blank.</li>");
+        return false;
+     } else if($('#video_video_url').val() == ""){
+        if($('#error_msg ul').has("#no_title").length != 0)
+          $('#error_msg ul #no_title').remove();
+
+        if($('#error_msg ul').has("#no_video").length == 0)
+          $('#error_msg ul').append("<li id=\"no_video\">You need to choose a video file to upload.</li>");
+        return false;
+     } else if($('#video_poster_url').val() == ""){
+        if($('#error_msg ul').has("#no_title").length != 0)
+          $('#error_msg ul #no_title').remove();
+        if($('#error_msg ul').has("#no_video").length != 0)
+          $('#error_msg ul #no_video').remove();
+
+        if($('#error_msg ul').has("#no_poster").length == 0)
+          $('#error_msg ul').append("<li id=\"no_poster\">You need to choose a poster file to upload.</li>");
+        return false;
+     } else{
+       // if($('#error_msg ul').has("#no_title").length != 0)
+       //    $('#error_msg ul #no_title').remove();
+       // if($('#error_msg ul').has("#no_video").length != 0)
+       //    $('#error_msg ul #no_video').remove();
+       // if($('#error_msg ul').has("#no_poster").length != 0)
+       //    $('#error_msg ul #no_poster').remove();
+     }
+
+     return true;
+  }
+  $('.directUpload').submit(function (event) {
+     if (!validate()) event.preventDefault();
+     else $(this).submit();
   });
 });
 </script>
