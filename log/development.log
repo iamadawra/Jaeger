@@ -18553,3 +18553,101 @@ Processing by VideosController#index as HTML
   [1m[35mUser Load (93.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1]]
 Completed 200 OK in 1750ms (Views: 63.6ms | ActiveRecord: 1679.9ms)
+  [1m[36mActiveRecord::SchemaMigration Load (81.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to ActsAsVotableMigration (20160615005802)
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in up at /Users/lander/Documents/ROR_workspace/cucucity/db/migrate/20160615005802_acts_as_votable_migration.rb:12)
+  [1m[35m (125.3ms)[0m  CREATE TABLE `votes` (`id` int(11) auto_increment PRIMARY KEY, `votable_id` int(11), `votable_type` varchar(255), `voter_id` int(11), `voter_type` varchar(255), `vote_flag` tinyint(1), `vote_scope` varchar(255), `vote_weight` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (135.7ms)[0m  [1mCREATE  INDEX `index_votes_on_voter_id_and_voter_type_and_vote_scope`  ON `votes` (`voter_id`, `voter_type`, `vote_scope`) [0m
+  [1m[35m (129.7ms)[0m  CREATE  INDEX `index_votes_on_votable_id_and_votable_type_and_vote_scope`  ON `votes` (`votable_id`, `votable_type`, `vote_scope`) 
+  [1m[36m (74.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (77.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160615005802')
+  [1m[36m (88.3ms)[0m  [1mCOMMIT[0m
+Migrating to AddCachedVotesToPosts (20160615022839)
+  [1m[35m (173.6ms)[0m  ALTER TABLE `videos` ADD `cached_votes_total` int(11) DEFAULT 0
+  [1m[36m (182.1ms)[0m  [1mALTER TABLE `videos` ADD `cached_votes_score` int(11) DEFAULT 0[0m
+  [1m[35m (176.0ms)[0m  ALTER TABLE `videos` ADD `cached_votes_up` int(11) DEFAULT 0
+  [1m[36m (171.0ms)[0m  [1mALTER TABLE `videos` ADD `cached_votes_down` int(11) DEFAULT 0[0m
+  [1m[35m (173.6ms)[0m  ALTER TABLE `videos` ADD `cached_weighted_score` int(11) DEFAULT 0
+  [1m[36m (172.7ms)[0m  [1mALTER TABLE `videos` ADD `cached_weighted_total` int(11) DEFAULT 0[0m
+  [1m[35m (195.5ms)[0m  ALTER TABLE `videos` ADD `cached_weighted_average` float DEFAULT 0.0
+  [1m[36m (134.9ms)[0m  [1mCREATE  INDEX `index_videos_on_cached_votes_total`  ON `videos` (`cached_votes_total`) [0m
+  [1m[35m (129.3ms)[0m  CREATE  INDEX `index_videos_on_cached_votes_score`  ON `videos` (`cached_votes_score`) 
+  [1m[36m (131.4ms)[0m  [1mCREATE  INDEX `index_videos_on_cached_votes_up`  ON `videos` (`cached_votes_up`) [0m
+  [1m[35m (134.8ms)[0m  CREATE  INDEX `index_videos_on_cached_votes_down`  ON `videos` (`cached_votes_down`) 
+  [1m[36m (131.6ms)[0m  [1mCREATE  INDEX `index_videos_on_cached_weighted_score`  ON `videos` (`cached_weighted_score`) [0m
+  [1m[35m (136.5ms)[0m  CREATE  INDEX `index_videos_on_cached_weighted_total`  ON `videos` (`cached_weighted_total`) 
+  [1m[36m (136.2ms)[0m  [1mCREATE  INDEX `index_videos_on_cached_weighted_average`  ON `videos` (`cached_weighted_average`) [0m
+  [1m[35m (81.8ms)[0m  BEGIN
+  [1m[36mSQL (78.9ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160615022839')[0m
+  [1m[35m (86.4ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (79.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (76.7ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'cucucity_dev'
+  AND fk.table_name = 'average_caches'
+
+  [1m[36m (81.2ms)[0m  [1mSHOW CREATE TABLE `average_caches`[0m
+  [1m[35m (79.7ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'cucucity_dev'
+  AND fk.table_name = 'overall_averages'
+
+  [1m[36m (78.2ms)[0m  [1mSHOW CREATE TABLE `overall_averages`[0m
+  [1m[35m (81.4ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'cucucity_dev'
+  AND fk.table_name = 'rates'
+
+  [1m[36m (78.1ms)[0m  [1mSHOW CREATE TABLE `rates`[0m
+  [1m[35m (77.9ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'cucucity_dev'
+  AND fk.table_name = 'rating_caches'
+
+  [1m[36m (76.9ms)[0m  [1mSHOW CREATE TABLE `rating_caches`[0m
+  [1m[35m (82.1ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'cucucity_dev'
+  AND fk.table_name = 'users'
+
+  [1m[36m (75.9ms)[0m  [1mSHOW CREATE TABLE `users`[0m
+  [1m[35m (77.5ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'cucucity_dev'
+  AND fk.table_name = 'videos'
+
+  [1m[36m (77.0ms)[0m  [1mSHOW CREATE TABLE `videos`[0m
+  [1m[35m (74.0ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'cucucity_dev'
+  AND fk.table_name = 'votes'
+
+  [1m[36m (75.2ms)[0m  [1mSHOW CREATE TABLE `votes`[0m
