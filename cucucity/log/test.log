@@ -1,0 +1,730 @@
+  [1m[36mActiveRecord::SchemaMigration Load (92.7ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (92.6ms)[0m  BEGIN
+  [1m[36m (92.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (92.1ms)[0m  BEGIN
+  [1m[36m (92.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (93.1ms)[0m  BEGIN
+  [1m[36m (91.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (91.5ms)[0m  INSERT INTO `users` (`email`, `password_digest`, `username`, `is_admin`, `role`, `created_at`, `updated_at`) VALUES ('test1@cucu.com', '$2a$04$ER83DNY.HQm3WT9b9qg9AuMZ4ImuDybdFsYxWOPZ9.2zM.4p8AKCa', 'test1', 0, 'user', '2016-05-23 22:27:06', '2016-05-23 22:27:06')
+  [1m[36m (91.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (97.6ms)[0m  ROLLBACK
+  [1m[36m (92.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (92.8ms)[0m  ROLLBACK
+  [1m[36m (92.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (93.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (92.7ms)[0m  [1mINSERT INTO `users` (`email`, `password_digest`, `username`, `is_admin`, `role`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES ('test2@cucu.com', '$2a$04$EJ8AEqBOobldTsjsrTcLtOZAQKx4b9xnv9wnX0UgfA/MtI.ebODEu', 'test2', 0, 'user', 'hello', 'world', '2016-05-23 22:27:07', '2016-05-23 22:27:07')[0m
+  [1m[35m (92.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (96.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (91.9ms)[0m  BEGIN
+  [1m[36m (92.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (93.1ms)[0m  INSERT INTO `users` (`email`, `password_digest`, `username`, `is_admin`, `role`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES ('test4@cucu.com', '$2a$04$PqMeHCI.vr5vYeaLCr32sutV0Yi5aIAesx2bYljvdduRbMv6TOb.6', 'test4', 0, 'user', 'hello', 'world', '2016-05-23 22:27:08', '2016-05-23 22:27:08')
+  [1m[36m (93.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (96.0ms)[0m  ROLLBACK
+  [1m[36m (92.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (91.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (92.4ms)[0m  [1mINSERT INTO `users` (`email`, `password_digest`, `username`, `is_admin`, `role`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES ('test6@cucu.com', '$2a$04$pMOxRxJEE42Tw5vh1G74leXJ6RHc1zfsiwFnA2JO5wEYwGL8bxuSK', 'test6', 0, 'user', 'hello', 'world', '2016-05-23 22:27:08', '2016-05-23 22:27:08')[0m
+  [1m[35m (92.9ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (96.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (92.1ms)[0m  BEGIN
+  [1m[36m (92.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (92.3ms)[0m  INSERT INTO `users` (`email`, `password_digest`, `username`, `is_admin`, `role`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES ('test8@cucu.com', '$2a$04$oir29a88f9VKi7p0UnuNye.n2vA1D5XGUiJG6cWJ1tlxJwK8uH4hW', 'test8', 0, 'user', 'hello', 'world', '2016-05-23 22:27:09', '2016-05-23 22:27:09')
+  [1m[36m (93.9ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (95.1ms)[0m  ROLLBACK
+  [1m[36m (91.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (91.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (97.4ms)[0m  [1mINSERT INTO `users` (`email`, `password_digest`, `username`, `is_admin`, `role`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES ('test10@cucu.com', '$2a$04$d6T48x5dNY7Upr0h9KkUouf1Pn.meeiIf/rmW8uZCAK8MTDL1NH.K', 'test10', 0, 'user', 'hello', 'world', '2016-05-23 22:27:10', '2016-05-23 22:27:10')[0m
+  [1m[35m (92.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (96.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (91.4ms)[0m  BEGIN
+  [1m[36m (92.0ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+  [1m[35m (91.9ms)[0m  ROLLBACK
+  [1m[36m (92.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (91.9ms)[0m  ROLLBACK
+  [1m[36m (92.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (92.9ms)[0m  SELECT COUNT(*) FROM `users`
+  [1m[36m (92.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (92.3ms)[0m  BEGIN
+  [1m[36m (91.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (91.9ms)[0m  BEGIN
+  [1m[36m (91.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (93.4ms)[0m  INSERT INTO `users` (`email`, `password_digest`, `username`, `is_admin`, `role`, `created_at`, `updated_at`) VALUES ('test@cucu.com', '$2a$04$Qh2fVWrr8frSWUYWT4aAyeIUUXtQG6qnEHaM0PvTAcwJXgbJYypPi', 'test16', 0, 'user', '2016-05-23 22:27:11', '2016-05-23 22:27:11')
+  [1m[36m (92.8ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (97.4ms)[0m  ROLLBACK
+  [1m[36m (92.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (92.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (92.5ms)[0m  [1mINSERT INTO `users` (`email`, `password_digest`, `username`, `is_admin`, `role`, `created_at`, `updated_at`) VALUES ('test@cucu.com', '$2a$04$4hKkxvbxkbMJFERuww2th.CAq99spQHjVa5N3Vb9vhQm3wtET49Xy', 'test18', 0, 'user', '2016-05-23 22:27:12', '2016-05-23 22:27:12')[0m
+  [1m[35m (97.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (95.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (91.8ms)[0m  BEGIN
+  [1m[36m (97.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (92.9ms)[0m  INSERT INTO `users` (`email`, `password_digest`, `username`, `is_admin`, `role`, `created_at`, `updated_at`) VALUES ('test16@cucu.com', '$2a$04$I0F576.nZMT.xxVHDxFtguyCDOoCSaP6q2U/PY5SBuX05J5l0bk3a', 'test20', 0, 'user', '2016-05-23 22:27:13', '2016-05-23 22:27:13')
+  [1m[36m (91.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (97.9ms)[0m  ROLLBACK
+  [1m[36m (92.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (92.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (92.7ms)[0m  [1mINSERT INTO `users` (`email`, `password_digest`, `username`, `is_admin`, `role`, `created_at`, `updated_at`) VALUES ('test17@cucu.com', '$2a$04$7K4TZwLZ7EzTgs7DdBPhn.VVIQ2Utj/M5hFA4TJCnIxgM1mCIPY5.', 'test21', 0, 'user', '2016-05-23 22:27:13', '2016-05-23 22:27:13')[0m
+  [1m[35m (92.9ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (95.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (92.5ms)[0m  BEGIN
+  [1m[36m (93.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (91.6ms)[0m  BEGIN
+  [1m[36m (96.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (92.0ms)[0m  BEGIN
+  [1m[36m (93.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (91.7ms)[0m  BEGIN
+  [1m[36m (91.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (92.1ms)[0m  BEGIN
+  [1m[36m (92.7ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (92.3ms)[0m  INSERT INTO `users` (`email`, `password_digest`, `username`, `is_admin`, `role`, `created_at`, `updated_at`) VALUES ('test22@cucu.com', '$2a$04$viebTLMko3V2Vg5U05fT1O2gDmQu1YUjP/yMCHvxe1F7cbFsHVD4a', 'test26', 0, 'user', '2016-05-23 22:27:15', '2016-05-23 22:27:15')
+  [1m[36m (91.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (95.6ms)[0m  ROLLBACK
+  [1m[36m (95.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (91.2ms)[0m  ROLLBACK
+  [1m[36m (92.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (92.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (92.0ms)[0m  [1mINSERT INTO `users` (`email`, `password_digest`, `username`, `is_admin`, `role`, `created_at`, `updated_at`) VALUES ('test@example.com', '$2a$04$Hx0eG71iw4W2O.i.3AEckOqlJv3f.w7F9nydRiW3ywfMdCoAWz8Z6', 'test28', 0, 'user', '2016-05-23 22:27:16', '2016-05-23 22:27:16')[0m
+  [1m[35m (92.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (98.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (92.6ms)[0m  BEGIN
+  [1m[36m (92.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (104.0ms)[0m  BEGIN
+  [1m[36m (92.8ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (92.5ms)[0m  INSERT INTO `users` (`email`, `password_digest`, `username`, `is_admin`, `role`, `created_at`, `updated_at`) VALUES ('test24@cucu.com', '$2a$04$dNKBvExGwnPvBdJ94rQpAeJYAOqZb8rAiyehKN8WmrjVPSn2Fdhhi', 'test', 0, 'user', '2016-05-23 22:27:17', '2016-05-23 22:27:17')
+  [1m[36m (102.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (97.5ms)[0m  ROLLBACK
+  [1m[36m (91.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (94.1ms)[0m  ROLLBACK
+  [1m[36m (92.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (92.9ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (112.7ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (110.8ms)[0m  BEGIN
+  [1m[36m (110.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (112.2ms)[0m  BEGIN
+  [1m[36m (109.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (106.4ms)[0m  BEGIN
+  [1m[36m (111.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (107.2ms)[0m  INSERT INTO `users` (`email`, `password_digest`, `username`, `is_admin`, `role`, `created_at`, `updated_at`) VALUES ('test1@cucu.com', '$2a$04$Nqk/KL1sJKtI.IFhCY3kmuBrQykwQVdEmN.0ThA.dziy2UZrv4D16', 'test1', 0, 'user', '2016-05-24 18:22:23', '2016-05-24 18:22:23')
+  [1m[36m (114.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (112.8ms)[0m  ROLLBACK
+  [1m[36m (114.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (113.8ms)[0m  ROLLBACK
+  [1m[36m (115.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (112.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (109.8ms)[0m  [1mINSERT INTO `users` (`email`, `password_digest`, `username`, `is_admin`, `role`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES ('test2@cucu.com', '$2a$04$rwGWplPpeakFnger8a9RcO2ywBYcvV47Y5klyV6WA1qfb0/Nkz79m', 'test2', 0, 'user', 'hello', 'world', '2016-05-24 18:22:24', '2016-05-24 18:22:24')[0m
+  [1m[35m (105.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (113.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (114.2ms)[0m  BEGIN
+  [1m[36m (111.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (109.3ms)[0m  INSERT INTO `users` (`email`, `password_digest`, `username`, `is_admin`, `role`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES ('test4@cucu.com', '$2a$04$UR1wEcPaQkkG4xmtkg562OHF8m8ETQlD7MYleuN2EMDMmFpkAXO6K', 'test4', 0, 'user', 'hello', 'world', '2016-05-24 18:22:24', '2016-05-24 18:22:24')
+  [1m[36m (109.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (110.7ms)[0m  ROLLBACK
+  [1m[36m (109.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (108.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (113.1ms)[0m  [1mINSERT INTO `users` (`email`, `password_digest`, `username`, `is_admin`, `role`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES ('test6@cucu.com', '$2a$04$ila.EhPCvC.o07QQzkQoEupmpAC3mU33JVnGTQ/ZNcS9O9xPg8uHu', 'test6', 0, 'user', 'hello', 'world', '2016-05-24 18:22:25', '2016-05-24 18:22:25')[0m
+  [1m[35m (112.9ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (113.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (108.6ms)[0m  BEGIN
+  [1m[36m (107.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (111.4ms)[0m  INSERT INTO `users` (`email`, `password_digest`, `username`, `is_admin`, `role`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES ('test8@cucu.com', '$2a$04$z5.Sf0W43O9nHWQwjXAUxOCT0r5Rc9TSiprvXDcwf.WDH4BHq7eBS', 'test8', 0, 'user', 'hello', 'world', '2016-05-24 18:22:26', '2016-05-24 18:22:26')
+  [1m[36m (111.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (112.2ms)[0m  ROLLBACK
+  [1m[36m (106.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (107.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (105.5ms)[0m  [1mINSERT INTO `users` (`email`, `password_digest`, `username`, `is_admin`, `role`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES ('test10@cucu.com', '$2a$04$8l6.w/v9V08tp49oDc4i.eB7xNnutHky6fUhuXz6Wqwzg/0BYS.GG', 'test10', 0, 'user', 'hello', 'world', '2016-05-24 18:22:26', '2016-05-24 18:22:26')[0m
+  [1m[35m (104.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (105.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (107.0ms)[0m  BEGIN
+  [1m[36m (168.7ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+  [1m[35m (109.2ms)[0m  ROLLBACK
+  [1m[36m (111.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (107.0ms)[0m  ROLLBACK
+  [1m[36m (107.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (104.5ms)[0m  SELECT COUNT(*) FROM `users`
+  [1m[36m (105.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (106.2ms)[0m  BEGIN
+  [1m[36m (108.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (109.9ms)[0m  BEGIN
+  [1m[36m (107.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (105.6ms)[0m  INSERT INTO `users` (`email`, `password_digest`, `username`, `is_admin`, `role`, `created_at`, `updated_at`) VALUES ('test@cucu.com', '$2a$04$/3tvZTLjXFix32CPNHUNSuAzOMwmUcoZQ4tbqzG9Uy/uQznbzlQLq', 'test16', 0, 'user', '2016-05-24 18:22:29', '2016-05-24 18:22:29')
+  [1m[36m (106.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (109.4ms)[0m  ROLLBACK
+  [1m[36m (104.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (110.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (104.8ms)[0m  [1mINSERT INTO `users` (`email`, `password_digest`, `username`, `is_admin`, `role`, `created_at`, `updated_at`) VALUES ('test@cucu.com', '$2a$04$QzrgC/xL74quVGx4lF/Z.OWzfjjFnNolNbLyaHNRNEqZtZijaLH.S', 'test18', 0, 'user', '2016-05-24 18:22:29', '2016-05-24 18:22:29')[0m
+  [1m[35m (107.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (108.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (104.8ms)[0m  BEGIN
+  [1m[36m (108.7ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (110.0ms)[0m  INSERT INTO `users` (`email`, `password_digest`, `username`, `is_admin`, `role`, `created_at`, `updated_at`) VALUES ('test16@cucu.com', '$2a$04$Nv.CgSIPwOn.kF3.8Rdm6eVmX8rkKzf8nVBtOaXfE.REqufbxFjay', 'test20', 0, 'user', '2016-05-24 18:22:30', '2016-05-24 18:22:30')
+  [1m[36m (105.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (112.8ms)[0m  ROLLBACK
+  [1m[36m (111.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (104.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (104.7ms)[0m  [1mINSERT INTO `users` (`email`, `password_digest`, `username`, `is_admin`, `role`, `created_at`, `updated_at`) VALUES ('test17@cucu.com', '$2a$04$NhGWmz7u7yw3BEIuCJI15.1Mu.KblxPycO5Uj7WRjPClEfZ5OBcca', 'test21', 0, 'user', '2016-05-24 18:22:31', '2016-05-24 18:22:31')[0m
+  [1m[35m (105.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (110.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (108.3ms)[0m  BEGIN
+  [1m[36m (107.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (110.3ms)[0m  BEGIN
+  [1m[36m (109.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (111.4ms)[0m  BEGIN
+  [1m[36m (113.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (105.9ms)[0m  BEGIN
+  [1m[36m (107.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (108.2ms)[0m  BEGIN
+  [1m[36m (107.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (105.3ms)[0m  INSERT INTO `users` (`email`, `password_digest`, `username`, `is_admin`, `role`, `created_at`, `updated_at`) VALUES ('test22@cucu.com', '$2a$04$1v.3mPECpogi/bTdVe9lR.W.todLb3fDRdhCOS/CqqjhkjIESUXK6', 'test26', 0, 'user', '2016-05-24 18:22:33', '2016-05-24 18:22:33')
+  [1m[36m (105.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (111.3ms)[0m  ROLLBACK
+  [1m[36m (107.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (106.8ms)[0m  ROLLBACK
+  [1m[36m (114.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (110.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (105.7ms)[0m  [1mINSERT INTO `users` (`email`, `password_digest`, `username`, `is_admin`, `role`, `created_at`, `updated_at`) VALUES ('test@example.com', '$2a$04$8dXHeW4OT58z5dHOrVnzA.8NaM8c1.vxlCnSj4BEnyr2GoHwmZX86', 'test28', 0, 'user', '2016-05-24 18:22:34', '2016-05-24 18:22:34')[0m
+  [1m[35m (105.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (109.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (107.3ms)[0m  BEGIN
+  [1m[36m (105.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (108.0ms)[0m  BEGIN
+  [1m[36m (104.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (106.3ms)[0m  INSERT INTO `users` (`email`, `password_digest`, `username`, `is_admin`, `role`, `created_at`, `updated_at`) VALUES ('test24@cucu.com', '$2a$04$Y9cWFs9LcIwd5rATRNx8b.Q//EeE6lOjRLoqEcE.6i9ti4cwvHAyW', 'test', 0, 'user', '2016-05-24 18:22:35', '2016-05-24 18:22:35')
+  [1m[36m (104.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (108.0ms)[0m  ROLLBACK
+  [1m[36m (105.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (105.0ms)[0m  ROLLBACK
+  [1m[36m (105.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (104.5ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (108.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (108.5ms)[0m  BEGIN
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 352ms (Views: 10.6ms | ActiveRecord: 326.1ms)
+  [1m[36m (108.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (108.5ms)[0m  BEGIN
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+  [1m[36m (109.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (108.5ms)[0m  BEGIN
+  [1m[36m (108.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (111.1ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test1@cucu.com' LIMIT 1
+  [1m[36mSQL (108.5ms)[0m  [1mINSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test1@cucu.com', 'test1', 0, 'user', '$2a$10$O3S1MDIeLK1GB7ZUPwl8Ku', '$2a$10$O3S1MDIeLK1GB7ZUPwl8Ku0fraETRs2sA/1UQkht1ryw1g4l3lmi2', '2016-05-24 20:09:33', '2016-05-24 20:09:33')[0m
+  [1m[35m (108.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (114.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (108.4ms)[0m  BEGIN
+  [1m[36m (108.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (108.1ms)[0m  BEGIN
+  [1m[36m (108.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (108.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test2@cucu.com' LIMIT 1
+  [1m[36mSQL (108.6ms)[0m  [1mINSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `first_name`, `last_name`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test2@cucu.com', 'test2', 0, 'user', 'hello', 'world', '$2a$10$ylHh.P1sfEwWRHleNfaK3e', '$2a$10$ylHh.P1sfEwWRHleNfaK3ev/2SIb6Xh9okeQTluSHttuYliSG3jcK', '2016-05-24 20:09:34', '2016-05-24 20:09:34')[0m
+  [1m[35m (108.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (112.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (108.7ms)[0m  BEGIN
+  [1m[36m (108.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (108.9ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test4@cucu.com' LIMIT 1
+  [1m[36mSQL (108.7ms)[0m  [1mINSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `first_name`, `last_name`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test4@cucu.com', 'test4', 0, 'user', 'hello', 'world', '$2a$10$T/LzVKbStCLkhXqToNK44u', '$2a$10$T/LzVKbStCLkhXqToNK44uwd95UvHGX0I943UCxalW6fcMGbUOy1K', '2016-05-24 20:09:35', '2016-05-24 20:09:35')[0m
+  [1m[35m (109.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (112.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (108.7ms)[0m  BEGIN
+  [1m[36m (108.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (108.7ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test6@cucu.com' LIMIT 1
+  [1m[36mSQL (108.7ms)[0m  [1mINSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `first_name`, `last_name`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test6@cucu.com', 'test6', 0, 'user', 'hello', 'world', '$2a$10$rd4ismUz/Q9AlpZgwAZFHu', '$2a$10$rd4ismUz/Q9AlpZgwAZFHu3y7EXbZC1yXvJRQKm8F0DImSYQ719De', '2016-05-24 20:09:36', '2016-05-24 20:09:36')[0m
+  [1m[35m (108.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (114.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (108.4ms)[0m  BEGIN
+  [1m[36m (109.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (108.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test8@cucu.com' LIMIT 1
+  [1m[36mSQL (108.8ms)[0m  [1mINSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `first_name`, `last_name`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test8@cucu.com', 'test8', 0, 'user', 'hello', 'world', '$2a$10$SDK7pThRnSBThGo4k61e9O', '$2a$10$SDK7pThRnSBThGo4k61e9OigJtEUMS8t.kRaxqTHuz73pbduzd7/e', '2016-05-24 20:09:37', '2016-05-24 20:09:37')[0m
+  [1m[35m (108.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (112.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (109.0ms)[0m  BEGIN
+  [1m[36m (108.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (108.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test10@cucu.com' LIMIT 1
+  [1m[36mSQL (118.1ms)[0m  [1mINSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `first_name`, `last_name`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test10@cucu.com', 'test10', 0, 'user', 'hello', 'world', '$2a$10$FGSOLBcVwWwdzYy2MHpgou', '$2a$10$FGSOLBcVwWwdzYy2MHpgouSljP0IcpI8q0wobzCiwtC/fkw07Do7K', '2016-05-24 20:09:37', '2016-05-24 20:09:37')[0m
+  [1m[35m (108.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (112.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (108.6ms)[0m  BEGIN
+  [1m[36m (108.5ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"test11@cucu.com", "password"=>"[FILTERED]", "username"=>"test12", "is_admin"=>false, "role"=>"user"}}
+WARNING: Can't mass-assign protected attributes for User: username, is_admin, role
+	app/controllers/users_controller.rb:7:in `create'
+  [1m[35m (108.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (108.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test11@cucu.com' LIMIT 1[0m
+  [1m[35mSQL (108.4ms)[0m  INSERT INTO `users` (`email`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test11@cucu.com', '$2a$10$jLwAijfrj4nYEeakKqb31e', '$2a$10$jLwAijfrj4nYEeakKqb31emXVYhZxx2hv1w2dAL9kivXYtH96hc0y', '2016-05-24 20:09:38', '2016-05-24 20:09:38')
+  [1m[36m (108.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/
+Completed 302 Found in 501ms (ActiveRecord: 433.5ms)
+  [1m[35m (108.6ms)[0m  SELECT COUNT(*) FROM `users`
+  [1m[36m (112.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (108.2ms)[0m  BEGIN
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"test12@cucu.com", "password"=>"[FILTERED]", "username"=>"test13", "is_admin"=>false, "role"=>"user"}}
+WARNING: Can't mass-assign protected attributes for User: username, is_admin, role
+	app/controllers/users_controller.rb:7:in `create'
+  [1m[36m (108.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (108.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test12@cucu.com' LIMIT 1
+  [1m[36mSQL (108.3ms)[0m  [1mINSERT INTO `users` (`email`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test12@cucu.com', '$2a$10$1Y6.Wap3.tGcW/n45UyWbe', '$2a$10$1Y6.Wap3.tGcW/n45UyWbediN2mSvhSKqAbpI1s27vAAZ4z38Gy1i', '2016-05-24 20:09:39', '2016-05-24 20:09:39')[0m
+  [1m[35m (108.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/
+Completed 302 Found in 501ms (ActiveRecord: 433.2ms)
+  [1m[36m (112.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (108.3ms)[0m  BEGIN
+  [1m[36m (108.9ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>nil, "password"=>"[FILTERED]", "username"=>"test14", "is_admin"=>false, "role"=>"user"}}
+WARNING: Can't mass-assign protected attributes for User: username, is_admin, role
+	app/controllers/users_controller.rb:7:in `create'
+  [1m[35m (108.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (109.7ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` IS NULL LIMIT 1[0m
+  [1m[35m (108.9ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered users/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 825ms (Views: 0.6ms | ActiveRecord: 326.8ms)
+  [1m[36m (108.5ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+  [1m[35m (108.2ms)[0m  ROLLBACK
+  [1m[36m (321.9ms)[0m  [1mBEGIN[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"test13@cucu.com", "password"=>"[FILTERED]", "username"=>"test15", "is_admin"=>false, "role"=>"user"}}
+WARNING: Can't mass-assign protected attributes for User: username, is_admin, role
+	app/controllers/users_controller.rb:7:in `create'
+  [1m[35m (108.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (109.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test13@cucu.com' LIMIT 1[0m
+  [1m[35mSQL (108.3ms)[0m  INSERT INTO `users` (`email`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test13@cucu.com', '$2a$10$Fe2CS.GXxbp0ZSy0awkbbO', '$2a$10$Fe2CS.GXxbp0ZSy0awkbbOaKTOT/hQLJQxK9Dw7S5aEf/Lj/pB7Uy', '2016-05-24 20:09:42', '2016-05-24 20:09:42')
+  [1m[36m (108.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/
+Completed 302 Found in 505ms (ActiveRecord: 434.4ms)
+  [1m[35m (112.2ms)[0m  ROLLBACK
+  [1m[36m (108.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (108.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (108.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@cucu.com' LIMIT 1[0m
+  [1m[35mSQL (108.7ms)[0m  INSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test@cucu.com', 'test16', 0, 'user', '$2a$10$KYjub2F2lLLUdfcTGtGf4e', '$2a$10$KYjub2F2lLLUdfcTGtGf4ePR4c.3Hs6ggpYxuQwjNYu.eimtOR6Sm', '2016-05-24 20:09:43', '2016-05-24 20:09:43')
+  [1m[36m (108.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (113.4ms)[0m  ROLLBACK
+  [1m[36m (108.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (108.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (108.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@cucu.com' LIMIT 1[0m
+  [1m[35mSQL (324.3ms)[0m  INSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test@cucu.com', 'test18', 0, 'user', '$2a$10$kYMZukFvaRDagBiapF9/a.', '$2a$10$kYMZukFvaRDagBiapF9/a.eGjzuSZazHjOg14Ytis17PhG5Aw3bH2', '2016-05-24 20:09:43', '2016-05-24 20:09:43')
+  [1m[36m (108.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"test15@cucu.com", "password"=>"[FILTERED]", "username"=>"test19", "is_admin"=>false, "role"=>"user"}}
+WARNING: Can't mass-assign protected attributes for User: username, is_admin, role
+	app/controllers/users_controller.rb:7:in `create'
+  [1m[35m (108.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (108.6ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test15@cucu.com' LIMIT 1[0m
+  [1m[35mSQL (462.1ms)[0m  INSERT INTO `users` (`email`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test15@cucu.com', '$2a$10$y12/1MYsziwivufv1pZZH.', '$2a$10$y12/1MYsziwivufv1pZZH.Z38A0MClAK9BaUnxeK0mrZuUIMzfVuq', '2016-05-24 20:09:44', '2016-05-24 20:09:44')
+  [1m[36m (108.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/
+Completed 302 Found in 858ms (ActiveRecord: 787.2ms)
+  [1m[35m (113.2ms)[0m  ROLLBACK
+  [1m[36m (542.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (108.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (384.1ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test16@cucu.com' LIMIT 1[0m
+  [1m[35mSQL (108.4ms)[0m  INSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test16@cucu.com', 'test20', 0, 'user', '$2a$10$uIr69p58Lwa5iVFMi6p5CO', '$2a$10$uIr69p58Lwa5iVFMi6p5COrF/jnAV8sDavoBhINFCrsb2kcybP37.', '2016-05-24 20:09:46', '2016-05-24 20:09:46')
+  [1m[36m (108.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (108.7ms)[0m  SELECT  1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'test16@cucu.com' AND `users`.`id` != 35) LIMIT 1
+  [1m[36m (329.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (108.2ms)[0m  BEGIN
+  [1m[36m (108.7ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (325.9ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test17@cucu.com' LIMIT 1
+  [1m[36mSQL (109.0ms)[0m  [1mINSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test17@cucu.com', 'test21', 0, 'user', '$2a$10$D1qv0gAxtL3w.4oTmySLPO', '$2a$10$D1qv0gAxtL3w.4oTmySLPO7P5n1y475XWkevIApPs9E23sfM4fgpW', '2016-05-24 20:09:48', '2016-05-24 20:09:48')[0m
+  [1m[35m (108.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (112.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (108.2ms)[0m  BEGIN
+  [1m[36m (108.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (108.2ms)[0m  BEGIN
+  [1m[36mUser Exists (108.6ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test19@cucu.com' LIMIT 1[0m
+  [1m[35m (108.3ms)[0m  ROLLBACK
+  [1m[36m (108.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (108.3ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test20@cucu.com' LIMIT 1
+  [1m[36m (108.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (108.7ms)[0m  BEGIN
+  [1m[36mUser Exists (108.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test21@cucu.com' LIMIT 1[0m
+  [1m[35m (108.1ms)[0m  ROLLBACK
+  [1m[36m (108.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (109.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (108.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test22@cucu.com' LIMIT 1[0m
+  [1m[35mSQL (108.5ms)[0m  INSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test22@cucu.com', 'test26', 0, 'user', '$2a$10$QkVC3SgDndTKpVHqXd8uNu', '$2a$10$QkVC3SgDndTKpVHqXd8uNuHHsK33oyUTNvS99yT6rZeDhRP1jWMCi', '2016-05-24 20:09:50', '2016-05-24 20:09:50')
+  [1m[36m (108.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (112.6ms)[0m  ROLLBACK
+  [1m[36m (108.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (108.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` IS NULL LIMIT 1
+  [1m[36m (108.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (108.3ms)[0m  BEGIN
+  [1m[36m (108.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (109.1ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@example.com' LIMIT 1
+  [1m[36mSQL (427.7ms)[0m  [1mINSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test@example.com', 'test28', 0, 'user', '$2a$10$.JAMLU9051veP5JVhBVx6e', '$2a$10$.JAMLU9051veP5JVhBVx6eg/9GXMoh2TfqFN8Mom4XXz6gqnluRCi', '2016-05-24 20:09:51', '2016-05-24 20:09:51')[0m
+  [1m[35m (118.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (108.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@example.com' LIMIT 1[0m
+  [1m[35m (112.3ms)[0m  ROLLBACK
+  [1m[36m (108.7ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (108.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test23@cucu.com' LIMIT 1
+  [1m[36m (108.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (108.3ms)[0m  BEGIN
+  [1m[36m (108.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (109.0ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test24@cucu.com' LIMIT 1
+  [1m[36mSQL (108.4ms)[0m  [1mINSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test24@cucu.com', 'test', 0, 'user', '$2a$10$8bAALBnUku4V8EXsxv7wY.', '$2a$10$8bAALBnUku4V8EXsxv7wY.Noc2Ytcib0EpUAvN/YqEt8wuFCBzwY.', '2016-05-24 20:09:53', '2016-05-24 20:09:53')[0m
+  [1m[35m (108.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (108.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test25@cucu.com' LIMIT 1[0m
+  [1m[35m (115.0ms)[0m  ROLLBACK
+  [1m[36m (109.5ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (326.3ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test26@cucu.com' LIMIT 1
+  [1m[36m (108.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (109.0ms)[0m  BEGIN
+  [1m[36mUser Exists (459.8ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test27@cucu.com' LIMIT 1[0m
+  [1m[35m (110.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (106.7ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (104.9ms)[0m  BEGIN
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 343ms (Views: 12.1ms | ActiveRecord: 315.7ms)
+  [1m[36m (104.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (104.8ms)[0m  BEGIN
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (105.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (104.7ms)[0m  BEGIN
+  [1m[36m (104.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (105.3ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test1@cucu.com' LIMIT 1
+  [1m[36mSQL (104.9ms)[0m  [1mINSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test1@cucu.com', 'test1', 0, 'user', '$2a$10$yeSxa4CQ9aFyOqJNIm2a/O', '$2a$10$yeSxa4CQ9aFyOqJNIm2a/OJb9twJ74XeoZxvj8maa8wk420Ibmj2W', '2016-05-24 20:17:41', '2016-05-24 20:17:41')[0m
+  [1m[35m (104.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (109.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (105.6ms)[0m  BEGIN
+  [1m[36m (105.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (105.2ms)[0m  BEGIN
+  [1m[36m (105.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (105.8ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test2@cucu.com' LIMIT 1
+  [1m[36mSQL (105.5ms)[0m  [1mINSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `first_name`, `last_name`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test2@cucu.com', 'test2', 0, 'user', 'hello', 'world', '$2a$10$S4OupNf6P8geEVpLHgZlEO', '$2a$10$S4OupNf6P8geEVpLHgZlEOw5xRk/2tCjgKaT5HFZnl7ZJoeWNXV4K', '2016-05-24 20:17:42', '2016-05-24 20:17:42')[0m
+  [1m[35m (105.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (108.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (104.6ms)[0m  BEGIN
+  [1m[36m (104.8ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (105.0ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test4@cucu.com' LIMIT 1
+  [1m[36mSQL (105.2ms)[0m  [1mINSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `first_name`, `last_name`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test4@cucu.com', 'test4', 0, 'user', 'hello', 'world', '$2a$10$dkHgikw3Fn2YNGDpc6WvUO', '$2a$10$dkHgikw3Fn2YNGDpc6WvUOoz2..pOkJZChZ69FsGRsHg25f4thgv2', '2016-05-24 20:17:43', '2016-05-24 20:17:43')[0m
+  [1m[35m (104.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (108.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (105.1ms)[0m  BEGIN
+  [1m[36m (105.7ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (105.6ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test6@cucu.com' LIMIT 1
+  [1m[36mSQL (105.4ms)[0m  [1mINSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `first_name`, `last_name`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test6@cucu.com', 'test6', 0, 'user', 'hello', 'world', '$2a$10$13toJWDizHhzf0X2q97bte', '$2a$10$13toJWDizHhzf0X2q97bte8gD3khx2/cRt1k7lsqcMWESKgEgVJJO', '2016-05-24 20:17:44', '2016-05-24 20:17:44')[0m
+  [1m[35m (104.9ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (108.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (104.9ms)[0m  BEGIN
+  [1m[36m (105.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (105.1ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test8@cucu.com' LIMIT 1
+  [1m[36mSQL (104.9ms)[0m  [1mINSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `first_name`, `last_name`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test8@cucu.com', 'test8', 0, 'user', 'hello', 'world', '$2a$10$b9jC6U.lIUem2ov5/FlIM.', '$2a$10$b9jC6U.lIUem2ov5/FlIM.6huF0zQOfq7Qkr/36HNgJEawIFBUOby', '2016-05-24 20:17:45', '2016-05-24 20:17:45')[0m
+  [1m[35m (105.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (108.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (104.8ms)[0m  BEGIN
+  [1m[36m (104.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (104.9ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test10@cucu.com' LIMIT 1
+  [1m[36mSQL (104.8ms)[0m  [1mINSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `first_name`, `last_name`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test10@cucu.com', 'test10', 0, 'user', 'hello', 'world', '$2a$10$flW4vyo8q4SL.9ZeGjo1De', '$2a$10$flW4vyo8q4SL.9ZeGjo1Dezxfcrqh6v73bm4woGOQhTa1A8qmOxUu', '2016-05-24 20:17:46', '2016-05-24 20:17:46')[0m
+  [1m[35m (104.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (108.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (106.5ms)[0m  BEGIN
+  [1m[36m (105.0ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"test11@cucu.com", "password"=>"[FILTERED]", "username"=>"test12", "is_admin"=>false, "role"=>"user"}}
+WARNING: Can't mass-assign protected attributes for User: username, is_admin, role
+	app/controllers/users_controller.rb:7:in `create'
+  [1m[35m (104.9ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (104.7ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test11@cucu.com' LIMIT 1[0m
+  [1m[35mSQL (105.5ms)[0m  INSERT INTO `users` (`email`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test11@cucu.com', '$2a$10$sLYfpKBujjTLr0jwKkmOK.', '$2a$10$sLYfpKBujjTLr0jwKkmOK.V6ZoU2C6tixrKF6yCvoq/H5tOfE/3NW', '2016-05-24 20:17:47', '2016-05-24 20:17:47')
+  [1m[36m (104.8ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/
+Completed 302 Found in 490ms (ActiveRecord: 419.9ms)
+  [1m[35m (105.3ms)[0m  SELECT COUNT(*) FROM `users`
+  [1m[36m (108.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (104.9ms)[0m  BEGIN
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"test12@cucu.com", "password"=>"[FILTERED]", "username"=>"test13", "is_admin"=>false, "role"=>"user"}}
+WARNING: Can't mass-assign protected attributes for User: username, is_admin, role
+	app/controllers/users_controller.rb:7:in `create'
+  [1m[36m (104.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (104.8ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test12@cucu.com' LIMIT 1
+  [1m[36mSQL (105.0ms)[0m  [1mINSERT INTO `users` (`email`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test12@cucu.com', '$2a$10$.wL4CZDs94tnsQVbdFOkTu', '$2a$10$.wL4CZDs94tnsQVbdFOkTuiWl1ZPQQKAu68Ifr1FbYczPhDGXPqi6', '2016-05-24 20:17:48', '2016-05-24 20:17:48')[0m
+  [1m[35m (104.6ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/
+Completed 302 Found in 493ms (ActiveRecord: 419.3ms)
+  [1m[36m (108.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (104.6ms)[0m  BEGIN
+  [1m[36m (104.7ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>nil, "password"=>"[FILTERED]", "username"=>"test14", "is_admin"=>false, "role"=>"user"}}
+WARNING: Can't mass-assign protected attributes for User: username, is_admin, role
+	app/controllers/users_controller.rb:7:in `create'
+  [1m[35m (104.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (106.0ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` IS NULL LIMIT 1[0m
+  [1m[35m (105.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered users/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 713ms (Views: 1.1ms | ActiveRecord: 315.7ms)
+  [1m[36m (104.8ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+  [1m[35m (153.1ms)[0m  ROLLBACK
+  [1m[36m (105.1ms)[0m  [1mBEGIN[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"test13@cucu.com", "password"=>"[FILTERED]", "username"=>"test15", "is_admin"=>false, "role"=>"user"}}
+WARNING: Can't mass-assign protected attributes for User: username, is_admin, role
+	app/controllers/users_controller.rb:7:in `create'
+  [1m[35m (106.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (104.8ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test13@cucu.com' LIMIT 1[0m
+  [1m[35mSQL (104.8ms)[0m  INSERT INTO `users` (`email`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test13@cucu.com', '$2a$10$p2Y2iFtYRTTDleb97Bv1Ju', '$2a$10$p2Y2iFtYRTTDleb97Bv1JuBHplszuhGvJTcY0e6c7g7hRMkaL06gK', '2016-05-24 20:17:50', '2016-05-24 20:17:50')
+  [1m[36m (104.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/
+Completed 302 Found in 490ms (ActiveRecord: 420.6ms)
+  [1m[35m (111.5ms)[0m  ROLLBACK
+  [1m[36m (104.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (105.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (105.6ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@cucu.com' LIMIT 1[0m
+  [1m[35mSQL (105.1ms)[0m  INSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test@cucu.com', 'test16', 0, 'user', '$2a$10$0G9lU2Y8/QCePGOE/pQ8T.', '$2a$10$0G9lU2Y8/QCePGOE/pQ8T.mDQbLiL4IQFe5BXzs8LeZb40BZ//EwG', '2016-05-24 20:17:50', '2016-05-24 20:17:50')
+  [1m[36m (105.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (108.6ms)[0m  ROLLBACK
+  [1m[36m (104.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (104.9ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (105.0ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@cucu.com' LIMIT 1[0m
+  [1m[35mSQL (105.1ms)[0m  INSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test@cucu.com', 'test18', 0, 'user', '$2a$10$duMJ.1XF3ZcW.djvhwfan.', '$2a$10$duMJ.1XF3ZcW.djvhwfan.jGxIGikKqdunF0H9LacADU6qFlnkuga', '2016-05-24 20:17:51', '2016-05-24 20:17:51')
+  [1m[36m (104.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"test15@cucu.com", "password"=>"[FILTERED]", "username"=>"test19", "is_admin"=>false, "role"=>"user"}}
+WARNING: Can't mass-assign protected attributes for User: username, is_admin, role
+	app/controllers/users_controller.rb:7:in `create'
+  [1m[35m (104.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (104.8ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test15@cucu.com' LIMIT 1[0m
+  [1m[35mSQL (104.8ms)[0m  INSERT INTO `users` (`email`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test15@cucu.com', '$2a$10$JsuVAmWBc1.0sVLD8ObEh.', '$2a$10$JsuVAmWBc1.0sVLD8ObEh.xWwYq7BDiSu2WnSokSv15W0maYEHk6C', '2016-05-24 20:17:52', '2016-05-24 20:17:52')
+  [1m[36m (104.8ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/
+Completed 302 Found in 488ms (ActiveRecord: 419.3ms)
+  [1m[35m (108.8ms)[0m  ROLLBACK
+  [1m[36m (104.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (104.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (104.9ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test16@cucu.com' LIMIT 1[0m
+  [1m[35mSQL (104.6ms)[0m  INSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test16@cucu.com', 'test20', 0, 'user', '$2a$10$nHPzLM3/qgt4DlmP3O3a6e', '$2a$10$nHPzLM3/qgt4DlmP3O3a6eiByrWpzHdA8nJzVypA/R1QLyhf6mdVW', '2016-05-24 20:17:53', '2016-05-24 20:17:53')
+  [1m[36m (106.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (104.9ms)[0m  SELECT  1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'test16@cucu.com' AND `users`.`id` != 52) LIMIT 1
+  [1m[36m (108.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (104.5ms)[0m  BEGIN
+  [1m[36m (104.8ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (104.8ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test17@cucu.com' LIMIT 1
+  [1m[36mSQL (108.4ms)[0m  [1mINSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test17@cucu.com', 'test21', 0, 'user', '$2a$10$6W0857ZB6.4G6Vnt3x0Xk.', '$2a$10$6W0857ZB6.4G6Vnt3x0Xk.dT9nJWJYRreBjYDTraHo8SBGNmAtFeC', '2016-05-24 20:17:54', '2016-05-24 20:17:54')[0m
+  [1m[35m (105.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (109.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (104.9ms)[0m  BEGIN
+  [1m[36m (104.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (104.7ms)[0m  BEGIN
+  [1m[36mUser Exists (104.8ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test19@cucu.com' LIMIT 1[0m
+  [1m[35m (104.7ms)[0m  ROLLBACK
+  [1m[36m (105.0ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (104.9ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test20@cucu.com' LIMIT 1
+  [1m[36m (104.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (106.2ms)[0m  BEGIN
+  [1m[36mUser Exists (105.0ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test21@cucu.com' LIMIT 1[0m
+  [1m[35m (104.6ms)[0m  ROLLBACK
+  [1m[36m (104.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (104.9ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (105.1ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test22@cucu.com' LIMIT 1[0m
+  [1m[35mSQL (105.2ms)[0m  INSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test22@cucu.com', 'test26', 0, 'user', '$2a$10$ranPapkv6cd915Hz/PgZGO', '$2a$10$ranPapkv6cd915Hz/PgZGOWhdjG0L1vskMfVuqOeCEwnnRLW2g9xC', '2016-05-24 20:17:56', '2016-05-24 20:17:56')
+  [1m[36m (105.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (108.6ms)[0m  ROLLBACK
+  [1m[36m (105.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (105.1ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` IS NULL LIMIT 1
+  [1m[36m (105.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (104.8ms)[0m  BEGIN
+  [1m[36m (104.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (104.9ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@example.com' LIMIT 1
+  [1m[36mSQL (105.1ms)[0m  [1mINSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test@example.com', 'test28', 0, 'user', '$2a$10$kkpSRfgPcQ3KL/3UFlZQGe', '$2a$10$kkpSRfgPcQ3KL/3UFlZQGeJxv4yrElv5JBCYcvePo3nijjXQ7wS5u', '2016-05-24 20:17:57', '2016-05-24 20:17:57')[0m
+  [1m[35m (105.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (104.9ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@example.com' LIMIT 1[0m
+  [1m[35m (108.6ms)[0m  ROLLBACK
+  [1m[36m (104.5ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (104.7ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test23@cucu.com' LIMIT 1
+  [1m[36m (104.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (105.0ms)[0m  BEGIN
+  [1m[36m (105.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (104.9ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test24@cucu.com' LIMIT 1
+  [1m[36mSQL (104.9ms)[0m  [1mINSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test24@cucu.com', 'test', 0, 'user', '$2a$10$CH1kUemK2w2VMsCnDqWCp.', '$2a$10$CH1kUemK2w2VMsCnDqWCp.CMLf0DthjigacayK2Arh4SBtG.YpYGi', '2016-05-24 20:17:59', '2016-05-24 20:17:59')[0m
+  [1m[35m (105.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (104.9ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test25@cucu.com' LIMIT 1[0m
+  [1m[35m (108.4ms)[0m  ROLLBACK
+  [1m[36m (104.8ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (104.9ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test26@cucu.com' LIMIT 1
+  [1m[36m (105.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (105.5ms)[0m  BEGIN
+  [1m[36mUser Exists (105.0ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test27@cucu.com' LIMIT 1[0m
+  [1m[35m (104.8ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (103.7ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (105.5ms)[0m  BEGIN
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 339ms (Views: 12.5ms | ActiveRecord: 312.5ms)
+  [1m[36m (103.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (104.2ms)[0m  BEGIN
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+  [1m[36m (103.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (103.6ms)[0m  BEGIN
+  [1m[36m (103.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (103.9ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test1@cucu.com' LIMIT 1
+  [1m[36mSQL (103.6ms)[0m  [1mINSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test1@cucu.com', 'test1', 0, 'user', '$2a$10$bbVtYhb5Qtcs1NmtLvR0Be', '$2a$10$bbVtYhb5Qtcs1NmtLvR0Be7SO.yRP/uPw5o3yj0zDs13YD.yhrxBS', '2016-05-24 20:23:07', '2016-05-24 20:23:07')[0m
+  [1m[35m (103.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (108.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (105.1ms)[0m  BEGIN
+  [1m[36m (118.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (103.6ms)[0m  BEGIN
+  [1m[36m (103.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (104.1ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test2@cucu.com' LIMIT 1
+  [1m[36mSQL (106.0ms)[0m  [1mINSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `first_name`, `last_name`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test2@cucu.com', 'test2', 0, 'user', 'hello', 'world', '$2a$10$LgOlvc4XaMHE/uM9V86dQO', '$2a$10$LgOlvc4XaMHE/uM9V86dQOuD4AK4jkOdmTz/Bt2OFfA6J0YjG0Hu.', '2016-05-24 20:23:08', '2016-05-24 20:23:08')[0m
+  [1m[35m (103.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (107.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (103.8ms)[0m  BEGIN
+  [1m[36m (103.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (103.8ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test4@cucu.com' LIMIT 1
+  [1m[36mSQL (104.1ms)[0m  [1mINSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `first_name`, `last_name`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test4@cucu.com', 'test4', 0, 'user', 'hello', 'world', '$2a$10$66TPaYSxuP34zY2M24Ctqu', '$2a$10$66TPaYSxuP34zY2M24CtquWp1IBO5ymTZIcp85XR5jYNZazW.hYqS', '2016-05-24 20:23:09', '2016-05-24 20:23:09')[0m
+  [1m[35m (103.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (107.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (103.9ms)[0m  BEGIN
+  [1m[36m (103.7ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (103.9ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test6@cucu.com' LIMIT 1
+  [1m[36mSQL (104.3ms)[0m  [1mINSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `first_name`, `last_name`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test6@cucu.com', 'test6', 0, 'user', 'hello', 'world', '$2a$10$qzmkCbO5ZkvDPD4u59Fol.', '$2a$10$qzmkCbO5ZkvDPD4u59Fol.YxN0jcZNfmwi4UHht5SaM4M/x8XhnVi', '2016-05-24 20:23:09', '2016-05-24 20:23:09')[0m
+  [1m[35m (103.9ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (108.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (103.9ms)[0m  BEGIN
+  [1m[36m (103.7ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (103.8ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test8@cucu.com' LIMIT 1
+  [1m[36mSQL (103.8ms)[0m  [1mINSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `first_name`, `last_name`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test8@cucu.com', 'test8', 0, 'user', 'hello', 'world', '$2a$10$mQiZmAn3VwfFIdqjGxhsXu', '$2a$10$mQiZmAn3VwfFIdqjGxhsXujST.cemKok0ySbnf0y/auD9SpgGFm4.', '2016-05-24 20:23:10', '2016-05-24 20:23:10')[0m
+  [1m[35m (103.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (109.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (103.5ms)[0m  BEGIN
+  [1m[36m (103.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (103.9ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test10@cucu.com' LIMIT 1
+  [1m[36mSQL (105.9ms)[0m  [1mINSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `first_name`, `last_name`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test10@cucu.com', 'test10', 0, 'user', 'hello', 'world', '$2a$10$U0DrQqT8Q0bVRVBmqV0kqe', '$2a$10$U0DrQqT8Q0bVRVBmqV0kqepHxv1Rf2mgzrHik7WAtMXcRPDcMjk6W', '2016-05-24 20:23:11', '2016-05-24 20:23:11')[0m
+  [1m[35m (103.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (108.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (103.5ms)[0m  BEGIN
+  [1m[36m (104.0ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"test11@cucu.com", "password"=>"[FILTERED]", "username"=>"test12", "is_admin"=>false, "role"=>"user"}}
+WARNING: Can't mass-assign protected attributes for User: username, is_admin, role
+	app/controllers/users_controller.rb:7:in `create'
+  [1m[35m (104.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (103.7ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test11@cucu.com' LIMIT 1[0m
+  [1m[35mSQL (103.9ms)[0m  INSERT INTO `users` (`email`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test11@cucu.com', '$2a$10$egw9PyleFTKaOVnEZCjnHO', '$2a$10$egw9PyleFTKaOVnEZCjnHOxmyD70R0xFW7/M0W/UcLf3rZGc0Zu1m', '2016-05-24 20:23:12', '2016-05-24 20:23:12')
+  [1m[36m (103.8ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/
+Completed 302 Found in 484ms (ActiveRecord: 415.6ms)
+  [1m[35m (105.5ms)[0m  SELECT COUNT(*) FROM `users`
+  [1m[36m (107.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (103.8ms)[0m  BEGIN
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"test12@cucu.com", "password"=>"[FILTERED]", "username"=>"test13", "is_admin"=>false, "role"=>"user"}}
+WARNING: Can't mass-assign protected attributes for User: username, is_admin, role
+	app/controllers/users_controller.rb:7:in `create'
+  [1m[36m (103.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (104.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test12@cucu.com' LIMIT 1
+  [1m[36mSQL (103.9ms)[0m  [1mINSERT INTO `users` (`email`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test12@cucu.com', '$2a$10$9VHSRRqPsMdwvCaxSTvy6e', '$2a$10$9VHSRRqPsMdwvCaxSTvy6e3Mxwpu.QZE.9YdJPi2us4uZy1qCrLd.', '2016-05-24 20:23:13', '2016-05-24 20:23:13')[0m
+  [1m[35m (103.6ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/
+Completed 302 Found in 484ms (ActiveRecord: 415.8ms)
+  [1m[36m (107.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (103.8ms)[0m  BEGIN
+  [1m[36m (106.0ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>nil, "password"=>"[FILTERED]", "username"=>"test14", "is_admin"=>false, "role"=>"user"}}
+WARNING: Can't mass-assign protected attributes for User: username, is_admin, role
+	app/controllers/users_controller.rb:7:in `create'
+  [1m[35m (103.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (111.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` IS NULL LIMIT 1[0m
+  [1m[35m (104.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered users/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 762ms (Views: 0.6ms | ActiveRecord: 319.0ms)
+  [1m[36m (104.1ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+  [1m[35m (111.5ms)[0m  ROLLBACK
+  [1m[36m (106.6ms)[0m  [1mBEGIN[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"test13@cucu.com", "password"=>"[FILTERED]", "username"=>"test15", "is_admin"=>false, "role"=>"user"}}
+WARNING: Can't mass-assign protected attributes for User: username, is_admin, role
+	app/controllers/users_controller.rb:7:in `create'
+  [1m[35m (103.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (104.0ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test13@cucu.com' LIMIT 1[0m
+  [1m[35mSQL (103.7ms)[0m  INSERT INTO `users` (`email`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test13@cucu.com', '$2a$10$rq4znmwgYdoha7E5v4TlP.', '$2a$10$rq4znmwgYdoha7E5v4TlP.5upg1anLmfX83g8qvy2C4HDtUC7Nmhm', '2016-05-24 20:23:15', '2016-05-24 20:23:15')
+  [1m[36m (104.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/
+Completed 302 Found in 489ms (ActiveRecord: 415.4ms)
+  [1m[35m (107.6ms)[0m  ROLLBACK
+  [1m[36m (103.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (103.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (104.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@cucu.com' LIMIT 1[0m
+  [1m[35mSQL (103.6ms)[0m  INSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test@cucu.com', 'test16', 0, 'user', '$2a$10$oL2YxGDvg6J3WBmmexFkMO', '$2a$10$oL2YxGDvg6J3WBmmexFkMOYof.SQkCrBUk5ETy9oZEouxjobCe/lW', '2016-05-24 20:23:16', '2016-05-24 20:23:16')
+  [1m[36m (104.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (110.5ms)[0m  ROLLBACK
+  [1m[36m (103.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (103.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (104.2ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@cucu.com' LIMIT 1[0m
+  [1m[35mSQL (103.8ms)[0m  INSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test@cucu.com', 'test18', 0, 'user', '$2a$10$8d8HrDt.Kx10fmu4KtmwRe', '$2a$10$8d8HrDt.Kx10fmu4KtmwRekIg4bTJoH.GEhFVi11yCijaR7V437pe', '2016-05-24 20:23:16', '2016-05-24 20:23:16')
+  [1m[36m (167.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"test15@cucu.com", "password"=>"[FILTERED]", "username"=>"test19", "is_admin"=>false, "role"=>"user"}}
+WARNING: Can't mass-assign protected attributes for User: username, is_admin, role
+	app/controllers/users_controller.rb:7:in `create'
+  [1m[35m (103.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (103.9ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test15@cucu.com' LIMIT 1[0m
+  [1m[35mSQL (122.7ms)[0m  INSERT INTO `users` (`email`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test15@cucu.com', '$2a$10$4WoH3G2XBAEHdJZ0Mk0q8u', '$2a$10$4WoH3G2XBAEHdJZ0Mk0q8uxq7lCnJHIQyonKunoEx5XRw.cH6WNku', '2016-05-24 20:23:17', '2016-05-24 20:23:17')
+  [1m[36m (107.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/
+Completed 302 Found in 514ms (ActiveRecord: 437.2ms)
+  [1m[35m (109.3ms)[0m  ROLLBACK
+  [1m[36m (103.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (103.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (103.7ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test16@cucu.com' LIMIT 1[0m
+  [1m[35mSQL (105.0ms)[0m  INSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test16@cucu.com', 'test20', 0, 'user', '$2a$10$NnOx8EdGpZcrQrNwmCLAs.', '$2a$10$NnOx8EdGpZcrQrNwmCLAs.Pg6y.f127Dp/S19uR7B3KBS6/bZgtKm', '2016-05-24 20:23:18', '2016-05-24 20:23:18')
+  [1m[36m (104.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (104.4ms)[0m  SELECT  1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'test16@cucu.com' AND `users`.`id` != 69) LIMIT 1
+  [1m[36m (110.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (103.5ms)[0m  BEGIN
+  [1m[36m (103.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (103.9ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test17@cucu.com' LIMIT 1
+  [1m[36mSQL (104.5ms)[0m  [1mINSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test17@cucu.com', 'test21', 0, 'user', '$2a$10$CztjZyz3FoErGGAyYFBSL.', '$2a$10$CztjZyz3FoErGGAyYFBSL.IJ4zf4S9NimdJmeBp/Eox5CRIJTkiz.', '2016-05-24 20:23:19', '2016-05-24 20:23:19')[0m
+  [1m[35m (103.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (110.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (103.3ms)[0m  BEGIN
+  [1m[36m (103.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (104.6ms)[0m  BEGIN
+  [1m[36mUser Exists (107.1ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test19@cucu.com' LIMIT 1[0m
+  [1m[35m (103.7ms)[0m  ROLLBACK
+  [1m[36m (103.7ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (103.9ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test20@cucu.com' LIMIT 1
+  [1m[36m (105.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (103.5ms)[0m  BEGIN
+  [1m[36mUser Exists (103.6ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test21@cucu.com' LIMIT 1[0m
+  [1m[35m (103.6ms)[0m  ROLLBACK
+  [1m[36m (103.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (103.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (103.6ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test22@cucu.com' LIMIT 1[0m
+  [1m[35mSQL (103.7ms)[0m  INSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test22@cucu.com', 'test26', 0, 'user', '$2a$10$58vdahmd/ySC6Y3avmLasu', '$2a$10$58vdahmd/ySC6Y3avmLasuO..jpxMvgJN/wOPPVs278O2wBe/55b2', '2016-05-24 20:23:21', '2016-05-24 20:23:21')
+  [1m[36m (103.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (107.4ms)[0m  ROLLBACK
+  [1m[36m (103.7ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (103.7ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` IS NULL LIMIT 1
+  [1m[36m (103.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (103.8ms)[0m  BEGIN
+  [1m[36m (103.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (103.9ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@example.com' LIMIT 1
+  [1m[36mSQL (103.9ms)[0m  [1mINSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test@example.com', 'test28', 0, 'user', '$2a$10$.DrVhx2Q.bCQTQZawy6YZ.', '$2a$10$.DrVhx2Q.bCQTQZawy6YZ.TfoEwai29kJPFpmDoC0AZfnI0.qcHia', '2016-05-24 20:23:22', '2016-05-24 20:23:22')[0m
+  [1m[35m (103.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (103.9ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@example.com' LIMIT 1[0m
+  [1m[35m (108.3ms)[0m  ROLLBACK
+  [1m[36m (103.5ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (103.7ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test23@cucu.com' LIMIT 1
+  [1m[36m (103.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (103.6ms)[0m  BEGIN
+  [1m[36m (103.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (110.7ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test24@cucu.com' LIMIT 1
+  [1m[36mSQL (103.8ms)[0m  [1mINSERT INTO `users` (`email`, `username`, `is_admin`, `role`, `password_salt`, `password_hash`, `created_at`, `updated_at`) VALUES ('test24@cucu.com', 'test', 0, 'user', '$2a$10$n8tHi3d2XWWAN9Jp/G15Qu', '$2a$10$n8tHi3d2XWWAN9Jp/G15QuQCyWTr3Zc9eYcpWUKkQeBlIvmteChtO', '2016-05-24 20:23:24', '2016-05-24 20:23:24')[0m
+  [1m[35m (103.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (103.7ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test25@cucu.com' LIMIT 1[0m
+  [1m[35m (107.7ms)[0m  ROLLBACK
+  [1m[36m (103.5ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (103.7ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test26@cucu.com' LIMIT 1
+  [1m[36m (103.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (103.5ms)[0m  BEGIN
+  [1m[36mUser Exists (103.6ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test27@cucu.com' LIMIT 1[0m
+  [1m[35m (103.7ms)[0m  ROLLBACK

@@ -13,4 +13,11 @@ FactoryGirl.define do
     rate_num 1
     vote_num 1
   end
+
+  factory :invalid_video do
+    video_url nil
+    poster_url nil
+    uploader_id nil
+    title nil
+  end
 end
