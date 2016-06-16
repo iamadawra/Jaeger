@@ -122,34 +122,32 @@ $(function() {
         if($('#error_msg ul').has("#no_title").length == 0)
           $('#error_msg ul').append("<li id=\"no_title\">Title can't be blank.</li>");
         return false;
-     } else if($('#video_video_url').val() == ""){
+     } else {
         if($('#error_msg ul').has("#no_title").length != 0)
           $('#error_msg ul #no_title').remove();
-
+     }
+     
+     if($('#video_video_url').val() == ""){
         if($('#error_msg ul').has("#no_video").length == 0)
           $('#error_msg ul').append("<li id=\"no_video\">You need to choose a video file to upload.</li>");
         return false;
-     } else if($('#video_poster_url').val() == ""){
-        if($('#error_msg ul').has("#no_title").length != 0)
-          $('#error_msg ul #no_title').remove();
+     } else{
         if($('#error_msg ul').has("#no_video").length != 0)
           $('#error_msg ul #no_video').remove();
-
+     }
+        
+     if($('#video_poster_url').val() == ""){
         if($('#error_msg ul').has("#no_poster").length == 0)
-          $('#error_msg ul').append("<li id=\"no_poster\">You need to choose a poster file to upload.</li>");
+          $('#error_msg ul').append("<li id=\"no_video\">You need to choose a poster file to upload.</li>");
         return false;
      } else{
-       // if($('#error_msg ul').has("#no_title").length != 0)
-       //    $('#error_msg ul #no_title').remove();
-       // if($('#error_msg ul').has("#no_video").length != 0)
-       //    $('#error_msg ul #no_video').remove();
-       // if($('#error_msg ul').has("#no_poster").length != 0)
-       //    $('#error_msg ul #no_poster').remove();
+        if($('#error_msg ul').has("#no_poster").length != 0)
+          $('#error_msg ul #no_poster').remove();
      }
 
      return true;
   }
-  $('.directUpload').submit(function (event) {
+  $('.directUpload').find('input[type="submit"]').click(function (event) {
      if (!validate()) event.preventDefault();
      else $(this).submit();
   });
