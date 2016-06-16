@@ -39,8 +39,10 @@
 <% end %>
 <script>
 $(function() {
-  var done_times = 0;
-  var add_times = 0;
+  var video_added = 0;
+  var poster_added = 0;
+  var video_uploaded = 0;
+  var poster_uplaoded = 0;
   $('.directUpload').find("input:file").each(function(i, elem) {
     var fileInput    = $(elem);
     console.log(fileInput);
@@ -67,9 +69,16 @@ $(function() {
       dataType:         'XML',  // S3 returns XML if success_action_status is set to 201
       replaceFileInput: false,
       add: function (e, data){
-        add_times++;
+        if($(this).attr('id') == "video_video_url"){
+          video_added = 1;
+        }
+
+        if($(this).attr('id') == "video_poster_url"){
+          poster_added = 1;
+        }
+
         submitButton.click(function () {
-          if (add_times == 2) data.submit();
+          if (video_added == 1 && poster_added == 1 && $('#video_title').val() != "") data.submit();
         });
       },
       progressall: function (e, data) {
@@ -88,7 +97,14 @@ $(function() {
           text("Loading...");
       },
       done: function(e, data) {
-        done_times++;
+        if($(this).attr('id') == "video_video_url"){
+          video_uploaded = 1;
+        }
+
+        if($(this).attr('id') == "video_poster_url"){
+          poster_uplaoded = 1;
+        }
+
         progressBar.text("Uploading done");
 
         // extract key and generate URL from response
@@ -98,7 +114,7 @@ $(function() {
         // create hidden field
         var input = $("<input />", { type:'hidden', name: fileInput.attr('name'), value: url })
         form.append(input);
-        if (done_times == 2){
+        if (video_uploaded == 1 && poster_uplaoded == 1){
           submitButton.prop('disabled', false);
           form.submit();
         }
@@ -116,12 +132,12 @@ $(function() {
 
 $(function() {
   function validate() {
-     // console.log($('#error_msg ul').has("#no_title").length);
+     var res = true;
 
      if ($('#video_title').val() == "") {
         if($('#error_msg ul').has("#no_title").length == 0)
           $('#error_msg ul').append("<li id=\"no_title\">Title can't be blank.</li>");
-        return false;
+        res = false;
      } else {
         if($('#error_msg ul').has("#no_title").length != 0)
           $('#error_msg ul #no_title').remove();
@@ -130,7 +146,7 @@ $(function() {
      if($('#video_video_url').val() == ""){
         if($('#error_msg ul').has("#no_video").length == 0)
           $('#error_msg ul').append("<li id=\"no_video\">You need to choose a video file to upload.</li>");
-        return false;
+        res = false;
      } else{
         if($('#error_msg ul').has("#no_video").length != 0)
           $('#error_msg ul #no_video').remove();
@@ -138,18 +154,18 @@ $(function() {
         
      if($('#video_poster_url').val() == ""){
         if($('#error_msg ul').has("#no_poster").length == 0)
-          $('#error_msg ul').append("<li id=\"no_video\">You need to choose a poster file to upload.</li>");
-        return false;
+          $('#error_msg ul').append("<li id=\"no_poster\">You need to choose a poster file to upload.</li>");
+        res = false;
      } else{
         if($('#error_msg ul').has("#no_poster").length != 0)
           $('#error_msg ul #no_poster').remove();
      }
 
-     return true;
+     return res;
   }
   $('.directUpload').find('input[type="submit"]').click(function (event) {
      if (!validate()) event.preventDefault();
-     else $(this).submit();
+     // else $(this).submit();
   });
 });
 </script>
