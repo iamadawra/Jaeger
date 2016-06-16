@@ -1,0 +1,171 @@
+<%= form_for(@upload_video, :url => url_for(:controller => 'upload_videos', :action => 'create'), html: { class: "directUpload" , data: { 'video-form-data' => (@s3_direct_post.fields), 'poster-form-data' => (@s3_direct_post_poster.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host }}) do |f| %>
+  <% if @upload_video.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@upload_video.errors.count, "error") %> prohibited this upload_video from being saved:</h2>
+
+      <ul>
+      <% @upload_video.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div id="error_msg">
+    <ul></ul>
+  </div>
+
+    <%= f.label :title, "*Title: " %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :video_url, "*Video File: " %><br>
+    <%= f.file_field :video_url %>
+  </div>
+  <div class="field">
+    <%= f.label :poster_url, "*Poster File: " %><br>
+    <%= f.file_field :poster_url %>
+  </div>
+  <div class="field">
+    <%= f.label :tags, "Tags: (seperated by ;)"%><br>
+    <%= f.text_field :tags %>
+  </div>
+  <div class="field">
+    <%= f.label :video_desc, "Description: " %><br>
+    <%= f.text_field :video_desc %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<script>
+$(function() {
+  var video_added = 0;
+  var poster_added = 0;
+  var video_uploaded = 0;
+  var poster_uplaoded = 0;
+  $('.directUpload').find("input:file").each(function(i, elem) {
+    var fileInput    = $(elem);
+    console.log(fileInput);
+    var form         = $(fileInput.parents('form:first'));
+
+    var formData;
+    if($(this).attr('id') == "video_video_url"){
+      formData = form.data('video-form-data');
+    } else {
+      formData = form.data('poster-form-data')
+    }
+
+    var submitButton = form.find('input[type="submit"]');
+    var progressBar  = $("<div class='bar'></div>");
+    var barContainer = $("<div class='progress'></div>").append(progressBar);
+    fileInput.after(barContainer);
+    fileInput.fileupload({
+      fileInput:       fileInput,
+      url:             form.data('url'),
+      type:            'POST',
+      autoUpload:       true,
+      formData:         formData,
+      paramName:        'file', // S3 does not like nested name fields i.e. name="user[avatar_url]"
+      dataType:         'XML',  // S3 returns XML if success_action_status is set to 201
+      replaceFileInput: false,
+      add: function (e, data){
+        if($(this).attr('id') == "video_video_url"){
+          video_added = 1;
+        }
+
+        if($(this).attr('id') == "video_poster_url"){
+          poster_added = 1;
+        }
+
+        submitButton.click(function () {
+          if (video_added == 1 && poster_added == 1 && $('#video_title').val() != "") data.submit();
+        });
+      },
+      progressall: function (e, data) {
+        var progress = parseInt(data.loaded / data.total * 100, 10);
+        progressBar.
+          css('width', progress + '%').
+          text("Loading...(" + progress + "%)");
+      },
+      start: function (e) {
+        submitButton.prop('disabled', true);
+
+        progressBar.
+          css('background', 'green').
+          css('display', 'block').
+          css('width', '0%').
+          text("Loading...");
+      },
+      done: function(e, data) {
+        if($(this).attr('id') == "video_video_url"){
+          video_uploaded = 1;
+        }
+
+        if($(this).attr('id') == "video_poster_url"){
+          poster_uplaoded = 1;
+        }
+
+        progressBar.text("Uploading done");
+
+        // extract key and generate URL from response
+        var key   = $(data.jqXHR.responseXML).find("Key").text();
+        var url   = '//' + form.data('host') + '/' + key;
+
+        // create hidden field
+        var input = $("<input />", { type:'hidden', name: fileInput.attr('name'), value: url })
+        form.append(input);
+        if (video_uploaded == 1 && poster_uplaoded == 1){
+          submitButton.prop('disabled', false);
+          form.submit();
+        }
+      },
+      fail: function(e, data) {
+        submitButton.prop('disabled', false);
+
+        progressBar.
+          css("background", "red").
+          text("Failed");
+      }
+    });
+  });
+});
+
+$(function() {
+  function validate() {
+     var res = true;
+
+     if ($('#video_title').val() == "") {
+        if($('#error_msg ul').has("#no_title").length == 0)
+          $('#error_msg ul').append("<li id=\"no_title\">Title can't be blank.</li>");
+        res = false;
+     } else {
+        if($('#error_msg ul').has("#no_title").length != 0)
+          $('#error_msg ul #no_title').remove();
+     }
+     
+     if($('#video_video_url').val() == ""){
+        if($('#error_msg ul').has("#no_video").length == 0)
+          $('#error_msg ul').append("<li id=\"no_video\">You need to choose a video file to upload.</li>");
+        res = false;
+     } else{
+        if($('#error_msg ul').has("#no_video").length != 0)
+          $('#error_msg ul #no_video').remove();
+     }
+        
+     if($('#video_poster_url').val() == ""){
+        if($('#error_msg ul').has("#no_poster").length == 0)
+          $('#error_msg ul').append("<li id=\"no_poster\">You need to choose a poster file to upload.</li>");
+        res = false;
+     } else{
+        if($('#error_msg ul').has("#no_poster").length != 0)
+          $('#error_msg ul #no_poster').remove();
+     }
+
+     return res;
+  }
+  $('.directUpload').find('input[type="submit"]').click(function (event) {
+     if (!validate()) event.preventDefault();
+     // else $(this).submit();
+  });
+});
+</script>

@@ -18651,3 +18651,237 @@ WHERE fk.referenced_column_name is not null
   AND fk.table_name = 'votes'
 
   [1m[36m (75.2ms)[0m  [1mSHOW CREATE TABLE `votes`[0m
+  [1m[36m (150.1ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (193.2ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (73.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUsers (20160519013232)
+  [1m[35m (153.8ms)[0m  CREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `email` varchar(255), `password_hash` varchar(255), `password_salt` varchar(255), `username` varchar(255), `first_name` varchar(255), `middle_name` varchar(255), `last_name` varchar(255), `birth_day` int(11), `birth_month` int(11), `birth_year` int(11), `address_1` varchar(255), `address_2` varchar(255), `zipcode` varchar(255), `country` varchar(255), `phone` varchar(255), `is_admin` tinyint(1), `role` varchar(255), `activation_code` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (73.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (73.9ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160519013232')
+  [1m[36m (86.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateVideos (20160522155312)
+  [1m[35m (130.4ms)[0m  CREATE TABLE `videos` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255), `video_url` varchar(255), `poster_url` varchar(255), `is_in_competition` tinyint(1), `competition_id` int(11), `uploader_id` int(11), `tags` varchar(255), `uploaded_at` datetime, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (74.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (73.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160522155312')
+  [1m[36m (85.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateRatingCaches (20160604185809)
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in up at /Users/lander/Documents/ROR_workspace/cucucity/db/migrate/20160604185809_create_rating_caches.rb:9)
+  [1m[35m (131.4ms)[0m  CREATE TABLE `rating_caches` (`id` int(11) auto_increment PRIMARY KEY, `cacheable_id` int(11), `cacheable_type` varchar(255), `avg` float NOT NULL, `qty` int(11) NOT NULL, `dimension` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (140.2ms)[0m  [1mCREATE  INDEX `index_rating_caches_on_cacheable_id_and_cacheable_type`  ON `rating_caches` (`cacheable_id`, `cacheable_type`) [0m
+  [1m[35m (73.4ms)[0m  BEGIN
+  [1m[36mSQL (73.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160604185809')[0m
+  [1m[35m (98.4ms)[0m  COMMIT
+Migrating to CreateRates (20160604185810)
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in up at /Users/lander/Documents/ROR_workspace/cucucity/db/migrate/20160604185810_create_rates.rb:9)
+  [1m[36m (139.0ms)[0m  [1mCREATE TABLE `rates` (`id` int(11) auto_increment PRIMARY KEY, `rater_id` int(11), `rateable_id` int(11), `rateable_type` varchar(255), `stars` float NOT NULL, `dimension` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (141.7ms)[0m  CREATE  INDEX `index_rates_on_rater_id`  ON `rates` (`rater_id`) 
+  [1m[36m (144.0ms)[0m  [1mCREATE  INDEX `index_rates_on_rateable_id_and_rateable_type`  ON `rates` (`rateable_id`, `rateable_type`) [0m
+  [1m[35m (73.0ms)[0m  BEGIN
+  [1m[36mSQL (73.4ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160604185810')[0m
+  [1m[35m (90.4ms)[0m  COMMIT
+Migrating to CreateAverageCaches (20160604185811)
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in up at /Users/lander/Documents/ROR_workspace/cucucity/db/migrate/20160604185811_create_average_caches.rb:8)
+  [1m[36m (128.4ms)[0m  [1mCREATE TABLE `average_caches` (`id` int(11) auto_increment PRIMARY KEY, `rater_id` int(11), `rateable_id` int(11), `rateable_type` varchar(255), `avg` float NOT NULL, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (73.1ms)[0m  BEGIN
+  [1m[36mSQL (74.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160604185811')[0m
+  [1m[35m (85.1ms)[0m  COMMIT
+Migrating to CreateOverallAverages (20160604185812)
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in up at /Users/lander/Documents/ROR_workspace/cucucity/db/migrate/20160604185812_create_overall_averages.rb:7)
+  [1m[36m (151.1ms)[0m  [1mCREATE TABLE `overall_averages` (`id` int(11) auto_increment PRIMARY KEY, `rateable_id` int(11), `rateable_type` varchar(255), `overall_avg` float NOT NULL, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (75.8ms)[0m  BEGIN
+  [1m[36mSQL (74.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160604185812')[0m
+  [1m[35m (85.5ms)[0m  COMMIT
+Migrating to CreateUploadVideos (20160613172906)
+  [1m[36m (132.4ms)[0m  [1mCREATE TABLE `upload_videos` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255), `video_url` varchar(255), `poster_url` varchar(255), `tags` varchar(255), `video_desc` varchar(255), `is_approved` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (73.1ms)[0m  BEGIN
+  [1m[36mSQL (73.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160613172906')[0m
+  [1m[35m (88.6ms)[0m  COMMIT
+Migrating to AddVideoDescAndIsApproved (20160614030458)
+  [1m[36m (222.6ms)[0m  [1mALTER TABLE `videos` ADD `is_approved` tinyint(1)[0m
+  [1m[35m (261.1ms)[0m  ALTER TABLE `videos` ADD `video_desc` varchar(255)
+  [1m[36m (73.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (73.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160614030458')
+  [1m[36m (92.6ms)[0m  [1mCOMMIT[0m
+Migrating to DropUploadVideo (20160614053154)
+  [1m[35m (100.7ms)[0m  DROP TABLE `upload_videos`
+  [1m[36m (74.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (73.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160614053154')
+  [1m[36m (88.5ms)[0m  [1mCOMMIT[0m
+Migrating to ActsAsVotableMigration (20160615005802)
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in up at /Users/lander/Documents/ROR_workspace/cucucity/db/migrate/20160615005802_acts_as_votable_migration.rb:12)
+  [1m[35m (127.8ms)[0m  CREATE TABLE `votes` (`id` int(11) auto_increment PRIMARY KEY, `votable_id` int(11), `votable_type` varchar(255), `voter_id` int(11), `voter_type` varchar(255), `vote_flag` tinyint(1), `vote_scope` varchar(255), `vote_weight` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (150.9ms)[0m  [1mCREATE  INDEX `index_votes_on_voter_id_and_voter_type_and_vote_scope`  ON `votes` (`voter_id`, `voter_type`, `vote_scope`) [0m
+  [1m[35m (143.4ms)[0m  CREATE  INDEX `index_votes_on_votable_id_and_votable_type_and_vote_scope`  ON `votes` (`votable_id`, `votable_type`, `vote_scope`) 
+  [1m[36m (73.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (74.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160615005802')
+  [1m[36m (83.7ms)[0m  [1mCOMMIT[0m
+Migrating to AddCachedVotesToPosts (20160615022839)
+  [1m[35m (173.3ms)[0m  ALTER TABLE `videos` ADD `cached_votes_total` int(11) DEFAULT 0
+  [1m[36m (168.6ms)[0m  [1mALTER TABLE `videos` ADD `cached_votes_score` int(11) DEFAULT 0[0m
+  [1m[35m (185.4ms)[0m  ALTER TABLE `videos` ADD `cached_votes_up` int(11) DEFAULT 0
+  [1m[36m (194.7ms)[0m  [1mALTER TABLE `videos` ADD `cached_votes_down` int(11) DEFAULT 0[0m
+  [1m[35m (178.8ms)[0m  ALTER TABLE `videos` ADD `cached_weighted_score` int(11) DEFAULT 0
+  [1m[36m (175.5ms)[0m  [1mALTER TABLE `videos` ADD `cached_weighted_total` int(11) DEFAULT 0[0m
+  [1m[35m (171.3ms)[0m  ALTER TABLE `videos` ADD `cached_weighted_average` float DEFAULT 0.0
+  [1m[36m (136.4ms)[0m  [1mCREATE  INDEX `index_videos_on_cached_votes_total`  ON `videos` (`cached_votes_total`) [0m
+  [1m[35m (129.0ms)[0m  CREATE  INDEX `index_videos_on_cached_votes_score`  ON `videos` (`cached_votes_score`) 
+  [1m[36m (168.2ms)[0m  [1mCREATE  INDEX `index_videos_on_cached_votes_up`  ON `videos` (`cached_votes_up`) [0m
+  [1m[35m (149.2ms)[0m  CREATE  INDEX `index_videos_on_cached_votes_down`  ON `videos` (`cached_votes_down`) 
+  [1m[36m (157.9ms)[0m  [1mCREATE  INDEX `index_videos_on_cached_weighted_score`  ON `videos` (`cached_weighted_score`) [0m
+  [1m[35m (132.2ms)[0m  CREATE  INDEX `index_videos_on_cached_weighted_total`  ON `videos` (`cached_weighted_total`) 
+  [1m[36m (141.9ms)[0m  [1mCREATE  INDEX `index_videos_on_cached_weighted_average`  ON `videos` (`cached_weighted_average`) [0m
+  [1m[35m (73.7ms)[0m  BEGIN
+  [1m[36mSQL (73.1ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160615022839')[0m
+  [1m[35m (142.8ms)[0m  COMMIT
+Migrating to AddDefaultValueForIsApproved (20160615171442)
+  [1m[36m (87.5ms)[0m  [1mALTER TABLE `videos` CHANGE `is_approved` `is_approved` tinyint(1) DEFAULT 0[0m
+  [1m[35m (74.1ms)[0m  BEGIN
+  [1m[36mSQL (73.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160615171442')[0m
+  [1m[35m (85.2ms)[0m  COMMIT
+Migrating to IsApprovedNotNull (20160615172131)
+  [1m[36m (358.5ms)[0m  [1mALTER TABLE `videos` CHANGE `is_approved` `is_approved` tinyint(1) DEFAULT '0' NOT NULL[0m
+  [1m[35m (73.2ms)[0m  BEGIN
+  [1m[36mSQL (74.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160615172131')[0m
+  [1m[35m (90.6ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (73.7ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (75.0ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'cucucity_dev'
+  AND fk.table_name = 'average_caches'
+
+  [1m[36m (73.3ms)[0m  [1mSHOW CREATE TABLE `average_caches`[0m
+  [1m[35m (73.4ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'cucucity_dev'
+  AND fk.table_name = 'overall_averages'
+
+  [1m[36m (73.5ms)[0m  [1mSHOW CREATE TABLE `overall_averages`[0m
+  [1m[35m (73.7ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'cucucity_dev'
+  AND fk.table_name = 'rates'
+
+  [1m[36m (73.2ms)[0m  [1mSHOW CREATE TABLE `rates`[0m
+  [1m[35m (73.8ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'cucucity_dev'
+  AND fk.table_name = 'rating_caches'
+
+  [1m[36m (73.7ms)[0m  [1mSHOW CREATE TABLE `rating_caches`[0m
+  [1m[35m (73.6ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'cucucity_dev'
+  AND fk.table_name = 'users'
+
+  [1m[36m (73.5ms)[0m  [1mSHOW CREATE TABLE `users`[0m
+  [1m[35m (73.9ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'cucucity_dev'
+  AND fk.table_name = 'videos'
+
+  [1m[36m (73.9ms)[0m  [1mSHOW CREATE TABLE `videos`[0m
+  [1m[35m (73.7ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'cucucity_dev'
+  AND fk.table_name = 'votes'
+
+  [1m[36m (73.5ms)[0m  [1mSHOW CREATE TABLE `votes`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (73.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (73.4ms)[0m  BEGIN
+  [1m[36mSQL (74.4ms)[0m  [1mINSERT INTO `videos` (`title`, `video_url`, `poster_url`, `created_at`, `updated_at`) VALUES ('sample', 'sample.mp4', 'sample_poster.jpg', '2016-06-16 18:03:16', '2016-06-16 18:03:16')[0m
+  [1m[35m (102.7ms)[0m  COMMIT
+  [1m[36m (73.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (73.7ms)[0m  INSERT INTO `videos` (`title`, `video_url`, `poster_url`, `created_at`, `updated_at`) VALUES ('sample1', 'sample1.mp4', 'sample1_poster.jpg', '2016-06-16 18:03:17', '2016-06-16 18:03:17')
+  [1m[36m (113.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (73.3ms)[0m  BEGIN
+  [1m[36mSQL (73.4ms)[0m  [1mINSERT INTO `videos` (`title`, `video_url`, `poster_url`, `created_at`, `updated_at`) VALUES ('sample2', 'sample2.mp4', 'sample2_poster.jpg', '2016-06-16 18:03:17', '2016-06-16 18:03:17')[0m
+  [1m[35m (88.8ms)[0m  COMMIT
+  [1m[36m (74.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (74.4ms)[0m  INSERT INTO `videos` (`title`, `video_url`, `poster_url`, `created_at`, `updated_at`) VALUES ('sample3', 'sample3.mp4', 'sample3_poster.jpg', '2016-06-16 18:03:17', '2016-06-16 18:03:17')
+  [1m[36m (86.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (73.2ms)[0m  BEGIN
+  [1m[36mSQL (77.5ms)[0m  [1mINSERT INTO `videos` (`title`, `video_url`, `poster_url`, `created_at`, `updated_at`) VALUES ('sample4', 'sample4.mp4', 'sample4_poster.jpg', '2016-06-16 18:03:17', '2016-06-16 18:03:17')[0m
+  [1m[35m (94.4ms)[0m  COMMIT
+  [1m[36m (74.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (74.0ms)[0m  INSERT INTO `videos` (`title`, `video_url`, `poster_url`, `created_at`, `updated_at`) VALUES ('sample5', 'sample5.mp4', 'sample5_poster.jpg', '2016-06-16 18:03:18', '2016-06-16 18:03:18')
+  [1m[36m (104.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (73.3ms)[0m  BEGIN
+  [1m[36mSQL (73.4ms)[0m  [1mINSERT INTO `videos` (`title`, `video_url`, `poster_url`, `created_at`, `updated_at`) VALUES ('sample6', 'sample6.mp4', 'sample6_poster.jpg', '2016-06-16 18:03:18', '2016-06-16 18:03:18')[0m
+  [1m[35m (90.2ms)[0m  COMMIT
+  [1m[36m (73.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (73.5ms)[0m  INSERT INTO `videos` (`title`, `video_url`, `poster_url`, `created_at`, `updated_at`) VALUES ('sample7', 'sample7.mp4', 'sample7_poster.jpg', '2016-06-16 18:03:18', '2016-06-16 18:03:18')
+  [1m[36m (89.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (73.2ms)[0m  BEGIN
+  [1m[36mSQL (73.9ms)[0m  [1mINSERT INTO `videos` (`title`, `video_url`, `poster_url`, `created_at`, `updated_at`) VALUES ('sample8', 'sample8.mp4', 'sample8_poster.jpg', '2016-06-16 18:03:18', '2016-06-16 18:03:18')[0m
+  [1m[35m (92.3ms)[0m  COMMIT
+  [1m[36m (74.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (78.3ms)[0m  INSERT INTO `videos` (`title`, `video_url`, `poster_url`, `created_at`, `updated_at`) VALUES ('sample9', 'sample9.mp4', 'sample9_poster.jpg', '2016-06-16 18:03:19', '2016-06-16 18:03:19')
+  [1m[36m (101.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (73.2ms)[0m  BEGIN
+  [1m[36mSQL (73.3ms)[0m  [1mINSERT INTO `videos` (`title`, `video_url`, `poster_url`, `created_at`, `updated_at`) VALUES ('sample10', 'sample10.mp4', 'sample10_poster.jpg', '2016-06-16 18:03:19', '2016-06-16 18:03:19')[0m
+  [1m[35m (107.1ms)[0m  COMMIT
+  [1m[36m (91.1ms)[0m  [1mDROP DATABASE IF EXISTS `cucucity_test`[0m
+  [1m[35m (83.0ms)[0m  CREATE DATABASE `cucucity_test` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`
+  [1m[36m (145.4ms)[0m  [1mCREATE TABLE `average_caches` (`id` int(11) auto_increment PRIMARY KEY, `rater_id` int(11), `rateable_id` int(11), `rateable_type` varchar(255), `avg` float(24) NOT NULL, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (153.9ms)[0m  CREATE TABLE `overall_averages` (`id` int(11) auto_increment PRIMARY KEY, `rateable_id` int(11), `rateable_type` varchar(255), `overall_avg` float(24) NOT NULL, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (171.1ms)[0m  [1mCREATE TABLE `rates` (`id` int(11) auto_increment PRIMARY KEY, `rater_id` int(11), `rateable_id` int(11), `rateable_type` varchar(255), `stars` float(24) NOT NULL, `dimension` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (143.5ms)[0m  CREATE  INDEX `index_rates_on_rateable_id_and_rateable_type` USING btree ON `rates` (`rateable_id`, `rateable_type`) 
+  [1m[36m (150.3ms)[0m  [1mCREATE  INDEX `index_rates_on_rater_id` USING btree ON `rates` (`rater_id`) [0m
+  [1m[35m (153.5ms)[0m  CREATE TABLE `rating_caches` (`id` int(11) auto_increment PRIMARY KEY, `cacheable_id` int(11), `cacheable_type` varchar(255), `avg` float(24) NOT NULL, `qty` int(11) NOT NULL, `dimension` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (181.6ms)[0m  [1mCREATE  INDEX `index_rating_caches_on_cacheable_id_and_cacheable_type` USING btree ON `rating_caches` (`cacheable_id`, `cacheable_type`) [0m
+  [1m[35m (139.9ms)[0m  CREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `email` varchar(255), `password_hash` varchar(255), `password_salt` varchar(255), `username` varchar(255), `first_name` varchar(255), `middle_name` varchar(255), `last_name` varchar(255), `birth_day` int(11), `birth_month` int(11), `birth_year` int(11), `address_1` varchar(255), `address_2` varchar(255), `zipcode` varchar(255), `country` varchar(255), `phone` varchar(255), `is_admin` tinyint(1), `role` varchar(255), `activation_code` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (131.1ms)[0m  [1mCREATE TABLE `videos` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255), `video_url` varchar(255), `poster_url` varchar(255), `is_in_competition` tinyint(1), `competition_id` int(11), `uploader_id` int(11), `tags` varchar(255), `uploaded_at` datetime, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL, `is_approved` tinyint(1) DEFAULT 0 NOT NULL, `video_desc` varchar(255), `cached_votes_total` int(11) DEFAULT 0, `cached_votes_score` int(11) DEFAULT 0, `cached_votes_up` int(11) DEFAULT 0, `cached_votes_down` int(11) DEFAULT 0, `cached_weighted_score` int(11) DEFAULT 0, `cached_weighted_total` int(11) DEFAULT 0, `cached_weighted_average` float(24) DEFAULT 0.0) ENGINE=InnoDB[0m
+  [1m[35m (135.4ms)[0m  CREATE  INDEX `index_videos_on_cached_votes_down` USING btree ON `videos` (`cached_votes_down`) 
+  [1m[36m (144.7ms)[0m  [1mCREATE  INDEX `index_videos_on_cached_votes_score` USING btree ON `videos` (`cached_votes_score`) [0m
+  [1m[35m (142.6ms)[0m  CREATE  INDEX `index_videos_on_cached_votes_total` USING btree ON `videos` (`cached_votes_total`) 
+  [1m[36m (184.1ms)[0m  [1mCREATE  INDEX `index_videos_on_cached_votes_up` USING btree ON `videos` (`cached_votes_up`) [0m
+  [1m[35m (157.4ms)[0m  CREATE  INDEX `index_videos_on_cached_weighted_average` USING btree ON `videos` (`cached_weighted_average`) 
+  [1m[36m (160.0ms)[0m  [1mCREATE  INDEX `index_videos_on_cached_weighted_score` USING btree ON `videos` (`cached_weighted_score`) [0m
+  [1m[35m (149.0ms)[0m  CREATE  INDEX `index_videos_on_cached_weighted_total` USING btree ON `videos` (`cached_weighted_total`) 
+  [1m[36m (159.5ms)[0m  [1mCREATE TABLE `votes` (`id` int(11) auto_increment PRIMARY KEY, `votable_id` int(11), `votable_type` varchar(255), `voter_id` int(11), `voter_type` varchar(255), `vote_flag` tinyint(1), `vote_scope` varchar(255), `vote_weight` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (150.0ms)[0m  CREATE  INDEX `index_votes_on_votable_id_and_votable_type_and_vote_scope` USING btree ON `votes` (`votable_id`, `votable_type`, `vote_scope`) 
+  [1m[36m (155.3ms)[0m  [1mCREATE  INDEX `index_votes_on_voter_id_and_voter_type_and_vote_scope` USING btree ON `votes` (`voter_id`, `voter_type`, `vote_scope`) [0m
+  [1m[35m (137.1ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36m (177.1ms)[0m  [1mCREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) [0m
+  [1m[35m (72.3ms)[0m  SELECT version FROM `schema_migrations`
+  [1m[36m (84.4ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160615172131')[0m
+  [1m[35m (85.2ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160519013232')
+  [1m[36m (84.6ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160522155312')[0m
+  [1m[35m (83.6ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160604185809')
+  [1m[36m (89.5ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160604185810')[0m
+  [1m[35m (88.2ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160604185811')
+  [1m[36m (91.9ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160604185812')[0m
+  [1m[35m (93.5ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160613172906')
+  [1m[36m (85.1ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160614030458')[0m
+  [1m[35m (84.6ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160614053154')
+  [1m[36m (87.0ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160615005802')[0m
+  [1m[35m (86.7ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160615022839')
+  [1m[36m (89.1ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160615171442')[0m
