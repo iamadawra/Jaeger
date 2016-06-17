@@ -1,5 +1,7 @@
 class Video < ActiveRecord::Base
   ratyrate_rateable 'visual_effects', 'entertainment'
+  acts_as_votable
+
   validates_presence_of :title
   validates_presence_of :video_url
   validates_presence_of :poster_url

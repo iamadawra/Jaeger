@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   ratyrate_rater
+  acts_as_voter
   attr_accessible :email, :password, :password_confirmation
 
   attr_accessor :password

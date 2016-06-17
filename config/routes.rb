@@ -9,9 +9,13 @@ Rails.application.routes.draw do
   get 'videos/:id' => 'videos#show'
   post '/rate' => 'rater#create', :as => 'rate'
   
-  resources :users, :sessions, :videos, :rater
-  resources :upload_videos
-
+  resources :users, :sessions, :rater, :upload_videos
+  resources :videos do
+    member do
+      put "like" => "videos#upvote"
+      put "unlike" => "videos#downvote"
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
