@@ -5,7 +5,7 @@ class VideosController < ApplicationController
   @@PER_PAGE = 5
 
   def index
-    sql = "SELECT *, CONCAT('#@@CDN_DNS', poster_url) as c_poster_url FROM videos ORDER BY cached_votes_up DESC"
+    sql = "SELECT *, CONCAT('#@@CDN_DNS', poster_url) as c_poster_url FROM videos"
     @videos = Video.paginate_by_sql(sql, page: params[:page], per_page: @@PER_PAGE)
   end
 
@@ -19,12 +19,16 @@ class VideosController < ApplicationController
 
   def upvote
     @video.upvote_from current_user
-    redirect_to :back
+    upvotes = @video.get_upvotes.size
+    downvotes = @video.get_downvotes.size
+    render :json => "{\"id\": #{@video.id}, \"upvotes\": #{upvotes}, \"downvotes\": #{downvotes}}"
   end
 
   def downvote
     @video.downvote_from current_user
-    redirect_to :back
+    upvotes = @video.get_upvotes.size
+    downvotes = @video.get_downvotes.size
+    render :json => "{\"id\": #{@video.id}, \"upvotes\": #{upvotes}, \"downvotes\": #{downvotes}}"
   end
 
   private

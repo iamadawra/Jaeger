@@ -1,11 +1,14 @@
 class UploadVideosController < ApplicationController
   before_action :set_upload_video, only: [:show, :edit, :update, :destroy]
   before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
+  before_action :check_login
+
+  @@PER_PAGE = 10
 
   # GET /upload_videos
   # GET /upload_videos.json
   def index
-    @upload_videos = Video.all
+    @upload_videos = Video.all.order(created_at: :desc).paginate(page: params[:page], per_page: @@PER_PAGE)
   end
 
   # GET /upload_videos/1
@@ -77,5 +80,11 @@ class UploadVideosController < ApplicationController
       uuid = "#{SecureRandom.uuid}";
       @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/" + uuid + "/video", success_action_status: '201', acl: 'public-read')
       @s3_direct_post_poster = S3_BUCKET.presigned_post(key: "uploads/" + uuid + "/poster", success_action_status: '201', acl: 'public-read')
+    end
+
+    def check_login
+      if !current_user
+        redirect_to root_path
+      end
     end
 end
