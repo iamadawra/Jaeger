@@ -116,9 +116,10 @@ $(function() {
         if($('#error_msg ul').has("#no_title").length != 0)
           $('#error_msg ul #no_title').remove();
 
-        if(!$('#video_title').val().match(/^[0-9a-zA-Z\.\-\_]+$/))
-          $('#error_msg ul').append("<li id=\"invalid_title\">Title is invalid.</li>");
-        else if($('#error_msg ul').has("#invalid_title").length != 0)
+        if(!$('#video_title').val().match(/^[0-9a-zA-Z\.\-\_]+$/)){
+          if ($('#error_msg ul').has("#invalid_title").length == 0)
+            $('#error_msg ul').append("<li id=\"invalid_title\">Title is invalid.</li>");
+        } else if($('#error_msg ul').has("#invalid_title").length != 0)
           $('#error_msg ul #invalid_title').remove();
      }
      
