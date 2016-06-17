@@ -29,16 +29,30 @@ $(function() {
       dataType:         'XML',  // S3 returns XML if success_action_status is set to 201
       replaceFileInput: false,
       add: function (e, data){
+        // console.log(data.files[0].type.substring(0, 5));
+        format = data.files[0].type.substring(0, 5);
         if($(this).attr('id') == "video_video_url"){
-          video_added = 1;
+          if(format == 'video')
+            video_added = 1;
+          else{
+            alert('The file format is not acceptable.')
+            $(this).replaceWith($(this).val('').clone(true));
+          }
         }
 
         if($(this).attr('id') == "video_poster_url"){
-          poster_added = 1;
+          if(format == 'image')
+            poster_added = 1;
+          else{
+            alert('The file format is not acceptable.')
+            $(this).replaceWith($(this).val('').clone(true));
+          }
         }
 
         submitButton.click(function () {
-          if (video_added == 1 && poster_added == 1 && $('#video_title').val() != "") data.submit();
+          if (video_added == 1 && poster_added == 1 && $('#video_title').val() != "") {
+            data.submit();
+          }
         });
       },
       progressall: function (e, data) {
@@ -101,6 +115,11 @@ $(function() {
      } else {
         if($('#error_msg ul').has("#no_title").length != 0)
           $('#error_msg ul #no_title').remove();
+
+        if(!$('#video_title').val().match(/^[0-9a-zA-Z\.\-\_]+$/))
+          $('#error_msg ul').append("<li id=\"invalid_title\">Title is invalid.</li>");
+        else if($('#error_msg ul').has("#invalid_title").length != 0)
+          $('#error_msg ul #invalid_title').remove();
      }
      
      if($('#video_video_url').val() == ""){

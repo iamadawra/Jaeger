@@ -19,4 +19,5 @@
 //= require turbolinks
 //= require video.js
 //= require upload_videos
+//= require index.js
 //= require_tree .
