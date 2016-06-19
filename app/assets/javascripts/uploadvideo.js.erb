@@ -1,110 +1,7 @@
 $(function() {
-  var video_added = 0;
-  var poster_added = 0;
   var video_uploaded = 0;
   var poster_uplaoded = 0;
-  $('.directUpload').find("input:file").each(function(i, elem) {
-    var fileInput    = $(elem);
-    console.log(fileInput);
-    var form         = $(fileInput.parents('form:first'));
 
-    var formData;
-    if($(this).attr('id') == "video_video_url"){
-      formData = form.data('video-form-data');
-    } else {
-      formData = form.data('poster-form-data')
-    }
-
-    var submitButton = form.find('input[type="submit"]');
-    var progressBar  = $("<div class='bar'></div>");
-    var barContainer = $("<div class='progress'></div>").append(progressBar);
-    fileInput.after(barContainer);
-    fileInput.fileupload({
-      fileInput:       fileInput,
-      url:             form.data('url'),
-      type:            'POST',
-      autoUpload:       true,
-      formData:         formData,
-      paramName:        'file', // S3 does not like nested name fields i.e. name="user[avatar_url]"
-      dataType:         'XML',  // S3 returns XML if success_action_status is set to 201
-      replaceFileInput: false,
-      add: function (e, data){
-        // console.log(data.files[0].type.substring(0, 5));
-        format = data.files[0].type.substring(0, 5);
-        if($(this).attr('id') == "video_video_url"){
-          if(format == 'video')
-            video_added = 1;
-          else{
-            alert('The file format is not acceptable.')
-            $(this).replaceWith($(this).val('').clone(true));
-          }
-        }
-
-        if($(this).attr('id') == "video_poster_url"){
-          if(format == 'image')
-            poster_added = 1;
-          else{
-            alert('The file format is not acceptable.')
-            $(this).replaceWith($(this).val('').clone(true));
-          }
-        }
-
-        submitButton.click(function () {
-          if (video_added == 1 && poster_added == 1 && $('#video_title').val() != "") {
-            data.submit();
-          }
-        });
-      },
-      progressall: function (e, data) {
-        var progress = parseInt(data.loaded / data.total * 100, 10);
-        progressBar.
-          css('width', progress + '%').
-          text("Loading...(" + progress + "%)");
-      },
-      start: function (e) {
-        submitButton.prop('disabled', true);
-
-        progressBar.
-          css('background', 'green').
-          css('display', 'block').
-          css('width', '0%').
-          text("Loading...");
-      },
-      done: function(e, data) {
-        if($(this).attr('id') == "video_video_url"){
-          video_uploaded = 1;
-        }
-
-        if($(this).attr('id') == "video_poster_url"){
-          poster_uplaoded = 1;
-        }
-
-        progressBar.text("Uploading done");
-
-        // extract key and generate URL from response
-        var key   = $(data.jqXHR.responseXML).find("Key").text();
-        var url   = '//' + form.data('host') + '/' + key;
-
-        // create hidden field
-        var input = $("<input />", { type:'hidden', name: fileInput.attr('name'), value: url })
-        form.append(input);
-        if (video_uploaded == 1 && poster_uplaoded == 1){
-          submitButton.prop('disabled', false);
-          form.submit();
-        }
-      },
-      fail: function(e, data) {
-        submitButton.prop('disabled', false);
-
-        progressBar.
-          css("background", "red").
-          text("Failed");
-      }
-    });
-  });
-});
-
-$(function() {
   function validate() {
      var res = true;
 
@@ -117,7 +14,8 @@ $(function() {
           $('#error_msg ul #no_title').remove();
         if(!$('#video_title').val().match(/^[0-9a-zA-Z\.\-\_]+$/)){
           if ($('#error_msg ul').has("#invalid_title").length == 0)
-            $('#error_msg ul').append("<li id=\"invalid_title\">Title is invalid.</li>");
+            $('#error_msg ul').append("<li id=\"invalid_title\">Title is invalid. It should not contain special characters other than \'.\', \'-\', \'_\'</li>");
+          res = false;
         } else if($('#error_msg ul').has("#invalid_title").length != 0)
           $('#error_msg ul #invalid_title').remove();
      }
@@ -142,8 +40,115 @@ $(function() {
 
      return res;
   }
+
+  $('.directUpload').find("input:file").each(function(i, elem) {
+    var fileInput    = $(elem);
+    var form         = $(fileInput.parents('form:first'));
+
+    var formData;
+    var acceptable = /(\.|\/)(mp4|jpe?g|png)$/i;
+    if($(this).attr('id') == "video_video_url"){
+      formData = form.data('video-form-data');
+      acceptable = /(\.|\/)(mp4)$/i;
+    } else {
+      formData = form.data('poster-form-data');
+      acceptable = /(\.|\/)(jpe?g|png)$/i;
+    }
+
+    var submitButton = form.find('input[type="submit"]');
+    var chooseButton1 = $("#video_video_url");
+    var chooseButton2 = $("#video_poster_url");
+    var progressBar  = $("<div class='bar'></div>");
+    var barContainer = $("<div class='progress'></div>").append(progressBar);
+    fileInput.after(barContainer);
+    fileInput.fileupload({
+      fileInput:       fileInput,
+      url:             form.data('url'),
+      type:            'POST',
+      autoUpload:       false,
+      formData:         formData,
+      paramName:        'file', // S3 does not like nested name fields i.e. name="user[avatar_url]"
+      dataType:         'XML',  // S3 returns XML if success_action_status is set to 201
+      replaceFileInput: false,
+      add: function (e, data){
+        var formatIsValid = true;
+        if(data.originalFiles[0]['type'].length && !acceptable.test(data.originalFiles[0]['type'])) {
+            formatIsValid = false;
+            alert('The file format is not acceptable.')
+        }
+
+        // format = data.files[0].type.substring(6);
+        // if($(this).attr('id') == "video_video_url"){
+        //   if(format != 'mp4'){
+        //     alert('The file format is not acceptable. It should be \'.mp4\'')
+        //     $(this).val('');
+        //   }
+        // }
+
+        // if($(this).attr('id') == "video_poster_url"){
+        //   if(format != 'jpeg' && format != 'png'){
+        //     alert('The file format is not acceptable. It should be \'.jpg\' or \'png\'')
+        //     $(this).val('');
+        //   }
+        // }
+        
+        submitButton.click(function (event) {
+          if (formatIsValid && validate()) {
+            data.submit();
+          }
+        });
+      },
+      progressall: function (e, data) {
+        var progress = parseInt(data.loaded / data.total * 100, 10);
+        progressBar.
+          css('width', progress + '%').
+          text("Loading...(" + progress + "%)");
+      },
+      start: function (e) {
+        submitButton.prop('disabled', true);
+        chooseButton1.prop('disabled', true);
+        chooseButton2.prop('disabled', true);
+
+        progressBar.
+          css('background', 'green').
+          css('display', 'block').
+          css('width', '0%').
+          text("Loading...");
+      },
+      done: function(e, data) {
+        progressBar.text("Uploading done");
+        // console.log($(this).attr('id'));
+        if($(this).attr('id') == 'video_video_url'){
+          video_uploaded = 1;
+        } else {
+          poster_uplaoded = 1;
+        }
+        // extract key and generate URL from response
+        var key   = $(data.jqXHR.responseXML).find("Key").text();
+        var url   = '//' + form.data('host') + '/' + key;
+
+        // create hidden field
+        var input = $("<input />", { type:'hidden', name: fileInput.attr('name'), value: url })
+        form.append(input);
+        if (video_uploaded == 1 && poster_uplaoded == 1){
+          form.submit();
+        }
+      },
+      fail: function(e, data) {
+        submitButton.prop('disabled', false);
+
+        progressBar.
+          css("background", "red").
+          text("Failed");
+      }
+    }).on('fileuploadadded', function (e, data) {
+        alert("ASDF");
+        console.log(data.files.valid);
+    });
+  });
+ 
   $('.directUpload').find('input[type="submit"]').click(function (event) {
-     if (!validate()) event.preventDefault();
-     // else $(this).submit();
+    validate();
+    event.preventDefault();
   });
 });
