@@ -15,7 +15,7 @@ Video.create!(title: 'sample', video_url: 'sample.mp4', poster_url: 'sample_post
 end
 
 10.times do |n|
-  email  = "a#{n+1}@cucucity.com"
+  email  = "a#{n+1}@c3.com"
   password = "0000"
   User.create!(email: email, password: password)
 end
