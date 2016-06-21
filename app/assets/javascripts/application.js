@@ -18,4 +18,5 @@
 //= require ratyrate
 //= require turbolinks
 //= require video.js
+//= require upload_videos
 //= require_tree .
