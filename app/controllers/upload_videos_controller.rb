@@ -8,7 +8,7 @@ class UploadVideosController < ApplicationController
   # GET /upload_videos
   # GET /upload_videos.json
   def index
-    @upload_videos = Video.all.order(created_at: :desc).paginate(page: params[:page], per_page: @@PER_PAGE)
+    @upload_videos = Video.where(:uploader_id => current_user.id).order(created_at: :desc).paginate(page: params[:page], per_page: @@PER_PAGE)
   end
 
   # GET /upload_videos/1
@@ -28,7 +28,9 @@ class UploadVideosController < ApplicationController
   # POST /upload_videos
   # POST /upload_videos.json
   def create
-    @upload_video = Video.new(upload_video_params)
+    uvp = upload_video_params
+    uvp[:uploader_id] = current_user.id
+    @upload_video = Video.new(uvp)
 
     respond_to do |format|
       if @upload_video.save

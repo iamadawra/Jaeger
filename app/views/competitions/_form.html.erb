@@ -124,7 +124,8 @@ $(function() {
         var formatIsValid = true;
         if(data.originalFiles[0]['type'].length && !acceptable.test(data.originalFiles[0]['type'])) {
             formatIsValid = false;
-            alert('The file format is not acceptable.')
+            alert('The file format is not acceptable.');
+            $(this).val('');
         }
         
         submitButton.click(function (event) {
