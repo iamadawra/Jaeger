@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  resources :competitions
   root 'users#new'
   
   get 'register' => 'users#new', :as => 'register'
