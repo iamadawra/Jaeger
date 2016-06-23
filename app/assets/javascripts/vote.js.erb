@@ -1,12 +1,11 @@
 $(function() {
-  $(".video-vote a").click(function(event) {
+  $(".video-vote a").click(function(e) {
     var u = $("#user-info").val();
     if (u) {
-      var href = $(this).attr("href");
-      var method = $(this).attr("data-method");
+      var href = $(this).attr("url");
       $.ajax({
         url: href,
-        method: method,
+        method: 'PUT',
         success: function (data) {
           $(".video-vote .like-vote-"+data.id).html(data.upvotes);
           $(".video-vote .unlike-vote-"+data.id).html(data.downvotes);
@@ -16,7 +15,7 @@ $(function() {
         }
       });
     } else alert("Please login to vote the video");
-    event.preventDefault();
+    e.preventDefault();
     return false;
   });
 });

@@ -1,10 +1,10 @@
 <div class="video-vote">
-  <%= link_to like_video_path(video), title: "like", class: "like", method: :put do %>
+  <%= link_to '#', title: "like", class: "like", url: like_video_path(video) do %>
     <span>Upvote</span>
   <% end %>
   <span class="like-vote-<%= video.id %>"><%= video.get_upvotes.size %></span>
 
-  <%= link_to unlike_video_path(video), title: "unlike", class: "unlike", method: :put do %>
+  <%= link_to '#', title: "unlike", class: "unlike", url: unlike_video_path(video) do %>
     <span>Downvote</span>
   <% end %>
   <span class="unlike-vote-<%= video.id %>"><%= video.get_downvotes.size %></span>
