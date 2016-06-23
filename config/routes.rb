@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   
   resources :competitions
-  root 'users#new'
+  root 'videos#show'
   
   get 'register' => 'users#new', :as => 'register'
   get 'login' => 'sessions#new', :as => 'login'

@@ -42,7 +42,7 @@ gem  'acts_as_votable'
 
 gem 'aws-sdk', '~> 2'
 
-gem 'figaro'
+# gem 'figaro'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
