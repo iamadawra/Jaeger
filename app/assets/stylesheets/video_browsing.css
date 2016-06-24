@@ -1,6 +1,6 @@
 .video-detail {
-  height: 320px;
-  width: 640px;
+  height: 350px;
+  width: 700px;
 }
 
 .video-browsing .video-link img {
@@ -9,19 +9,37 @@
 }
 
 .video-browsing li{
-  width: 420px;
+  width: 320px;
 }
 
 .video-poster {
-  clear: left;
+  clear: both;
+}
+
+.rate-and-vote{
+	margin-top: 20px;
 }
 
 .video-rate {
   float: left;
+  display: inline-block;
+}
+
+.video-rate img{
+  padding: 2px;
 }
 
 .video-vote {
+  margin-left: 20px;
   float: right;
+  display: inline-block;
+  height: 40px;
+}
+
+.video-vote span {
+  position: relative;
+  right: 0px; 
+  bottom: 0px;
 }
 
 .pagination {

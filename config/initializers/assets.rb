@@ -23,3 +23,6 @@ Rails.application.config.assets.precompile += %w( sessions.css )
 Rails.application.config.assets.precompile += %w( login.css )
 Rails.application.config.assets.precompile += %w( style.css )
 Rails.application.config.assets.precompile += %w( stylesheet.css )
+
+Rails.application.config.assets.precompile += %w( GandhiSans-Regular-webfont.eot )
+Rails.application.config.assets.precompile += %w( GandhiSans-Regular-webfont.woff )

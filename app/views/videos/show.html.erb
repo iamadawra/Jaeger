@@ -1,18 +1,59 @@
-<h1>Video Streaming</h1>
-
-<div class="video-detail">
-  <video id="myVideo" class="video-js video-in-detail vjs-big-play-centered" controls preload="auto" width="640" height="320"
-    poster="<%= @video.poster_url%>" data-setup="{}">
-      <source src="<%= @video.video_url%>" type="video/mp4">
-      <p class="vjs-no-js">
-        To view this video please enable JavaScript, and consider upgrading to a web browser that
-        <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-      </p>
-  </video>
-
-  <div class="video-rate"><%= rating_for @video, "entertainment" %></div>
-  <%= render partial: "voting", locals: {video: @video} %>
+<div class="right-content-heading">
+  <div class="right-content-heading-left">
+    <h3><%= @video.title%></h3>
+  </div>
+  <div class="right-content-heading-right">
+    <div class="social-icons">
+              <ul>
+                  <li><a class="facebook" href="#" target="_blank"> </a></li>
+                  <li><a class="twitter" href="#" target="_blank"></a></li>
+                  <li><a class="googleplus" href="#" target="_blank"></a></li>
+                  <li><a class="pinterest" href="#" target="_blank"></a></li>
+                  <li><a class="dribbble" href="#" target="_blank"></a></li>
+                  <li><a class="vimeo" href="#" target="_blank"></a></li>
+              </ul>
+  </div>
+  </div>
+  <div class="clear"> </div>
 </div>
-<% if current_user %>
-  <%= hidden_field_tag(id = 'user-info', value = current_user.id, options = {}) %>
-<% end %>
+
+<div class="inner-page">
+        
+  <div class="video-inner">
+    <div class="video-detail">
+      <video id="myVideo" class="video-js video-in-detail vjs-big-play-centered" controls preload="auto" width="700" height="350"
+        poster="<%= @video.poster_url%>" data-setup="{}">
+          <source src="<%= @video.video_url%>" type="video/mp4">
+          <p class="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading to a web browser that
+            <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+          </p>
+      </video>
+
+      <div class="rate-and-vote">
+        <div class="video-rate"><%= rating_for @video, "entertainment" %></div>
+        <%= render partial: "voting", locals: {video: @video} %>
+      </div>
+
+    </div>
+    <% if current_user %>
+      <%= hidden_field_tag(id = 'user-info', value = current_user.id, options = {}) %>
+    <% end %>
+  </div>
+  <div class="clear"> </div>
+  <div class="video-details">
+    <ul>
+      <li><p>Uploaded on <a href="#"><%= @video.created_at %></a> by <a href="#"><%= @video.uploader_id %></a></p></li>
+      <li><span><%= @video.video_desc %></span></li>
+    </ul>
+  </div>
+  <div class="clear"> </div>
+  <div class="tags">
+    <ul>
+      <li><h3>Tags:</h3></li>
+      <li><%= @video.tags %></li>
+    </ul>
+  </div>
+  <div class="clear"> </div>
+          
+</div>
