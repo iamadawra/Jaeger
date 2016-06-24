@@ -17,7 +17,7 @@
 # property set. Specify the username and a domain or IP for the server.
 # Don't use `:all`, it's a meta role.
 
-
+set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(/Users/zipingz/Dropbox/M16-Studio/master_id_rsa) }
 role :app, %w{52.32.199.225}
 set :branch, "master"
 # role :app, %w{deploy@example.com}, my_property: :my_value

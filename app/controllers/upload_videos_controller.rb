@@ -1,11 +1,14 @@
 class UploadVideosController < ApplicationController
   before_action :set_upload_video, only: [:show, :edit, :update, :destroy]
   before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
+  before_action :check_login
+
+  @@PER_PAGE = 10
 
   # GET /upload_videos
   # GET /upload_videos.json
   def index
-    @upload_videos = Video.all
+    @upload_videos = Video.where(:uploader_id => current_user.id).order(created_at: :desc).paginate(page: params[:page], per_page: @@PER_PAGE)
   end
 
   # GET /upload_videos/1
@@ -25,7 +28,9 @@ class UploadVideosController < ApplicationController
   # POST /upload_videos
   # POST /upload_videos.json
   def create
-    @upload_video = Video.new(upload_video_params)
+    uvp = upload_video_params
+    uvp[:uploader_id] = current_user.id
+    @upload_video = Video.new(uvp)
 
     respond_to do |format|
       if @upload_video.save
@@ -75,7 +80,17 @@ class UploadVideosController < ApplicationController
 
     def set_s3_direct_post
       uuid = "#{SecureRandom.uuid}";
-      @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/" + uuid + "/video", success_action_status: '201', acl: 'public-read')
-      @s3_direct_post_poster = S3_BUCKET.presigned_post(key: "uploads/" + uuid + "/poster", success_action_status: '201', acl: 'public-read')
+      puts ENV['S3_BUCKET']
+      puts ENV['AWS_ACCESS_KEY_ID']
+      puts ENV['AWS_SECRET_ACCESS_KEY'];
+      puts "aaaaaa";
+      @s3_direct_post = S3_BUCKET.presigned_post(key: "videos/" + uuid + "/video", success_action_status: '201', acl: 'public-read')
+      @s3_direct_post_poster = S3_BUCKET.presigned_post(key: "videos/" + uuid + "/poster", success_action_status: '201', acl: 'public-read')
+    end
+
+    def check_login
+      if !current_user
+        redirect_to login_path
+      end
     end
 end

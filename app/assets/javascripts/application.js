@@ -12,11 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.widget
-//= require z.jquery.fileupload
 //= require jquery.raty
-//= require ratyrate
 //= require turbolinks
-//= require video.js
-//= require upload_videos
-//= require_tree .
+//= require login.js

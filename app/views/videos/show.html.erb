@@ -1,10 +1,18 @@
 <h1>Video Streaming</h1>
-<video id="myVideo" class="video-js video-in-detail vjs-big-play-centered" controls preload="auto" width="640" height="320"
-  poster="<%= @video.poster_url%>" data-setup="{}">
-    <source src="<%= @video.video_url%>" type="video/mp4">
-    <p class="vjs-no-js">
-      To view this video please enable JavaScript, and consider upgrading to a web browser that
-      <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-    </p>
-</video>
-<%= rating_for @video, "entertainment" %>
+
+<div class="video-detail">
+  <video id="myVideo" class="video-js video-in-detail vjs-big-play-centered" controls preload="auto" width="640" height="320"
+    poster="<%= @video.poster_url%>" data-setup="{}">
+      <source src="<%= @video.video_url%>" type="video/mp4">
+      <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a web browser that
+        <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+      </p>
+  </video>
+
+  <div class="video-rate"><%= rating_for @video, "entertainment" %></div>
+  <%= render partial: "voting", locals: {video: @video} %>
+</div>
+<% if current_user %>
+  <%= hidden_field_tag(id = 'user-info', value = current_user.id, options = {}) %>
+<% end %>

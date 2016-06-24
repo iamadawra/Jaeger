@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   
   
-  root 'users#new'
+  resources :competitions
+  root 'videos#show'
   
   get 'register' => 'users#new', :as => 'register'
   get 'login' => 'sessions#new', :as => 'login'
@@ -9,9 +10,13 @@ Rails.application.routes.draw do
   get 'videos/:id' => 'videos#show'
   post '/rate' => 'rater#create', :as => 'rate'
   
-  resources :users, :sessions, :videos, :rater
-  resources :upload_videos
-
+  resources :users, :sessions, :rater, :upload_videos
+  resources :videos do
+    member do
+      put "like" => "videos#upvote"
+      put "unlike" => "videos#downvote"
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

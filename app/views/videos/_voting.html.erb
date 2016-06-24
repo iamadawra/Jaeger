@@ -1,0 +1,11 @@
+<div class="video-vote">
+  <%= link_to '#', title: "like", class: "like", url: like_video_path(video) do %>
+    <span>Upvote</span>
+  <% end %>
+  <span class="like-vote-<%= video.id %>"><%= video.get_upvotes.size %></span>
+
+  <%= link_to '#', title: "unlike", class: "unlike", url: unlike_video_path(video) do %>
+    <span>Downvote</span>
+  <% end %>
+  <span class="unlike-vote-<%= video.id %>"><%= video.get_downvotes.size %></span>
+</div>

@@ -1,0 +1,172 @@
+<%= form_for(@competition, html: { class: 'directUploadCompetition', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } }) do |f| %>
+  <% if @competition.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@competition.errors.count, "error") %> prohibited this competition from being saved:</h2>
+
+      <ul>
+      <% @competition.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div id="error_msg">
+    <ul></ul>
+  </div>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :desc %><br>
+    <%= f.text_field :desc %>
+  </div>
+  <div class="field">
+    <%= f.label :start_date %><br>
+    <%= f.date_select :start_date %>
+  </div>
+  <div class="field">
+    <%= f.label :period %><br>
+    <%= f.text_field :period %>
+  </div>
+  <div class="field">
+    <%= f.label :prize %><br>
+    <%= f.text_field :prize %>
+  </div>
+  <div class="field">
+    <%= f.label :prize_num %><br>
+    <%= f.text_field :prize_num %>
+  </div>
+  <div class="field">
+    <%= f.label :poster %><br>
+    <%= f.file_field :poster %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+$(function() {
+  function validate() {
+     var res = true;
+
+     if ($('#competition_title').val() == "") {
+        if($('#error_msg ul').has("#no_title").length == 0)
+          $('#error_msg ul').append("<li id=\"no_title\">Title can't be blank.</li>");
+        res = false;
+     } else {
+        if($('#error_msg ul').has("#no_title").length != 0)
+          $('#error_msg ul #no_title').remove();
+        if(!$('#video_title').val().match(/^[0-9a-zA-Z\.\-\_]+$/)){
+          if ($('#error_msg ul').has("#invalid_title").length == 0)
+            $('#error_msg ul').append("<li id=\"invalid_title\">Title is invalid. It should not contain special characters other than \'.\', \'-\', \'_\'</li>");
+          res = false;
+        } else if($('#error_msg ul').has("#invalid_title").length != 0)
+          $('#error_msg ul #invalid_title').remove();
+     }
+     
+     if($('#competition_period').val() == ""){
+        if($('#error_msg ul').has("#no_period").length == 0)
+          $('#error_msg ul').append("<li id=\"no_video\">You need to enter a period for the competition.</li>");
+        res = false;
+     } else{
+        if($('#error_msg ul').has("#no_period").length != 0)
+          $('#error_msg ul #no_period').remove();
+     }
+        
+     if($('#competition_prize').val() == ""){
+        if($('#error_msg ul').has("#no_prize").length == 0)
+          $('#error_msg ul').append("<li id=\"no_poster\">You need to enter a prize for the competition.</li>");
+        res = false;
+     } else{
+        if($('#error_msg ul').has("#no_prize").length != 0)
+          $('#error_msg ul #no_prize').remove();
+     }
+
+     if($('#competition_prize_num').val() == ""){
+        if($('#error_msg ul').has("#no_prize_num").length == 0)
+          $('#error_msg ul').append("<li id=\"no_poster\">You need to enter a prize number for the competition.</li>");
+        res = false;
+     } else{
+        if($('#error_msg ul').has("#no_prize_num").length != 0)
+          $('#error_msg ul #no_prize_num').remove();
+     }
+
+     return res;
+  }
+
+  $('.directUploadCompetition').find('input[type="submit"]').click(function (event) {
+    validate();
+    event.preventDefault();
+  });
+
+  $('.directUploadCompetition').find("input:file").each(function(i, elem) {
+    var fileInput    = $(elem);
+    console.log(fileInput);
+    var form         = $(fileInput.parents('form:first'));
+    var submitButton = form.find('input[type="submit"]');
+    var acceptable = /(\.|\/)(jpe?g|png)$/i;
+    var progressBar  = $("<div class='bar'></div>");
+    var barContainer = $("<div class='progress'></div>").append(progressBar);
+    fileInput.after(barContainer);
+     fileInput.fileupload({
+      fileInput:       fileInput,
+      url:             form.data('url'),
+      type:            'POST',
+      autoUpload:       true,
+      formData:         form.data('form-data'),
+      paramName:        'file', // S3 does not like nested name fields i.e. name="user[avatar_url]"
+      dataType:         'XML',  // S3 returns XML if success_action_status is set to 201
+      replaceFileInput: false,
+      add: function (e, data){
+        var formatIsValid = true;
+        if(data.originalFiles[0]['type'].length && !acceptable.test(data.originalFiles[0]['type'])) {
+            formatIsValid = false;
+            alert('The file format is not acceptable.');
+            $(this).val('');
+        }
+        
+        submitButton.click(function (event) {
+          if (formatIsValid && validate()) {
+            data.submit();
+          }
+        });
+      },
+      progressall: function (e, data) {
+        var progress = parseInt(data.loaded / data.total * 100, 10);
+        progressBar.css('width', progress + '%')
+      },
+      start: function (e) {
+        submitButton.prop('disabled', true);
+
+        progressBar.
+          css('background', 'green').
+          css('display', 'block').
+          css('width', '0%').
+          text("Loading...");
+      },
+      done: function(e, data) {
+        submitButton.prop('disabled', false);
+        progressBar.text("Uploading done");
+
+        // extract key and generate URL from response
+        var key   = $(data.jqXHR.responseXML).find("Key").text();
+        var url   = '//' + form.data('host') + '/' + key;
+
+        // create hidden field
+        var input = $("<input />", { type:'hidden', name: fileInput.attr('name'), value: url })
+        form.append(input);
+      },
+      fail: function(e, data) {
+        submitButton.prop('disabled', false);
+
+        progressBar.
+          css("background", "red").
+          text("Failed");
+      }
+    });
+  });
+});
+</script>

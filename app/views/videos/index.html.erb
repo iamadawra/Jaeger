@@ -107,12 +107,18 @@
 </html>
 
 <h1>Video Browsing</h1>
+<% if current_user %>
+  <%= hidden_field_tag(id = 'user-info', value = current_user.id, options = {}) %>
+<% end %>
 <%= will_paginate @videos %>
 <ul class="video-browsing">
   <% @videos.each do |v| %>
     <li>
-      <%= link_to image_tag(v.c_poster_url), "#{videos_path}/#{v.id}", title: v.title, class: "video-link" %>
-      <%= rating_for v, "entertainment", { readonly: true } %>
+      <div class="video-poster">
+        <%= link_to image_tag(v.c_poster_url), "#{videos_path}/#{v.id}", title: v.title, class: "video-link" %>
+      </div>
+      <div class="video-rate"><%= rating_for v, "entertainment", { readonly: true } %></div>
+      <%= render partial: "voting", locals: {video: v} %>
     </li>
   <% end %>
 </ul>

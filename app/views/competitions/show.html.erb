@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @competition.title %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @competition.desc %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @competition.start_date %>
+</p>
+
+<p>
+  <strong>Period:</strong>
+  <%= @competition.period %>
+</p>
+
+<p>
+  <strong>Prize:</strong>
+  <%= @competition.prize %>
+</p>
+
+<p>
+  <strong>Prize num:</strong>
+  <%= @competition.prize_num %>
+</p>
+
+<p>
+  <strong>Poster:</strong>
+  <%= @competition.poster %>
+</p>
+
+<%= link_to 'Edit', edit_competition_path(@competition) %> |
+<%= link_to 'Back', competitions_path %>
