@@ -1,23 +1,9 @@
-<!-- <h1>Log in</h1>
-
-<%= form_tag sessions_path do %>
-  <p>
-    <%= label_tag :email %><br />
-    <%= text_field_tag :email, params[:email] %>
-  </p>
-  <p>
-    <%= label_tag :password %><br />
-    <%= password_field_tag :password %>
-  </p>
-  <p class="button"><%= submit_tag "Log in" %></p>
-<% end %> -->
-
 <!DOCTYPE html>
 <html >
 <head>
   <meta charset="UTF-8">
   <title>CucuCity | Signup</title>
-  <!-- <link rel="stylesheet" href="style.css"> -->
+  <%= stylesheet_link_tag 'login', media: 'all', 'data-turbolinks-track' => true %>
 </head>
 <body>
 
