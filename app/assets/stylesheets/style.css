@@ -50,7 +50,7 @@ img{max-width:100%;}
 }
 .top-menu{
 	float:right;
-	width: 71%;
+	width: 78%;
 	padding-top: 6px;
 }
 .top-nav{
@@ -63,7 +63,7 @@ img{max-width:100%;}
 	 font-family: 'gandhi_sansregular';
 	color: #888;
 	text-transform: uppercase;
-	padding: 16px 20px;
+	padding: 16px 12px;
 	display: block;
 	transition: 0.5s ease;
 	-o-transition: 0.5s ease;
