@@ -24,7 +24,7 @@
 <div class="header">
         <div class="wrap">
         <div class="logo">
-          <a href="index.html"><%= link_to image_tag('logo.png',height: '70px'), title: 'logo' %></a>
+          <%= link_to image_tag('logo.png',height: '70px'), root_path, title: 'logo' %>
         </div>
         <div class="top-menu">
           
@@ -40,6 +40,7 @@
               <li><a href="#">Compete</a></li>
               <li><a href="#">About</a></li>
               <% if current_user %>
+                  <li><%= link_to "Upload Video", upload_videos_path %></li>
                   <li><%= link_to "logout", logout_path %></li>
                 <% else %>
                   <li><%= link_to "login", login_path %></li>
