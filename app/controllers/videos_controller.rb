@@ -2,7 +2,7 @@ class VideosController < ApplicationController
   before_action :set_video, only: [:show, :upvote, :downvote]
 
   @@CDN_DNS = "http://d3bowxm1hun7br.cloudfront.net/"
-  @@PER_PAGE = 5
+  @@PER_PAGE = 9
 
   def index
     sql = "SELECT *, CONCAT('#@@CDN_DNS', poster_url) as c_poster_url FROM videos"
