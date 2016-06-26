@@ -1,12 +1,3 @@
-<!DOCTYPE HTML>
-	<head>
-		<title>CucuCity</title>
-		  <%= stylesheet_link_tag 'style', media: 'all', 'data-turbolinks-track' => true %>
-		  
-		  <%= stylesheet_link_tag 'stylesheet', media: 'all', 'data-turbolinks-track' => true %>
-	</head>
-	<body>
-			
 				<div class="right-content-heading">
 					<div class="right-content-heading-left">
 						<h3>Trending Videos</h3>
@@ -21,7 +12,7 @@
 			                    <li><a class="dribbble" href="#" target="_blank"></a></li>
 			                    <li><a class="vimeo" href="#" target="_blank"></a></li>
 			                </ul>
-					</div>
+						</div>
 					</div>
 					<div class="clear"> </div>
 				</div>
@@ -29,9 +20,9 @@
 							<ul class="video-browsing">
 							  <% @videos.each do |v| %>
 							 	<div class="content-grid">
-									<%= link_to image_tag(v.c_poster_url), "#{videos_path}/#{v.id}", title: v.title, class: "video-link" %>
+									<%= link_to image_tag(v.c_poster_url), "#{videos_path}/#{v.id}", title: v.title, class: "video-link", data: { no_turbolink: true } %>
 									<h3><%= v.title %></h3>
-									<%= link_to "Watch now", "#{videos_path}/#{v.id}", title: v.title, class: "button" %>
+									<%= link_to "Watch now", "#{videos_path}/#{v.id}", title: v.title, class: "button", data: { no_turbolink: true } %>
 								</div>
 							  <% end %>
 							</ul>
@@ -41,7 +32,3 @@
 					</div>
 					<div class="clear"> </div>
 				</div>
-			
-	</body>
-</html>
-
