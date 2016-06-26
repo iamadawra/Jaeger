@@ -8,17 +8,6 @@
 </head>
 <body>
 <div class="header">
-
-        <div id="user_nav">
-          <% if current_user %>
-            Logged in as <%= current_user.email %>.
-            <%= link_to "Log out", logout_path %>
-          <% else %>
-            <%= link_to "Sign up", register_path %> or
-            <%= link_to "log in", login_path %>
-          <% end %>
-        </div>
-
         <% flash.each do |name, msg| %>
           <%= content_tag :div, msg, :id => "flash_#{name}" %>
         <% end %>
@@ -30,20 +19,21 @@
         <div class="top-menu">
           
           <div class="search">
-            <form>
-              <input type="text" class="textbox" value="Search.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
-              <input type="submit" value=" " />
-            </form>
+            <%= form_tag videos_path, :method => 'get' do %>
+              <%= text_field_tag :search, params[:search], value:"Search..", onfocus:"this.value = '';", onblur: "if (this.value == '') {this.value = 'Search';}" %> 
+              <%= submit_tag "", :name => nil %>
+            <% end %>
           </div>
           <div class="top-nav">
             <ul>
               <li><a href="#">Trending</a></li>
               <li><a href="#">Compete</a></li>
-              <li><a href="#">About</a></li>
+              
               <% if current_user %>
-                  <li><%= link_to "Upload Video", upload_videos_path %></li>
+                  <li><%= link_to "Upload", upload_videos_path %></li>
                   <li><%= link_to "logout", logout_path %></li>
                 <% else %>
+                <li><a href="#">About</a></li>
                   <li><%= link_to "login", login_path %></li>
                 <% end %>
             </ul>
