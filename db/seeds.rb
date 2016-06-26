@@ -9,7 +9,7 @@
   title  = "sample#{n+1}"
   video_url = "sample#{n+1}.mp4"
   poster_url = "sample#{n+1}.jpg"
-  Video.create!(title: title, video_url: video_url, poster_url: poster_url, uploader_id: "#{n%3+1}")
+  Video.create!(title: title, video_url: video_url, poster_url: poster_url, uploader_id: "#{n%3+1}", tags: "yes;no;notsure")
 end
 
 10.times do |n|
