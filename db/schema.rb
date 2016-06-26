@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160621011404) do
+ActiveRecord::Schema.define(version: 20160625203401) do
 
   create_table "average_caches", force: :cascade do |t|
     t.integer  "rater_id",      limit: 4
@@ -90,19 +90,21 @@ ActiveRecord::Schema.define(version: 20160621011404) do
     t.datetime "updated_at",                  null: false
   end
 
+  create_table "vc_relations", force: :cascade do |t|
+    t.integer  "video_id",       limit: 4
+    t.integer  "competition_id", limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
   create_table "videos", force: :cascade do |t|
     t.string   "title",                   limit: 255
     t.string   "video_url",               limit: 255
     t.string   "poster_url",              limit: 255
-    t.boolean  "is_in_competition"
     t.integer  "competition_id",          limit: 4
     t.integer  "uploader_id",             limit: 4
     t.string   "tags",                    limit: 255
     t.datetime "uploaded_at"
-    t.float    "rating",                  limit: 24
-    t.float    "voting",                  limit: 24
-    t.integer  "rate_num",                limit: 4
-    t.integer  "vote_num",                limit: 4
     t.datetime "created_at",                                          null: false
     t.datetime "updated_at",                                          null: false
     t.boolean  "is_approved",                         default: false, null: false

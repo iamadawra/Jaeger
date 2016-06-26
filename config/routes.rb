@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   get 'register' => 'users#new', :as => 'register'
   get 'login' => 'sessions#new', :as => 'login'
   get 'logout' => 'sessions#destroy', :as => 'logout'
-  get 'videos/:id' => 'videos#show'
+  get 'videos/:id' => 'videos#show', :as => 'video_search'
+  get 'videos/:search_params' => 'videos#search'
   post '/rate' => 'rater#create', :as => 'rate'
   
-  resources :users, :sessions, :rater, :upload_videos
+  resources :users, :sessions, :rater, :upload_videos, :videos
   resources :videos do
     member do
       put "like" => "videos#upvote"

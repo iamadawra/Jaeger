@@ -1,6 +1,10 @@
 				<div class="right-content-heading">
 					<div class="right-content-heading-left">
-						<h3>Trending Videos</h3>
+						<% if @is_search %>
+							<h3>Search Results</h3>
+						<% else %>
+							<h3>Trending Videos</h3>
+						<% end %>
 					</div>
 					<div class="right-content-heading-right">
 						<div class="social-icons">
@@ -20,7 +24,9 @@
 							<ul class="video-browsing">
 							  <% @videos.each do |v| %>
 							 	<div class="content-grid">
-									<%= link_to image_tag(v.c_poster_url), "#{videos_path}/#{v.id}", title: v.title, class: "video-link", data: { no_turbolink: true } %>
+							 		<% unless @is_search %>
+										<%= link_to image_tag(v.c_poster_url), "#{videos_path}/#{v.id}", title: v.title, class: "video-link", data: { no_turbolink: true } %>
+									<% end %>
 									<h3><%= v.title %></h3>
 									<%= link_to "Watch now", "#{videos_path}/#{v.id}", title: v.title, class: "button", data: { no_turbolink: true } %>
 								</div>
@@ -28,7 +34,9 @@
 							</ul>
 					<div class="clear"> </div>
 					<div class="pagenation">
-						<%= will_paginate @videos %>		
+						<% unless @is_search %>
+							<%= will_paginate @videos %>
+						<% end %>		
 					</div>
 					<div class="clear"> </div>
 				</div>
