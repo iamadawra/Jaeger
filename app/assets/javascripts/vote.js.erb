@@ -7,10 +7,8 @@ $(function() {
         url: href,
         method: 'PUT',
         success: function (data) {
-          if (data.err == null) {
-            $(".video-vote .like-vote-"+data.id).html(data.upvotes);
-            $(".video-vote .unlike-vote-"+data.id).html(data.downvotes);
-          }
+          $(".video-vote .like-vote-"+data.id).html(data.upvotes);
+          $(".video-vote .unlike-vote-"+data.id).html(data.downvotes);
         },
         error: function(xhr, status, error) {
           console.log("ajax error");
