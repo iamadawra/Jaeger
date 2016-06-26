@@ -16,7 +16,7 @@
 
   <div class="field">
     <%= f.label :title, "*Title: " %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title ,:size => 60, :max => 50,  placeholder: "(between 2-50 characters)"  %>
   </div>
   <div class="field">
     <%= f.label :video_url, "*Video File: " %><br>
@@ -32,7 +32,7 @@
   </div>
   <div class="field">
     <%= f.label :video_desc, "Description: " %><br>
-    <%= f.text_field :video_desc %>
+    <%= f.text_area :video_desc , :cols => 100, :rows => 10, :max => 500, placeholder: "(less than 500 characters)" %>
   </div>
   <div class="actions">
     <%= f.submit %>

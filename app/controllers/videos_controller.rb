@@ -6,7 +6,12 @@ class VideosController < ApplicationController
 
   def index
     sql = "SELECT *, CONCAT('#@@CDN_DNS', poster_url) as c_poster_url FROM videos"
-    @videos = Video.paginate_by_sql(sql, page: params[:page], per_page: @@PER_PAGE)
+    if params.has_key?(:search)
+      @is_search = true
+      @videos = Video.search(params[:search])
+    else
+      @videos = Video.paginate_by_sql(sql, page: params[:page], per_page: @@PER_PAGE)
+    end
   end
 
   def show
@@ -15,6 +20,10 @@ class VideosController < ApplicationController
   end
 
   def new
+  end
+
+  def search
+    
   end
 
   def upvote
