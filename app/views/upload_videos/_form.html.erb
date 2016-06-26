@@ -1,14 +1,14 @@
 <%= form_for(@upload_video, :url => url_for(:controller => 'upload_videos', :action => 'create'), html: { class: "directUpload" , data: { 'video-form-data' => (@s3_direct_post.fields), 'poster-form-data' => (@s3_direct_post_poster.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host }}) do |f| %>
-  <% if @upload_video.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@upload_video.errors.count, "error") %> prohibited this upload_video from being saved:</h2>
+<% if @upload_video.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@upload_video.errors.count, "error") %> prohibited this upload_video from being saved:</h2>
 
-      <ul>
+    <ul>
       <% @upload_video.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <li><%= message %></li>
       <% end %>
-      </ul>
-    </div>
+    </ul>
+  </div>
   <% end %>
   <div id="error_msg">
     <ul></ul>
@@ -27,7 +27,7 @@
     <%= f.file_field :poster_url %>
   </div>
   <div class="field">
-    <%= f.label :tags, "Tags: (seperated by ;)"%><br>
+    <%= f.label :tags, "Tags: (seperated by ,)"%><br>
     <%= f.text_field :tags %>
   </div>
   <div class="field">

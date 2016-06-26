@@ -8,6 +8,7 @@ class VideosController < ApplicationController
     if params.has_key?(:search)
       @is_search = true
       param = params[:search]
+      @param = param
       sql = "SELECT *, CONCAT('#@@CDN_DNS', poster_url) as c_poster_url FROM videos WHERE title LIKE '%#{param}%' || video_desc LIKE '%#{param}%' || tags LIKE '%#{param}%'"
       @videos = Video.paginate_by_sql(sql, page: params[:page], per_page: @@PER_PAGE)
     else

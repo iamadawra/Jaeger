@@ -316,6 +316,9 @@ img{max-width:100%;}
 .button:hover{
 	color:#888;
 }
+.keyword{
+	text-transform: none;
+}
 /*---top-social-icons-----*/
 .social-icons {
  float: right;
@@ -516,7 +519,7 @@ img{max-width:100%;}
 }
 .tags li a{
 	font-size: 0.9em;
-	color: #888;
+	color: #fff;
 	font-family: 'gandhi_sansregular';
 }
 .tags ul li{
@@ -527,6 +530,12 @@ img{max-width:100%;}
 	font-family: 'gandhi_sansregular';
 	font-size: 0.9em;
 	text-transform:uppercase;
+}
+.tag{
+	border: 0px solid black;
+	border-radius: 8px;
+	background: #428bca;
+	padding: 4px 6px 4px 6px; 
 }
 .other-links ul li{
 	line-height:1.8em;

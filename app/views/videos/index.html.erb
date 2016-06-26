@@ -1,7 +1,7 @@
 <div class="right-content-heading">
 	<div class="right-content-heading-left">
 		<% if @is_search %>
-		<h3>Search Results</h3>
+		<h3>Search Results for <span class="keyword">"<%= @param%>"</span></h3>
 		<% else %>
 		<h3>Trending Videos</h3>
 		<% end %>
@@ -22,12 +22,18 @@
 </div>
 <div class="content-grids">
 	<ul class="video-browsing">
-		<% @videos.each do |v| %>
-		<div class="content-grid">
-			<%= link_to image_tag(v.c_poster_url), "#{videos_path}/#{v.id}", title: v.title, class: "video-link", data: { no_turbolink: true } %>
-			<h3><%= v.title %></h3>
-			<%= link_to "Watch now", "#{videos_path}/#{v.id}", title: v.title, class: "button", data: { no_turbolink: true } %>
-		</div>
+		<% if @videos.count == 0 %>
+			<div>
+				<span>There is no videos matching the search keyword "<%= @param%>"</span>
+			</div>
+		<% else %>
+			<% @videos.each do |v| %>
+			<div class="content-grid">
+				<%= link_to image_tag(v.c_poster_url), "#{videos_path}/#{v.id}", title: v.title, class: "video-link", data: { no_turbolink: true } %>
+				<h3><%= v.title %></h3>
+				<%= link_to "Watch now", "#{videos_path}/#{v.id}", title: v.title, class: "button", data: { no_turbolink: true } %>
+			</div>
+			<% end %>
 		<% end %>
 	</ul>
 	<div class="clear"> </div>

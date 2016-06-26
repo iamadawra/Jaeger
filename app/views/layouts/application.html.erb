@@ -26,10 +26,9 @@
         <%= link_to image_tag('logo.png', height: '70px'), root_path, title: 'logo' %>
       </div>
       <div class="top-menu">
-
         <div class="search">
           <%= form_tag videos_path, :method => 'get' do %>
-          <%= text_field_tag :search, params[:search], value:"Search..", onfocus:"this.value = '';", onblur: "if (this.value == '') {this.value = 'Search';}" %> 
+          <%= text_field_tag :search, params[:search], placeholder: "Search" %> 
           <%= submit_tag "", :name => nil %>
           <% end %>
         </div>
