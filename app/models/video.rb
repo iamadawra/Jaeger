@@ -18,4 +18,12 @@ class Video < ActiveRecord::Base
     self.video_url = self.video_url.split('amazonaws.com/').last 
     self.poster_url = self.poster_url.split('amazonaws.com/').last
   end
+
+  def self.search(search)
+    if search
+      self.where("title like ?", "%#{search}%")
+    else
+      find(:all)
+    end
+  end
 end
