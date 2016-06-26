@@ -8,48 +8,55 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="header">
-        <% flash.each do |name, msg| %>
-          <%= content_tag :div, msg, :id => "flash_#{name}" %>
-        <% end %>
-        
-        <div class="wrap">
-        <div class="logo">
-          <%= link_to image_tag('logo.png',height: '70px'), root_path, title: 'logo' %>
+  <div class="header">
+    <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+    <% if current_user %>
+      <% if current_user.username %>
+        <div class="welcome">Hi, <%= current_user.username %></div>
+      <% else %>
+        <div class="welcome">Hi, <%= current_user.email %></div>
+      <% end %>
+      <div class="clear"></div>
+    <% end %>
+
+    <div class="wrap">
+      <div class="logo">
+        <%= link_to image_tag('logo.png', height: '70px'), root_path, title: 'logo' %>
+      </div>
+      <div class="top-menu">
+
+        <div class="search">
+          <%= form_tag videos_path, :method => 'get' do %>
+          <%= text_field_tag :search, params[:search], value:"Search..", onfocus:"this.value = '';", onblur: "if (this.value == '') {this.value = 'Search';}" %> 
+          <%= submit_tag "", :name => nil %>
+          <% end %>
         </div>
-        <div class="top-menu">
-          
-          <div class="search">
-            <%= form_tag videos_path, :method => 'get' do %>
-              <%= text_field_tag :search, params[:search], value:"Search..", onfocus:"this.value = '';", onblur: "if (this.value == '') {this.value = 'Search';}" %> 
-              <%= submit_tag "", :name => nil %>
+        <div class="top-nav">
+          <ul>
+            <li><a href="#">Trending</a></li>
+            <li><a href="#">Compete</a></li>
+            <% if current_user %>
+            <li><%= link_to "Upload", upload_videos_path %></li>
+            <li><%= link_to "logout", logout_path %></li>
+            <% else %>
+            <li><a href="#">About</a></li>
+            <li><%= link_to "login", login_path %></li>
             <% end %>
-          </div>
-          <div class="top-nav">
-            <ul>
-              <li><a href="#">Trending</a></li>
-              <li><a href="#">Compete</a></li>
-              
-              <% if current_user %>
-                  <li><%= link_to "Upload", upload_videos_path %></li>
-                  <li><%= link_to "logout", logout_path %></li>
-                <% else %>
-                <li><a href="#">About</a></li>
-                  <li><%= link_to "login", login_path %></li>
-                <% end %>
-            </ul>
-          </div>
-          <div class="clear"> </div>
+          </ul>
         </div>
         <div class="clear"> </div>
       </div>
+      <div class="clear"> </div>
     </div>
-    <div class="clear"> </div>
-    <div class="main-content">
-      <div class="wrap">
+  </div>
+  <div class="clear"> </div>
+  <div class="main-content">
+    <div class="wrap">
       <div class="left-sidebar">
         <div class="sidebar-boxs">
-          
+
           <div class="clear"> </div>
           <div class="type-videos">
             <h3>Active Competitions</h3>
@@ -75,14 +82,14 @@
 
       </div>
       <div class="clear"> </div>
-      </div>
     </div>
-    <div class="clear"> </div>
-    <div class="copy-right">
-      <p>Copyright 2016. All Rights Reserved</p>
-    </div>
+  </div>
+  <div class="clear"> </div>
+  <div class="copy-right">
+    <p>Copyright 2016. All Rights Reserved</p>
+  </div>
 
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-<%= javascript_include_tag params[:controller], 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag params[:controller], 'data-turbolinks-track' => true %>
 </body>
 </html>

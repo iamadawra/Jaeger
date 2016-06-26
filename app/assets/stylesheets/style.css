@@ -104,6 +104,17 @@ img{max-width:100%;}
 .search input[type="submit"]:hover{
 	color:#888;
 }
+.welcome {
+	font-family: 'gandhi_sansregular';
+	float: right;
+	color: #888;
+	display: block;
+	border: 1px solid #F1F0F6;
+	font-size: 1em;
+	border-left:none;
+	border-right: none;
+	border-bottom:none;
+}
 /*---album-rating-----*/
 .rate, .rate b, .rate a {
 	 width: 80%;
@@ -399,14 +410,14 @@ img{max-width:100%;}
 	text-transform: uppercase;
 	display: block;
 }
-/*----start-pagenation-----*/
-.pagenation{
+/*----start-pagination-----*/
+.pagination{
 	float:right;
 }
-.pagenation ul li{
+.pagination ul li{
 	display:inline-block;
 }
-.pagenation ul li a{
+.pagination ul li a{
 	background: #000;
 	padding: 10px;
 	cursor: pointer;
@@ -421,10 +432,10 @@ img{max-width:100%;}
 	display: block;
 	font-size: 0.875em;
 }
-.pagenation ul li a:hover{
+.pagination ul li a:hover{
 	color: #888;
 }
-.pagenation ul li:last-child{
+.pagination ul li:last-child{
 	padding-left:1em;
 }
 /*---start-copyright-----*/
@@ -905,4 +916,50 @@ img{max-width:100%;}
 	.type-videos ul li:nth-child(1),.type-videos ul li:nth-child(2),.type-videos ul li:nth-child(3),.type-videos ul li:nth-child(4){
 		display:none;
 	}
+}
+
+.pagination {
+  font-family: 'gandhi_sansregular';
+  text-align: center;
+  padding: 0.3em;
+  cursor: default; 
+}
+.pagination a, .pagination span, .pagination em {
+    padding: 0.2em 0.5em; 
+}
+.pagination .disabled {
+    color: #aaaaaa; 
+}
+.pagination .current {
+    font-weight: bold;
+    border: 2.5px solid #000000;
+    color: white;
+    background: black; 
+}
+.pagination a {
+    border: 2px solid #000000;
+    color: black;
+    background: white;
+    text-decoration: none; 
+}
+.pagination a:hover, .pagination a:focus {
+      border-color: black;
+      background: black;
+      color: white; 
+}
+.pagination .page_info {
+    color: #aaaaaa;
+    padding-top: 0.8em;
+}
+.pagination .previous_page {
+    display: none;
+}
+.pagination .previous_page, .pagination .next_page {
+    border-width: 2px; 
+}
+.pagination .previous_page {
+    margin-right: 1em;
+}
+.pagination .next_page {
+    margin-left: 1em; 
 }

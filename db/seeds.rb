@@ -16,7 +16,8 @@ end
 10.times do |n|
   email  = "a#{n+1}@c3.com"
   password = "0000"
-  User.create!(email: email, password: password)
+  username = "user#{n+1}"
+  User.create!(email: email, password: password, username: username)
 end
 
 10.times do |n|
