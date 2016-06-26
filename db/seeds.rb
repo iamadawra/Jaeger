@@ -5,12 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Video.create!(title: 'sample', video_url: 'sample.mp4', poster_url: 'sample_poster.jpg', uploader_id: 1)
-
-10.times do |n|
+30.times do |n|
   title  = "sample#{n+1}"
   video_url = "sample#{n+1}.mp4"
-  poster_url = "sample#{n+1}_poster.jpg"
+  poster_url = "sample#{n+1}.jpg"
   Video.create!(title: title, video_url: video_url, poster_url: poster_url, uploader_id: "#{n%3+1}")
 end
 
