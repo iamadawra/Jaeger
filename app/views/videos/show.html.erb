@@ -43,7 +43,7 @@
   <div class="clear"> </div>
   <div class="video-details">
     <ul>
-      <li><p>Uploaded on <a href="#"><%= @video.created_at %></a> by <a href="#"><%= @video.uploader_id %></a></p></li>
+      <li><p>Uploaded on <%= @video.created_at %> by <!--<a href="#">-->@<%= @uploader.username %><!--</a>--></p></li>
       <li><span><%= @video.video_desc %></span></li>
     </ul>
   </div>

@@ -23,6 +23,7 @@ class VideosController < ApplicationController
   def show
     @video[:video_url] = "#@@CDN_DNS" + @video[:video_url]
     @video[:poster_url] = "#@@CDN_DNS" + @video[:poster_url]
+    @uploader = User.find(@video[:uploader_id])
   end
 
   def new
