@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   ratyrate_rater
   acts_as_voter
-  attr_accessible :email, :password, :password_confirmation
+  attr_accessible :email, :password, :password_confirmation, :username
 
   attr_accessor :password
   before_save :encrypt_password

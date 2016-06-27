@@ -43,7 +43,7 @@
   <div class="clear"> </div>
   <div class="video-details">
     <ul>
-      <li><p>Uploaded on <a href="#"><%= @video.created_at %></a> by <a href="#"><%= @video.uploader_id %></a></p></li>
+      <li><p>Uploaded on <%= @video.created_at %> by <!--<a href="#">-->@<%= @uploader.username %><!--</a>--></p></li>
       <li><span><%= @video.video_desc %></span></li>
     </ul>
   </div>
@@ -51,7 +51,10 @@
   <div class="tags">
     <ul>
       <li><h3>Tags:</h3></li>
-      <li><a href="#"><%= @video.tags %></a></li>
+
+      <% @video.tags.split(",").each do |tag| %>
+      <li><span class="tag"><%= link_to tag, :controller => "videos", :search => tag, :utf8 => "✓"%></span></li>
+      <% end %>
     </ul>
   </div>
   <div class="clear"> </div>

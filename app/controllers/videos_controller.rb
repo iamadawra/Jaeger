@@ -5,18 +5,25 @@ class VideosController < ApplicationController
   @@PER_PAGE = 9
 
   def index
-    sql = "SELECT *, CONCAT('#@@CDN_DNS', poster_url) as c_poster_url FROM videos"
     if params.has_key?(:search)
       @is_search = true
-      @videos = Video.search(params[:search])
-    else
+      param = params[:search]
+      @param = param
+      sql = "SELECT *, CONCAT('#@@CDN_DNS', poster_url) as c_poster_url FROM videos WHERE title LIKE '%#{param}%' || video_desc LIKE '%#{param}%' || tags LIKE '%#{param}%'"
       @videos = Video.paginate_by_sql(sql, page: params[:page], per_page: @@PER_PAGE)
+    else
+      sql = "SELECT *, CONCAT('#@@CDN_DNS', poster_url) as c_poster_url FROM videos"
+      @videos = Video.paginate_by_sql(sql, page: params[:page], per_page: @@PER_PAGE)
+      if @videos.count == 0
+        redirect_to root_path
+      end
     end
   end
 
   def show
     @video[:video_url] = "#@@CDN_DNS" + @video[:video_url]
     @video[:poster_url] = "#@@CDN_DNS" + @video[:poster_url]
+    @uploader = User.find(@video[:uploader_id])
   end
 
   def new

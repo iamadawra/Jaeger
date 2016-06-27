@@ -8,6 +8,10 @@
   width: 420px;
 }
 
+.video-browsing div span{
+  font-family: 'gandhi_sansregular';
+}
+
 .video-browsing li{
   width: 320px;
 }
