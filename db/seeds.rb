@@ -26,7 +26,7 @@ end
   VcRelation.create!(video_id: vid, competition_id: cid)
 end
 
-10.times do |n|
+5.times do |n|
   vid  = n+1
   cid = (n+1)%3+1
   VcRelation.create!(video_id: vid, competition_id: cid)
