@@ -2,6 +2,9 @@ class CompetitionsController < ApplicationController
   before_action :set_competition, only: [:show, :edit, :update, :destroy]
   before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
 
+  @@CDN_DNS = "http://d3bowxm1hun7br.cloudfront.net/"
+  @@PER_PAGE = 9
+
   # GET /competitions
   # GET /competitions.json
   def index
@@ -11,6 +14,8 @@ class CompetitionsController < ApplicationController
   # GET /competitions/1
   # GET /competitions/1.json
   def show
+    sql = "SELECT *, CONCAT('#@@CDN_DNS', poster_url) as c_poster_url FROM videos where id in (select video_id FROM vc_relations where competition_id = #{@competition.id})"
+    @videos = Video.paginate_by_sql(sql, page: params[:page], per_page: @@PER_PAGE)
   end
 
   # GET /competitions/new
