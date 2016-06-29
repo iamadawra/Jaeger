@@ -44,6 +44,15 @@ $(function() {
         if($('#error_msg ul').has("#no_prize_num").length != 0)
           $('#error_msg ul #no_prize_num').remove();
      }
+
+     if($('#competition_poster').val() == ""){
+        if($('#error_msg ul').has("#no_poster").length == 0)
+          $('#error_msg ul').append("<li id=\"no_poster\">You need to upload a poster for the competition.</li>");
+        res = false;
+     } else{
+        if($('#error_msg ul').has("#no_poster").length != 0)
+          $('#error_msg ul #no_poster').remove();
+     }
      console.log(res);
      return res;
   }
