@@ -1,3 +1,5 @@
+<p id="notice"><%= notice %></p>
+
 <h1></h1>
 <div class="right-content-heading">
   <div class="right-content-heading-left">
@@ -20,7 +22,7 @@
 
 <table>
   <thead>
-<!--     <tr>
+    <tr>
       <th>Title</th>
       <th>Desc</th>
       <th>Start date</th>
@@ -29,61 +31,28 @@
       <th>Prize num</th>
       <th>Poster</th>
       <th colspan="3"></th>
-    </tr> -->
+    </tr>
   </thead>
 
   <tbody>
     <% @competitions.each do |competition| %>
       <tr>
-        <!-- <td><%= competition.title %></td>
+        <td><%= competition.title %></td>
         <td><%= competition.desc %></td>
         <td><%= competition.start_date %></td>
         <td><%= competition.period %></td>
         <td><%= competition.prize %></td>
         <td><%= competition.prize_num %></td>
-        <td><%= competition.poster %></td> -->
-        <td>
-        <div class="comp-desc-left">
-      <p>
-
-        <%= link_to image_tag(competition.poster), "competitions/#{competition.id}" %>
-      </p>
-    </div>
-    <div class="comp-desc-right">
-      <p id="notice"><%= notice %></p>
-      <p>
-        <strong><h1>Title:<%= link_to "#{competition.title}", "competitions/#{competition.id}" %></h1></strong>
-      </p>
-      <p>
-        <strong>Desc:</strong>
-        <%= competition.desc %>
-      </p>
-
-      <p>
-        <strong>Start date:</strong>
-        <%= competition.start_date %>
-      </p>
-
-      <p>
-        <strong>Period:</strong>
-        <%= competition.period %>
-      </p>
-
-      <p>
-        <strong>Prize:</strong>
-        <%= competition.prize %>
-      </p>
-
-      <p>
-        <strong>Prize num:</strong>
-        <%= competition.prize_num %>
-      </p>
-      
-    </div>
-    </td>
+        <td><%= competition.poster %></td>
+        <td><%= link_to 'Show', competition %></td>
+        <td><%= link_to 'Edit', edit_competition_path(competition) %></td>
+        <td><%= link_to 'Destroy', competition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Add videos', "show_videos?cid=#{competition.id}" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+
+<%= link_to 'New Competition', new_competition_path %>

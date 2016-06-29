@@ -11,6 +11,10 @@ class CompetitionsController < ApplicationController
     @competitions = Competition.all
   end
 
+  def admin
+    @competitions = Competition.all
+  end
+
   # GET /competitions/1
   # GET /competitions/1.json
   def show
@@ -65,6 +69,16 @@ class CompetitionsController < ApplicationController
       format.html { redirect_to competitions_url, notice: 'Competition was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def show_videos
+    sql = "SELECT *, CONCAT('#@@CDN_DNS', poster_url) as c_poster_url FROM videos"
+    @videos = Video.paginate_by_sql(sql, page: params[:page], per_page: @@PER_PAGE)
+    @competition = Competition.find(params[:cid])
+  end
+
+  def add_videos
+    
   end
 
   private
