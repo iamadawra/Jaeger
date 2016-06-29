@@ -7,9 +7,10 @@ $(function() {
           $('#error_msg ul').append("<li id=\"no_title\">Title can't be blank.</li>");
         res = false;
      } else {
-        if($('#error_msg ul').has("#no_title").length != 0)
+        if($('#error_msg ul').has("#no_title").length != 0){
           $('#error_msg ul #no_title').remove();
-        if(!$('#video_title').val().match(/^[0-9a-zA-Z\.\-\_]+$/)){
+        }
+        if(!$('#competition_title').val().match(/^[0-9a-zA-Z\s\.\-\_]+$/)){
           if ($('#error_msg ul').has("#invalid_title").length == 0)
             $('#error_msg ul').append("<li id=\"invalid_title\">Title is invalid. It should not contain special characters other than \'.\', \'-\', \'_\'</li>");
           res = false;
@@ -19,7 +20,7 @@ $(function() {
      
      if($('#competition_period').val() == ""){
         if($('#error_msg ul').has("#no_period").length == 0)
-          $('#error_msg ul').append("<li id=\"no_video\">You need to enter a period for the competition.</li>");
+          $('#error_msg ul').append("<li id=\"no_period\">You need to enter a period for the competition.</li>");
         res = false;
      } else{
         if($('#error_msg ul').has("#no_period").length != 0)
@@ -28,7 +29,7 @@ $(function() {
         
      if($('#competition_prize').val() == ""){
         if($('#error_msg ul').has("#no_prize").length == 0)
-          $('#error_msg ul').append("<li id=\"no_poster\">You need to enter a prize for the competition.</li>");
+          $('#error_msg ul').append("<li id=\"no_prize\">You need to enter a prize for the competition.</li>");
         res = false;
      } else{
         if($('#error_msg ul').has("#no_prize").length != 0)
@@ -37,25 +38,21 @@ $(function() {
 
      if($('#competition_prize_num').val() == ""){
         if($('#error_msg ul').has("#no_prize_num").length == 0)
-          $('#error_msg ul').append("<li id=\"no_poster\">You need to enter a prize number for the competition.</li>");
+          $('#error_msg ul').append("<li id=\"no_prize_num\">You need to enter a prize number for the competition.</li>");
         res = false;
      } else{
         if($('#error_msg ul').has("#no_prize_num").length != 0)
           $('#error_msg ul #no_prize_num').remove();
      }
-
+     console.log(res);
      return res;
   }
 
-  $('.directUploadCompetition').find('input[type="submit"]').click(function (event) {
-    validate();
-    event.preventDefault();
-  });
-
   $('.directUploadCompetition').find("input:file").each(function(i, elem) {
     var fileInput    = $(elem);
-    console.log(fileInput);
+    // console.log(fileInput);
     var form         = $(fileInput.parents('form:first'));
+    var chooseButton = $("#competition_poster");
     var submitButton = form.find('input[type="submit"]');
     var acceptable = /(\.|\/)(jpe?g|png)$/i;
     var progressBar  = $("<div class='bar'></div>");
@@ -65,7 +62,7 @@ $(function() {
       fileInput:       fileInput,
       url:             form.data('url'),
       type:            'POST',
-      autoUpload:       true,
+      autoUpload:       false,
       formData:         form.data('form-data'),
       paramName:        'file', // S3 does not like nested name fields i.e. name="user[avatar_url]"
       dataType:         'XML',  // S3 returns XML if success_action_status is set to 201
@@ -79,6 +76,8 @@ $(function() {
         }
         
         submitButton.click(function (event) {
+          var val = validate();
+          console.log("submitButton");
           if (formatIsValid && validate()) {
             data.submit();
           }
@@ -86,10 +85,13 @@ $(function() {
       },
       progressall: function (e, data) {
         var progress = parseInt(data.loaded / data.total * 100, 10);
-        progressBar.css('width', progress + '%')
+        progressBar.
+          css('width', progress + '%').
+          text("Loading...(" + progress + "%)");
       },
       start: function (e) {
         submitButton.prop('disabled', true);
+        chooseButton.prop('disabled', true);
 
         progressBar.
           css('background', 'green').
@@ -98,8 +100,8 @@ $(function() {
           text("Loading...");
       },
       done: function(e, data) {
-        submitButton.prop('disabled', false);
         progressBar.text("Uploading done");
+        console.log("done");
 
         // extract key and generate URL from response
         var key   = $(data.jqXHR.responseXML).find("Key").text();
@@ -108,6 +110,7 @@ $(function() {
         // create hidden field
         var input = $("<input />", { type:'hidden', name: fileInput.attr('name'), value: url })
         form.append(input);
+        form.submit();
       },
       fail: function(e, data) {
         submitButton.prop('disabled', false);
@@ -117,5 +120,10 @@ $(function() {
           text("Failed");
       }
     });
+  });
+
+  $('.directUploadCompetition').find('input[type="submit"]').click(function (event) {
+    validate();
+    event.preventDefault();
   });
 });

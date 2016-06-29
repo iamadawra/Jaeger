@@ -12,7 +12,7 @@ $(function() {
      } else {
         if($('#error_msg ul').has("#no_title").length != 0)
           $('#error_msg ul #no_title').remove();
-        if(!$('#video_title').val().match(/^[0-9a-zA-Z\.\-\_]+$/)){
+        if(!$('#video_title').val().match(/^[0-9a-zA-Z\s\.\-\_]+$/)){
           if ($('#error_msg ul').has("#invalid_title").length == 0)
             $('#error_msg ul').append("<li id=\"invalid_title\">Title is invalid. It should not contain special characters other than \'.\', \'-\', \'_\'</li>");
           res = false;
@@ -77,24 +77,10 @@ $(function() {
             alert('The file format is not acceptable.');
             $(this).val('');
         }
-
-        // format = data.files[0].type.substring(6);
-        // if($(this).attr('id') == "video_video_url"){
-        //   if(format != 'mp4'){
-        //     alert('The file format is not acceptable. It should be \'.mp4\'')
-        //     $(this).val('');
-        //   }
-        // }
-
-        // if($(this).attr('id') == "video_poster_url"){
-        //   if(format != 'jpeg' && format != 'png'){
-        //     alert('The file format is not acceptable. It should be \'.jpg\' or \'png\'')
-        //     $(this).val('');
-        //   }
-        // }
         
         submitButton.click(function (event) {
           if (formatIsValid && validate()) {
+            console.log(validate());
             data.submit();
           }
         });
@@ -137,6 +123,8 @@ $(function() {
       },
       fail: function(e, data) {
         submitButton.prop('disabled', false);
+        chooseButton1.prop('disabled', false);
+        chooseButton2.prop('disabled', false);
 
         progressBar.
           css("background", "red").

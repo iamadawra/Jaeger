@@ -25,3 +25,12 @@ end
   cid = n%3+1
   VcRelation.create!(video_id: vid, competition_id: cid)
 end
+
+title  = "The Funniest Videos in the world"
+desc = "Funny videos 2016 : try not to laugh, smile, or grin while watching this funniest video ever of stupid people doing stupid things compilation. This video is so hilarious and impossible to not laugh includes funny vines, funny pranks and funny fails"
+start_date = "2016-06-28"
+period = 7
+prize = 1000
+prize_num = 2
+poster = "//cucucity.s3.amazonaws.com/competitions/7b5b3ab9-f004-47f0-9a5e-0ec03023a7a0/poster"
+Competition.create!(title: title, desc: desc, start_date: start_date, period: period, prize: prize, prize_num: prize_num, poster: poster)

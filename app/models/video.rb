@@ -10,7 +10,7 @@ class Video < ActiveRecord::Base
   validates :title, length: { maximum: 50 }
   validates :video_desc, length: { maximum: 500 }
 
-  validates_format_of :title, :with => /\A[0-9a-zA-Z\.\-\_]+\z/, :on => :create
+  validates_format_of :title, :with => /\A[0-9a-zA-Z_\.\-\_]+\z/, :on => :create
 
   before_save :clean_link
 
