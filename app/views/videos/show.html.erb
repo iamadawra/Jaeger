@@ -31,8 +31,9 @@
       </video>
 
       <div class="rate-and-vote">
+        <% if !@competition%>
         <div class="video-rate"><%= rating_for @video, "entertainment" %></div>
-        <% if @competition %>
+        <% else %>
         <%= render partial: "voting", locals: {video: @video} %>
         <% end %>
       </div>

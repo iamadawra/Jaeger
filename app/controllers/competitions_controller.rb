@@ -78,7 +78,7 @@ class CompetitionsController < ApplicationController
   end
 
   def add_videos
-    
+
   end
 
   private
