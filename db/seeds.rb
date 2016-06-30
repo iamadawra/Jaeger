@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Video.delete_all
 30.times do |n|
   title  = "sample#{n+1}"
   video_url = "sample#{n+1}.mp4"
@@ -13,6 +14,7 @@
   Video.create!(title: title, video_url: video_url, poster_url: poster_url, uploader_id: "#{n%3+1}", tags: tags[n%3])
 end
 
+User.delete_all
 10.times do |n|
   email  = "a#{n+1}@c3.com"
   password = "0000"
@@ -20,6 +22,7 @@ end
   User.create!(email: email, password: password, username: username)
 end
 
+VcRelation.delete_all
 10.times do |n|
   vid  = n+1
   cid = n%3+1
@@ -32,6 +35,7 @@ end
   VcRelation.create!(video_id: vid, competition_id: cid)
 end
 
+Competition.delete_all
 3.times do |n|
   id = n+1
   title  = "The Funniest Videos in the world #{n+1}"
