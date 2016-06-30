@@ -51,7 +51,7 @@ $(function() {
         res = false;
      } else{
         if($('#error_msg ul').has("#no_poster").length != 0)
-          $('#error_msg ul #no_poster').remove();
+          $('#error_msg ul #no_prize_num').remove();
      }
      console.log(res);
      return res;
@@ -62,6 +62,80 @@ $(function() {
     // console.log(fileInput);
     var form         = $(fileInput.parents('form:first'));
     var chooseButton = $("#competition_poster");
+    var submitButton = form.find('input[type="submit"]');
+    var acceptable = /(\.|\/)(jpe?g|png)$/i;
+    var progressBar  = $("<div class='bar'></div>");
+    var barContainer = $("<div class='progress'></div>").append(progressBar);
+    fileInput.after(barContainer);
+     fileInput.fileupload({
+      fileInput:       fileInput,
+      url:             form.data('url'),
+      type:            'POST',
+      autoUpload:       false,
+      formData:         form.data('form-data'),
+      paramName:        'file', // S3 does not like nested name fields i.e. name="user[avatar_url]"
+      dataType:         'XML',  // S3 returns XML if success_action_status is set to 201
+      replaceFileInput: false,
+      add: function (e, data){
+        var formatIsValid = true;
+        if(data.originalFiles[0]['type'].length && !acceptable.test(data.originalFiles[0]['type'])) {
+            formatIsValid = false;
+            alert('The file format is not acceptable.');
+            $(this).val('');
+        }
+        
+        submitButton.click(function (event) {
+          var val = validate();
+          console.log("submitButton");
+          if (formatIsValid && validate()) {
+            data.submit();
+          }
+        });
+      },
+      progressall: function (e, data) {
+        var progress = parseInt(data.loaded / data.total * 100, 10);
+        progressBar.
+          css('width', progress + '%').
+          text("Loading...(" + progress + "%)");
+      },
+      start: function (e) {
+        submitButton.prop('disabled', true);
+        chooseButton.prop('disabled', true);
+
+        progressBar.
+          css('background', 'green').
+          css('display', 'block').
+          css('width', '0%').
+          text("Loading...");
+      },
+      done: function(e, data) {
+        progressBar.text("Uploading done");
+        console.log("done");
+
+        // extract key and generate URL from response
+        var key   = $(data.jqXHR.responseXML).find("Key").text();
+        var url   = '//' + form.data('host') + '/' + key;
+
+        // create hidden field
+        var input = $("<input />", { type:'hidden', name: fileInput.attr('name'), value: url })
+        form.append(input);
+        form.submit();
+      },
+      fail: function(e, data) {
+        submitButton.prop('disabled', false);
+
+        progressBar.
+          css("background", "red").
+          text("Failed");
+      }
+    });
+  });
+
+  $('.directUploadCompetitionEdit').find("input:file").each(function(i, elem) {
+    var fileInput    = $(elem);
+    // console.log(fileInput);
+    var form         = $(fileInput.parents('form:first'));
+    var chooseButton = $("#competition_poster_update");
     var submitButton = form.find('input[type="submit"]');
     var acceptable = /(\.|\/)(jpe?g|png)$/i;
     var progressBar  = $("<div class='bar'></div>");
