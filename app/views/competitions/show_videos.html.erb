@@ -24,7 +24,8 @@
 				<span>There is no videos matching the search keyword "<%= @param%>"</span>
 			</div>
 		<% else %>
-			<%= form_tag({:action => 'add_videos'} ) %>
+<!--		<%= form_tag({:action => 'add_videos'} ) %>-->
+			<%= form_for vc_relation, remote: true do |f| %>
 				<% @videos.each do |v| %>
 				<div class="content-grid">
 					<%= link_to image_tag(v.c_poster_url), "#{videos_path}/#{v.id}", title: v.title, class: "video-link", data: { no_turbolink: true } %>
