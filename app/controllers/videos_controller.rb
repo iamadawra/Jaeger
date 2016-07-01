@@ -21,8 +21,6 @@ class VideosController < ApplicationController
   end
 
   def show
-    @video[:video_url] = "#@@CDN_DNS" + @video[:video_url]
-    @video[:poster_url] = "#@@CDN_DNS" + @video[:poster_url]
     @uploader = User.find(@video[:uploader_id])
     if params.has_key?(:cid) and VcRelation.where(video_id: @video.id, competition_id: params[:cid]).count != 0
       @competition = Competition.find(params[:cid])

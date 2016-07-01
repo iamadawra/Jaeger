@@ -11,7 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160625203401) do
+ActiveRecord::Schema.define(version: 20160701030518) do
+
+  create_table "add_videos_statuses", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "added_videos", force: :cascade do |t|
+    t.integer  "video_id",             limit: 4
+    t.integer  "added_videos_list_id", limit: 4
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  add_index "added_videos", ["added_videos_list_id"], name: "index_added_videos_on_added_videos_list_id", using: :btree
+  add_index "added_videos", ["video_id", "added_videos_list_id"], name: "index_added_videos_on_video_id_and_added_videos_list_id", unique: true, using: :btree
+  add_index "added_videos", ["video_id"], name: "index_added_videos_on_video_id", using: :btree
+
+  create_table "added_videos_lists", force: :cascade do |t|
+    t.integer  "total",                limit: 4
+    t.integer  "add_videos_status_id", limit: 4
+    t.integer  "competition_id",       limit: 4
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  add_index "added_videos_lists", ["add_videos_status_id"], name: "index_added_videos_lists_on_add_videos_status_id", using: :btree
+  add_index "added_videos_lists", ["competition_id"], name: "index_added_videos_lists_on_competition_id", using: :btree
 
   create_table "average_caches", force: :cascade do |t|
     t.integer  "rater_id",      limit: 4
@@ -97,6 +125,8 @@ ActiveRecord::Schema.define(version: 20160625203401) do
     t.datetime "updated_at",               null: false
   end
 
+  add_index "vc_relations", ["video_id", "competition_id"], name: "index_vc_relations_on_video_id_and_competition_id", unique: true, using: :btree
+
   create_table "videos", force: :cascade do |t|
     t.string   "title",                   limit: 255
     t.string   "video_url",               limit: 255
@@ -141,4 +171,8 @@ ActiveRecord::Schema.define(version: 20160625203401) do
   add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
+  add_foreign_key "added_videos", "added_videos_lists"
+  add_foreign_key "added_videos", "videos"
+  add_foreign_key "added_videos_lists", "add_videos_statuses"
+  add_foreign_key "added_videos_lists", "competitions"
 end

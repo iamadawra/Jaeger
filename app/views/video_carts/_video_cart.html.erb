@@ -1,0 +1,18 @@
+<% if !@added_video.nil? && @added_video.errors.any? %>
+  <div class="alert alert-danger">
+    <ul>
+    <% @added_video.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<% if @added_videos.size == 0 %>
+  <p class="text-center">
+    There are no videos in your video cart.  Please <%= link_to "click here", competitions_show_videos_path(:cid => current_list[:competition_id]) %> and add some videos to your cart.
+  </p>
+<% else %>
+  <% @added_videos.each do |added_video| %>
+    <%= render 'video_carts/cart_row', video: added_video.video, added_video: added_video, show_total: true %>
+  <% end %>
+<% end %>

@@ -14,4 +14,10 @@ class Competition < ActiveRecord::Base
 	validates_format_of :period, :with => /\A([0-9])+\Z/i, :on => :create
 	validates_format_of :prize, :with => /\A([0-9]+)\Z/i, :on => :create
 	validates_format_of :prize_num, :with => /\A([0-9]+)\Z/i, :on => :create
+
+	validates :period, numericality: { only_integer: true, greater_than: 0 }
+	validates :prize, numericality: { only_integer: true, greater_than: 0 }
+	validates :prize_num, numericality: { only_integer: true, greater_than: 0 }
+
+	has_many :vc_relations
 end
