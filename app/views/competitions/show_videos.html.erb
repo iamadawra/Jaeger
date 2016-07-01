@@ -29,7 +29,7 @@
 				<% @videos.each do |v| %>
 				<%= form_for @added_video, remote: true do |f| %>
 				<div class="content-grid">
-					<%= link_to image_tag(v.c_poster_url), "#{videos_path}/#{v.id}", title: v.title, target: "_blank", class: "video-link", data: { no_turbolink: true } %>
+					<%= link_to image_tag(full_url(v.poster_url)), "#{videos_path}/#{v.id}", title: v.title, target: "_blank", class: "video-link", data: { no_turbolink: true } %>
 					<h3><%= v.title %></h3>
 					<%= f.hidden_field :video_id, value: v.id %>
 					<%= f.hidden_field :competition_id, value: params[:cid] %>

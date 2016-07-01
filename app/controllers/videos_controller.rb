@@ -1,7 +1,5 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :upvote, :downvote]
-
-  @@CDN_DNS = "http://d3bowxm1hun7br.cloudfront.net/"
   @@PER_PAGE = 9
 
   def index
@@ -9,10 +7,10 @@ class VideosController < ApplicationController
       @is_search = true
       param = params[:search]
       @param = param
-      sql = "SELECT *, CONCAT('#@@CDN_DNS', poster_url) as c_poster_url FROM videos WHERE title LIKE '%#{param}%' || video_desc LIKE '%#{param}%' || tags LIKE '%#{param}%'"
+      sql = "SELECT * FROM videos WHERE title LIKE '%#{param}%' || video_desc LIKE '%#{param}%' || tags LIKE '%#{param}%'"
       @videos = Video.paginate_by_sql(sql, page: params[:page], per_page: @@PER_PAGE)
     else
-      sql = "SELECT *, CONCAT('#@@CDN_DNS', poster_url) as c_poster_url FROM videos"
+      sql = "SELECT * FROM videos"
       @videos = Video.paginate_by_sql(sql, page: params[:page], per_page: @@PER_PAGE)
       if @videos.count == 0
         redirect_to root_path

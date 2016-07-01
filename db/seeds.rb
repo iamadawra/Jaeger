@@ -52,7 +52,7 @@ Competition.delete_all
   period = 7
   prize = 1000
   prize_num = 2
-  poster = "//cucucity.s3.amazonaws.com/competitions/7b5b3ab9-f004-47f0-9a5e-0ec03023a7a0/poster"
+  poster = "competitions/7b5b3ab9-f004-47f0-9a5e-0ec03023a7a0/poster"
   Competition.create!(id: id, title: title, desc: desc, start_date: start_date, period: period, prize: prize, prize_num: prize_num, poster: poster)
 end
 
