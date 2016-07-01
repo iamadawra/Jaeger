@@ -1,0 +1,47 @@
+<div class="well">
+
+  <div class="row">
+    <div class="col-xs-8">
+
+      <h4><%= video.title %></h4>
+    </div>
+    <div class="col-xs-4">
+
+      <%= form_for added_video, remote: true do |f| %>
+      <div class="row">
+        <div class="col-xs-4">
+          <div class="comp-desc">
+            <div class="comp-desc-left">
+              <p>
+
+              <img src="<%= full_url(video.poster_url) %>"/>
+              </p>
+            </div>
+            <div class="comp-desc-right">
+              <p id="notice"><%= notice %></p>
+
+              <p>
+                <strong>Desc:</strong>
+                <%= video[:desc] %>
+              </p>
+
+              <p>
+                <strong>Uploaded date:</strong>
+                <%= video[:created_at] %>
+              </p>
+
+            </div>
+          </div>
+          <%= f.hidden_field :video_id, value: video.id %>
+        </div>
+        <div class="col-xs-8 text-right">
+          <div class="btn-group">
+            <%= link_to "Delete", added_video, { data: { confirm: "Are you sure you wish to delete the video '#{added_video.video.title}' from your cart?" }, method: :delete, remote: true, class: "btn btn-danger" } %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    
+  </div>
+</div>

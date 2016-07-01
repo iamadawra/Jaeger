@@ -22,8 +22,8 @@
   <div class="video-inner">
     <div class="video-detail">
       <video id="myVideo" class="video-js video-in-detail vjs-big-play-centered" controls preload="auto" width="700" height="350"
-        poster="<%= @video.poster_url%>" data-setup="{}">
-          <source src="<%= @video.video_url%>" type="video/mp4">
+        poster="<%= full_url(@video.poster_url)%>" data-setup="{}">
+          <source src="<%= full_url(@video.video_url)%>" type="video/mp4">
           <p class="vjs-no-js">
             To view this video please enable JavaScript, and consider upgrading to a web browser that
             <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
@@ -68,7 +68,7 @@
         <div class="comp-desc-left">
       <p>
 
-        <img src="<%= @competition.poster %>"/>
+        <img src="<%= full_url(@competition.poster) %>"/>
       </p>
     </div>
     <div class="comp-desc-right">

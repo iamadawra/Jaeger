@@ -1,6 +1,8 @@
 class Video < ActiveRecord::Base
   ratyrate_rateable 'visual_effects', 'entertainment'
   acts_as_votable
+  has_many :vc_relations
+  has_many :added_videos
 
   validates_presence_of :title
   validates_presence_of :video_url
@@ -15,7 +17,7 @@ class Video < ActiveRecord::Base
   before_save :clean_link
 
   def clean_link
-    self.video_url = self.video_url.split('amazonaws.com/').last 
+    self.video_url = self.video_url.split('amazonaws.com/').last
     self.poster_url = self.poster_url.split('amazonaws.com/').last
   end
 

@@ -81,10 +81,29 @@ class CompetitionsController < ApplicationController
     sql = "SELECT *, CONCAT('#@@CDN_DNS', poster_url) as c_poster_url FROM videos"
     @videos = Video.paginate_by_sql(sql, page: params[:page], per_page: @@PER_PAGE)
     @competition = Competition.find(params[:cid])
+    # @vc_relation = VcRelation.new
+    if AddedVideosList.exists?(competition_id: params[:cid])
+      @avl = AddedVideosList.where(competition_id: params[:cid])
+      session[:list_id] = @avl[0][:id]
+    else
+      @avl = AddedVideosList.new(competition_id: params[:cid])
+      @avl.save
+      session[:list_id] = @avl[0][:id]
+    end
+    @added_video = AddedVideo.new
   end
 
   def add_videos
-
+    @competition = VcRelation.new(params)
+    respond_to do |format|
+      if @competition.save
+        format.html { redirect_to competitions_admin_path, notice: 'Competition was successfully created.' }
+        format.json { render :show, status: :created, location: @competition }
+      else
+        format.html { render :new }
+        format.json { render json: @competition.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private
@@ -99,6 +118,6 @@ class CompetitionsController < ApplicationController
     end
 
     def set_s3_direct_post
-    @s3_direct_post = S3_BUCKET.presigned_post(key: "competitions/#{SecureRandom.uuid}/poster", success_action_status: '201', acl: 'public-read')
-  end
+      @s3_direct_post = S3_BUCKET.presigned_post(key: "competitions/#{SecureRandom.uuid}/poster", success_action_status: '201', acl: 'public-read')
+    end
 end

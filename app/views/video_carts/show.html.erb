@@ -1,0 +1,26 @@
+<div class="right-content-heading">
+  <div class="right-content-heading-left">
+    <h3>Video List for Competition "<%= @competition[:title]%>"</h3>
+    <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
+  </div>
+  <div class="right-content-heading-right">
+    <div class="social-icons">
+      <ul>
+        <li><a class="facebook" href="#" target="_blank"></a></li>
+        <li><a class="twitter" href="#" target="_blank"></a></li>
+        <li><a class="googleplus" href="#" target="_blank"></a></li>
+        <li><a class="pinterest" href="#" target="_blank"></a></li>
+        <li><a class="dribbble" href="#" target="_blank"></a></li>
+        <li><a class="vimeo" href="#" target="_blank"></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="clear"> </div>
+</div>
+
+<div class="content-grids">
+	<div class="video-cart">
+	  <%= render "video_cart" %>
+	</div>
+</div>
+<%= link_to 'Back', competitions_admin_path %>

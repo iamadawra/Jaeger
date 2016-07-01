@@ -18,4 +18,6 @@ class Competition < ActiveRecord::Base
 	validates :period, numericality: { only_integer: true, greater_than: 0 }
 	validates :prize, numericality: { only_integer: true, greater_than: 0 }
 	validates :prize_num, numericality: { only_integer: true, greater_than: 0 }
+
+	has_many :vc_relations
 end

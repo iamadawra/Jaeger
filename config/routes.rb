@@ -1,10 +1,21 @@
 Rails.application.routes.draw do
   
+  get 'added_videos/create'
+
+  get 'added_videos/update'
+
+  get 'added_videos/destroy'
+
+  get 'video_carts/show'
+
   get 'competitions/admin' => 'competitions#admin'
   get 'competitions/show_videos' => 'competitions#show_videos'
   post 'competitions/add_videos' => 'competitions#add_videos'
   resources :competitions
   root 'videos#show'
+
+  resource :video_cart, only: [:show]
+  resources :added_videos, only: [:create, :update, :destroy]
   
   get 'register' => 'users#new', :as => 'register'
   get 'login' => 'sessions#new', :as => 'login'
