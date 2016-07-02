@@ -70,7 +70,10 @@ class UploadVideosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_upload_video
-      @upload_video = Video.find(params[:id])
+      @upload_video = Video.where(id: params[:id]).first
+      if !@upload_video
+        redirect_to action: "index"
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
