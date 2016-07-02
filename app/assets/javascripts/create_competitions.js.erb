@@ -63,7 +63,7 @@ $(function() {
     var form         = $(fileInput.parents('form:first'));
     var chooseButton = $("#competition_poster");
     var submitButton = form.find('input[type="submit"]');
-    var acceptable = /(\.|\/)(jpe?g|png)$/i;
+    var acceptable = /(\.|\/)(jpe?g|png){1}$/i;
     var progressBar  = $("<div class='bar'></div>");
     var barContainer = $("<div class='progress'></div>").append(progressBar);
     fileInput.after(barContainer);
@@ -78,7 +78,7 @@ $(function() {
       replaceFileInput: false,
       add: function (e, data){
         var formatIsValid = true;
-        if(data.originalFiles[0]['type'].length && !acceptable.test(data.originalFiles[0]['type'])) {
+        if(data.originalFiles[0]['type'].length == 0 || !acceptable.test(data.originalFiles[0]['type'])) {
             formatIsValid = false;
             alert('The file format is not acceptable.');
             $(this).val('');
@@ -137,7 +137,7 @@ $(function() {
     var form         = $(fileInput.parents('form:first'));
     var chooseButton = $("#competition_poster_update");
     var submitButton = form.find('input[type="submit"]');
-    var acceptable = /(\.|\/)(jpe?g|png)$/i;
+    var acceptable = /(\.|\/)(jpe?g|png){1}$/i;
     var progressBar  = $("<div class='bar'></div>");
     var barContainer = $("<div class='progress'></div>").append(progressBar);
     fileInput.after(barContainer);
@@ -152,7 +152,7 @@ $(function() {
       replaceFileInput: false,
       add: function (e, data){
         var formatIsValid = true;
-        if(data.originalFiles[0]['type'].length && !acceptable.test(data.originalFiles[0]['type'])) {
+        if(data.originalFiles[0]['type'].length == 0 || !acceptable.test(data.originalFiles[0]['type'])) {
             formatIsValid = false;
             alert('The file format is not acceptable.');
             $(this).val('');
