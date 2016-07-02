@@ -9,7 +9,10 @@ class VideoCartsController < ApplicationController
   	end
     @count = VcRelation.where(competition_id: cid).count('id')
   	@added_videos = Video.where(id: VcRelation.where(competition_id: cid).select(:video_id)) 
-  	@competition = Competition.find(cid)
+  	@competition = Competition.where(id: cid).first
+    if !@competition
+      redirect_to competitions_admin_path
+    end
   end
 
   def destroy

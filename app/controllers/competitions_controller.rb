@@ -81,7 +81,10 @@ class CompetitionsController < ApplicationController
     sql = "SELECT * FROM videos where id not in (select video_id from vc_relations where competition_id = #{params[:cid]})"
     @count = VcRelation.where(competition_id: params[:cid]).count('id')
     @videos = Video.paginate_by_sql(sql, page: params[:page], per_page: @@PER_PAGE)
-    @competition = Competition.find(params[:cid])
+    @competition = Competition.where(id: params[:cid]).first
+    if @videos.count == 0 || !@competition
+      redirect_to competitions_admin_path
+    end
   end
 
   def add_videos
@@ -97,7 +100,10 @@ class CompetitionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_competition
-      @competition = Competition.find(params[:id])
+      @competition = Competition.where(id: params[:id]).first
+      if !@competition
+        redirect_to action: "index"
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
