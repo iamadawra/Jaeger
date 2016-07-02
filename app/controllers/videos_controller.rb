@@ -1,7 +1,5 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :upvote, :downvote]
-
-  @@CDN_DNS = "http://d3bowxm1hun7br.cloudfront.net/"
   @@PER_PAGE = 12
 
   def index
@@ -9,10 +7,10 @@ class VideosController < ApplicationController
       @is_search = true
       param = params[:search]
       @param = param
-      sql = "SELECT *, CONCAT('#@@CDN_DNS', poster_url) as c_poster_url FROM videos WHERE title LIKE '%#{param}%' || video_desc LIKE '%#{param}%' || tags LIKE '%#{param}%'"
+      sql = "SELECT * FROM videos WHERE title LIKE '%#{param}%' || video_desc LIKE '%#{param}%' || tags LIKE '%#{param}%'"
       @videos = Video.paginate_by_sql(sql, page: params[:page], per_page: @@PER_PAGE)
     else
-      sql = "SELECT *, CONCAT('#@@CDN_DNS', poster_url) as c_poster_url FROM videos"
+      sql = "SELECT * FROM videos"
       @videos = Video.paginate_by_sql(sql, page: params[:page], per_page: @@PER_PAGE)
       if @videos.count == 0
         redirect_to root_path
@@ -21,8 +19,6 @@ class VideosController < ApplicationController
   end
 
   def show
-    @video[:video_url] = "#@@CDN_DNS" + @video[:video_url]
-    @video[:poster_url] = "#@@CDN_DNS" + @video[:poster_url]
     @uploader = User.find(@video[:uploader_id])
     if params.has_key?(:cid) and VcRelation.where(video_id: @video.id, competition_id: params[:cid]).count != 0
       @competition = Competition.find(params[:cid])

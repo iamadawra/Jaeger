@@ -4,30 +4,30 @@
   </div>
   <div class="right-content-heading-right">
     <div class="social-icons">
-              <ul>
-                  <li><a class="facebook" href="#" target="_blank"> </a></li>
-                  <li><a class="twitter" href="#" target="_blank"></a></li>
-                  <li><a class="googleplus" href="#" target="_blank"></a></li>
-                  <li><a class="pinterest" href="#" target="_blank"></a></li>
-                  <li><a class="dribbble" href="#" target="_blank"></a></li>
-                  <li><a class="vimeo" href="#" target="_blank"></a></li>
-              </ul>
-  </div>
+      <ul>
+        <li><a class="facebook" href="#" target="_blank"> </a></li>
+        <li><a class="twitter" href="#" target="_blank"></a></li>
+        <li><a class="googleplus" href="#" target="_blank"></a></li>
+        <li><a class="pinterest" href="#" target="_blank"></a></li>
+        <li><a class="dribbble" href="#" target="_blank"></a></li>
+        <li><a class="vimeo" href="#" target="_blank"></a></li>
+      </ul>
+    </div>
   </div>
   <div class="clear"> </div>
 </div>
 
 <div class="inner-page">
-        
+  
   <div class="video-inner">
     <div class="video-detail">
       <video id="myVideo" class="video-js video-in-detail vjs-big-play-centered" controls preload="auto" width="700" height="350"
-        poster="<%= @video.poster_url%>" data-setup="{}">
-          <source src="<%= @video.video_url%>" type="video/mp4">
-          <p class="vjs-no-js">
-            To view this video please enable JavaScript, and consider upgrading to a web browser that
-            <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-          </p>
+      poster="<%= full_url(@video.poster_url)%>" data-setup="{}">
+      <source src="<%= full_url(@video.video_url)%>" type="video/mp4">
+        <p class="vjs-no-js">
+          To view this video please enable JavaScript, and consider upgrading to a web browser that
+          <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+        </p>
       </video>
 
       <div class="rate-and-vote">
@@ -40,7 +40,7 @@
 
     </div>
     <% if current_user %>
-      <%= hidden_field_tag(id = 'user-info', value = current_user.id, options = {}) %>
+    <%= hidden_field_tag(id = 'user-info', value = current_user.id, options = {}) %>
     <% end %>
   </div>
   <div class="clear"> </div>
@@ -61,18 +61,18 @@
     </ul>
   </div>
   <% if @competition%>
-    <div class="competition-info tags">
-          <ul>
-        <li><h3><br/>Competition Information:</h3></li>
-        </ul>
-          <div class="comp-desc-left">
-        <p>
+  <div class="competition-info tags">
+    <ul>
+      <li><h3><br/>Competition Information:</h3></li>
+    </ul>
+    <div class="comp-desc-left">
+      <p>
 
-          <img src="<%= @competition.poster %>"/>
-        </p>
-      </div>
-      <div class="comp-desc-right">
-        <p id="notice"><%= notice %></p>
+        <img src="<%= full_url(@competition.poster) %>"/>
+      </p>
+    </div>
+    <div class="comp-desc-right">
+      <p id="notice"><%= notice %></p>
 
         <p>
           <strong>Desc:</strong>
@@ -103,5 +103,5 @@
     </div>
   <% end%>
   <div class="clear"> </div>
-          
+  
 </div>
