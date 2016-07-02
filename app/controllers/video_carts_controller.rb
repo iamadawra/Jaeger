@@ -14,6 +14,6 @@ class VideoCartsController < ApplicationController
 
   def destroy
   	VcRelation.where(video_id: params[:id], competition_id: session[:competition_id]).destroy_all
-    @added_videos = Video.where(id: VcRelation.where(competition_id: session[:competition_id]).select(:id)) 
+    @added_videos = Video.where(id: VcRelation.where(competition_id: session[:competition_id]).select(:video_id)) 
   end
 end

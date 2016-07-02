@@ -86,8 +86,8 @@ class CompetitionsController < ApplicationController
 
   def add_videos
     @vc_relation = VcRelation.new(video_id: params[:vid], competition_id: params[:id])
-    count = VcRelation.where(competition_id: params[:id]).count('id')
     if @vc_relation.save
+      count = VcRelation.where(competition_id: params[:id]).count('id')
       render :json => "{\"msg\": \"This video has been added to the competition successfully.\", \"size\": #{count}}"
     else
       render :json => "{\"error\": \"This video was already in the competition.\"}"
