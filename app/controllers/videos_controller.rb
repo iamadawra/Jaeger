@@ -1,6 +1,7 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :upvote, :downvote]
-  @@PER_PAGE = 9
+  
+  @@PER_PAGE = 12
 
   def index
     if params.has_key?(:search)
@@ -34,24 +35,35 @@ class VideosController < ApplicationController
   end
 
   def upvote
-    @video.upvote_from current_user
-    upvotes = @video.get_upvotes.size
-    downvotes = @video.get_downvotes.size
-    render :json => "{\"id\": #{@video.id}, \"upvotes\": #{upvotes}, \"downvotes\": #{downvotes}}"
+    if !@competition_id
+      render :json => "{\"err\": \"The video is not in a competition.\"}"
+    else
+      scope = "competition_" + @competition_id;
+      @video.upvote_from current_user, vote_scope: scope
+      upvotes = @video.get_upvotes(vote_scope: scope).size
+      downvotes = @video.get_downvotes(vote_scope: scope).size
+      render :json => "{\"id\": #{@video.id}, \"upvotes\": #{upvotes}, \"downvotes\": #{downvotes}}"
+    end
   end
 
   def downvote
-    @video.downvote_from current_user
-    upvotes = @video.get_upvotes.size
-    downvotes = @video.get_downvotes.size
-    render :json => "{\"id\": #{@video.id}, \"upvotes\": #{upvotes}, \"downvotes\": #{downvotes}}"
+    if !@competition_id
+      render :json => "{\"err\": \"The video is not in a competition.\"}"
+    else
+      scope = "competition_" + @competition_id;
+      @video.downvote_from current_user, vote_scope: scope
+      upvotes = @video.get_upvotes(vote_scope: scope).size
+      downvotes = @video.get_downvotes(vote_scope: scope).size
+      render :json => "{\"id\": #{@video.id}, \"upvotes\": #{upvotes}, \"downvotes\": #{downvotes}}"
+    end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_video
       @video = Video.where(id: params[:id]).first
-      if !@video  
+      @competition_id = params[:competition_id]
+      if !@video
         redirect_to action: "index"
       end
     end

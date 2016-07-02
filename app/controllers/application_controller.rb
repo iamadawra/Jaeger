@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_competition
-    if !session[:competition_id].nil?
+    if session[:competition_id]
       Competition.find(session[:competition_id])
     else
       Competition.find(1)
