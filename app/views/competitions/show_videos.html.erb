@@ -4,20 +4,9 @@
 		<h3>Add videos to "<%= @competition.title %>"</h3>
 		<h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
 	</div>
-	<div class="right-content-heading-right">
-		<div class="social-icons">
-			<ul>
-				<li><a class="facebook" href="#" target="_blank"></a></li>
-				<li><a class="twitter" href="#" target="_blank"></a></li>
-				<li><a class="googleplus" href="#" target="_blank"></a></li>
-				<li><a class="pinterest" href="#" target="_blank"></a></li>
-				<li><a class="dribbble" href="#" target="_blank"></a></li>
-				<li><a class="vimeo" href="#" target="_blank"></a></li>
-			</ul>
-		</div>
-	</div>
 	<div class="clear"> </div>
 </div>
+<%= link_to 'Back', competitions_admin_path %>
 <div class="content-grids">
 	<ul class="video-browsing">
 		<% if @videos.count == 0 %>
@@ -27,7 +16,7 @@
 		<% else %>
 <!--		<%= form_tag({:action => 'add_videos'} ) %>-->
 				<% @videos.each do |v| %>
-				<%= form_for @added_video, remote: true do |f| %>
+				<%= form_for(:post, :url => url_for(:controller => "competitions", :action => "add_videos"),html: {id: "add_video_to_competition_#{v.id}", class: "add_video_to_competition"}, remote: true) do |f| %>
 				<div class="content-grid">
 					<%= link_to image_tag(full_url(v.poster_url)), "#{videos_path}/#{v.id}", title: v.title, target: "_blank", class: "video-link", data: { no_turbolink: true } %>
 					<h3><%= v.title %></h3>
@@ -46,4 +35,3 @@
 	<%= will_paginate @videos %>
 	<div class="clear"> </div>
 </div>
-<%= link_to 'Back', competitions_admin_path %>

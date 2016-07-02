@@ -13,6 +13,6 @@
   </p>
 <% else %>
   <% @added_videos.each do |added_video| %>
-    <%= render 'video_carts/cart_row', video: added_video.video, added_video: added_video, show_total: true %>
+    <%= render 'video_carts/cart_row', video: added_video, show_total: true %>
   <% end %>
 <% end %>

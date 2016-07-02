@@ -5,10 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-AddedVideo.delete_all
-AddedVideosList.delete_all
 
 Video.delete_all
+# User.delete_all
+ActiveRecord::Base.connection.execute("TRUNCATE users")
+10.times do |n|
+  id = n+1
+  email  = "a#{n+1}@c3.com"
+  password = "0000"
+  username = "user#{n+1}"
+  User.create!(id: id, email: email, password: password, username: username)
+end
+
 30.times do |n|
   id = n+1
   title  = "sample#{n+1}"
@@ -17,15 +25,6 @@ Video.delete_all
   poster_url = "sample#{n+1}.jpg"
   tags = ["funny,pet", "pet,animal", "animal,funny,pet"]
   Video.create!(id: id, title: title, video_url: video_url, poster_url: poster_url, uploader_id: "#{n%3+1}", tags: tags[n%3], video_desc: desc)
-end
-
-User.delete_all
-10.times do |n|
-  id = n+1
-  email  = "a#{n+1}@c3.com"
-  password = "0000"
-  username = "user#{n+1}"
-  User.create!(id: id, email: email, password: password, username: username)
 end
 
 VcRelation.delete_all
@@ -55,9 +54,3 @@ Competition.delete_all
   poster = "competitions/7b5b3ab9-f004-47f0-9a5e-0ec03023a7a0/poster"
   Competition.create!(id: id, title: title, desc: desc, start_date: start_date, period: period, prize: prize, prize_num: prize_num, poster: poster)
 end
-
-AddVideosStatus.delete_all
-AddVideosStatus.create! id: 1, name: "In Progress"
-AddVideosStatus.create! id: 2, name: "Placed"
-AddVideosStatus.create! id: 3, name: "Shipped"
-AddVideosStatus.create! id: 4, name: "Cancelled"

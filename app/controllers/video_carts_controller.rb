@@ -1,16 +1,19 @@
 class VideoCartsController < ApplicationController
   def show
-  	if params.has_key?(:cid)
-  		if AddedVideosList.exists?(competition_id: params[:cid])
-	      @avl = AddedVideosList.where(competition_id: params[:cid])
-	    else
-	      @avl = AddedVideosList.new(competition_id: params[:cid])
-	      @avl.save
-	    end
-	    session[:list_id] = @avl[0][:id]
+  	cid = 1
+  	if(params[:cid])
+  		cid = params[:cid]
+  		session[:competition_id] = cid
+  	elsif(session[:competition_id])
+  		cid = session[:competition_id]
   	end
+    @count = VcRelation.where(competition_id: cid).count('id')
+  	@added_videos = Video.where(id: VcRelation.where(competition_id: cid).select(:video_id)) 
+  	@competition = Competition.find(cid)
+  end
 
-  	@added_videos = current_list.added_videos
-  	@competition = Competition.find(current_list[:competition_id])
+  def destroy
+  	VcRelation.where(video_id: params[:id], competition_id: session[:competition_id]).destroy_all
+    @added_videos = Video.where(id: VcRelation.where(competition_id: session[:competition_id]).select(:video_id)) 
   end
 end

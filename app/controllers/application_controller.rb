@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   @@CDN_DNS = "http://d3bowxm1hun7br.cloudfront.net/"
-  helper_method :current_user, :all_competitions, :current_list, :full_url
+  helper_method :current_user, :all_competitions, :current_competition, :full_url
 
   private
 
@@ -24,11 +24,11 @@ class ApplicationController < ActionController::Base
     # @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  def current_list
-    if !session[:list_id].nil?
-      AddedVideosList.find(session[:list_id])
+  def current_competition
+    if session[:competition_id]
+      Competition.find(session[:competition_id])
     else
-      AddedVideosList.new(competition_id: params[:cid])
+      Competition.find(1)
     end
   end
 

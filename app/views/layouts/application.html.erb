@@ -9,9 +9,6 @@
 </head>
 <body>
   <div class="header">
-    <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, :id => "flash_#{name}" %>
-    <% end %>
     <% if current_user %>
       <% if current_user.username %>
         <div class="welcome">Hi, <%= current_user.username %></div>
