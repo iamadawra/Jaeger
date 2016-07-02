@@ -77,31 +77,20 @@ class CompetitionsController < ApplicationController
   end
 
   def show_videos
-    sql = "SELECT * FROM videos"
+    session[:competition_id] = params[:cid]
+    sql = "SELECT * FROM videos where id not in (select video_id from vc_relations where competition_id = #{params[:cid]})"
+    @count = VcRelation.where(competition_id: params[:cid]).count('id')
     @videos = Video.paginate_by_sql(sql, page: params[:page], per_page: @@PER_PAGE)
     @competition = Competition.find(params[:cid])
-    # @vc_relation = VcRelation.new
-    if AddedVideosList.exists?(competition_id: params[:cid])
-      @avl = AddedVideosList.where(competition_id: params[:cid])
-      session[:list_id] = @avl[0][:id]
-    else
-      @avl = AddedVideosList.new(competition_id: params[:cid])
-      @avl.save
-      session[:list_id] = @avl[0][:id]
-    end
-    @added_video = AddedVideo.new
   end
 
   def add_videos
-    @competition = VcRelation.new(params)
-    respond_to do |format|
-      if @competition.save
-        format.html { redirect_to competitions_admin_path, notice: 'Competition was successfully created.' }
-        format.json { render :show, status: :created, location: @competition }
-      else
-        format.html { render :new }
-        format.json { render json: @competition.errors, status: :unprocessable_entity }
-      end
+    @vc_relation = VcRelation.new(video_id: params[:vid], competition_id: params[:id])
+    count = VcRelation.where(competition_id: params[:id]).count('id')
+    if @vc_relation.save
+      render :json => "{\"msg\": \"This video has been added to the competition successfully.\", \"size\": #{count}}"
+    else
+      render :json => "{\"error\": \"This video was already in the competition.\"}"
     end
   end
 
