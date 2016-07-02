@@ -60,17 +60,9 @@
           <div class="type-videos">
             <h3>Active Competitions</h3>
             <ul>
-              <li><a href="#">Competition 1</a></li>
-              <li><a href="#">Competition 2</a></li>
-              <li><a href="#">Competition 3</a></li>
-              <li><a href="#">Competition 4</a></li>
-              <li><a href="#">Competition 5</a></li>
-              <li><a href="#">Competition 6</a></li>
-              <li><a href="#">Competition 7</a></li>
-              <li><a href="#">Competition 8</a></li>
-              <li><a href="#">Competition 9</a></li>
-              <li><a href="#">Competition 10</a></li>
-              <li><a href="#">Competition 11</a></li>
+            <% all_competitions.each do |c| %>
+              <li><%= link_to "#{c.title}", "#{competitions_path}/#{c.id}"%> </li>
+            <% end%>
             </ul>
           </div>
         </div>

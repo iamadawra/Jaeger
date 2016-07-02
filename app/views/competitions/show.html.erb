@@ -1,39 +1,83 @@
-<p id="notice"><%= notice %></p>
+<div class="right-content-heading">
+  <div class="right-content-heading-left">
+    <% if @is_search %>
+    <h3>Search Results for <span class="keyword">"<%= @param%>"</span></h3>
+    <% else %>
+    <h3><%= @competition.title %></h3>
+    <% end %>
+  </div>
+  <div class="right-content-heading-right">
+    <div class="social-icons">
+      <ul>
+        <li><a class="facebook" href="#" target="_blank"></a></li>
+        <li><a class="twitter" href="#" target="_blank"></a></li>
+        <li><a class="googleplus" href="#" target="_blank"></a></li>
+        <li><a class="pinterest" href="#" target="_blank"></a></li>
+        <li><a class="dribbble" href="#" target="_blank"></a></li>
+        <li><a class="vimeo" href="#" target="_blank"></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="clear"> </div>
+</div>
+<div class="content-grids">
+  <div class="comp-desc">
+    <div class="comp-desc-left">
+      <p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @competition.title %>
-</p>
+        <img src="<%= @competition.poster %>"/>
+      </p>
+    </div>
+    <div class="comp-desc-right">
+      <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Desc:</strong>
-  <%= @competition.desc %>
-</p>
+      <p>
+        <strong>Desc:</strong>
+        <%= @competition.desc %>
+      </p>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @competition.start_date %>
-</p>
+      <p>
+        <strong>Start date:</strong>
+        <%= @competition.start_date %>
+      </p>
 
-<p>
-  <strong>Period:</strong>
-  <%= @competition.period %>
-</p>
+      <p>
+        <strong>Period:</strong>
+        <%= @competition.period %>
+      </p>
 
-<p>
-  <strong>Prize:</strong>
-  <%= @competition.prize %>
-</p>
+      <p>
+        <strong>Prize:</strong>
+        <%= @competition.prize %>
+      </p>
 
-<p>
-  <strong>Prize num:</strong>
-  <%= @competition.prize_num %>
-</p>
+      <p>
+        <strong>Prize num:</strong>
+        <%= @competition.prize_num %>
+      </p>
+      
+    </div>
+  </div>
 
-<p>
-  <strong>Poster:</strong>
-  <%= @competition.poster %>
-</p>
+  <div>
+  <ul class="video-browsing">
+    <% if @videos.count == 0 %>
+      <div>
+        <span>There is no videos matching the search keyword "<%= @param%>"</span>
+      </div>
+    <% else %>
+      <% @videos.each do |v| %>
+      <div class="content-grid">
+        <%= link_to image_tag(v.c_poster_url), "#{videos_path}/#{v.id}?cid=#{@competition.id}", title: v.title, class: "video-link", data: { no_turbolink: true } %>
+        <h3><%= v.title %></h3>
+        <%= link_to "Watch now", "#{videos_path}/#{v.id}?cid=#{@competition.id}", title: v.title, class: "button", data: { no_turbolink: true } %>
+      </div>
+      <% end %>
+    <% end %>
+  </ul>
+  </div>
+  <div class="clear"> </div>
+  <%= will_paginate @videos %>
+  <div class="clear"> </div>
+</div>
 
-<%= link_to 'Edit', edit_competition_path(@competition) %> |
-<%= link_to 'Back', competitions_path %>

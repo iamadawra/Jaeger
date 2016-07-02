@@ -49,3 +49,22 @@
 .pagination {
   clear: both;
 }
+
+.comp-desc-left img{
+  width: 180px;
+  height: 135px;
+}
+
+.comp-desc-left{
+  padding-left: 30px;
+  height: 100%;
+  /*display: table-cell;*/
+  display: inline-block;
+  padding-top: 30px;
+}
+
+.comp-desc-right{
+  margin-left: 30px;
+  display: inline-block;
+  width: 50%;
+}

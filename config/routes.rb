@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  
+  get 'competitions/admin' => 'competitions#admin'
+  get 'competitions/show_videos' => 'competitions#show_videos'
+  post 'competitions/add_videos' => 'competitions#add_videos'
   resources :competitions
   root 'videos#show'
   
@@ -8,6 +12,7 @@ Rails.application.routes.draw do
   get 'videos/:id' => 'videos#show', :as => 'video_search'
   get 'videos/:search_params' => 'videos#search'
   post '/rate' => 'rater#create', :as => 'rate'
+
   
   resources :users, :sessions, :rater, :upload_videos, :videos
   resources :videos do

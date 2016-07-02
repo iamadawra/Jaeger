@@ -31,8 +31,11 @@
       </video>
 
       <div class="rate-and-vote">
+        <% if !@competition%>
         <div class="video-rate"><%= rating_for @video, "entertainment" %></div>
-        <%= render partial: "voting", locals: {video: @video} %>
+        <% else %>
+          <%= render partial: "voting", locals: {video: @video, competition_id: @competition.id} %>
+        <% end %>
       </div>
 
     </div>
@@ -57,6 +60,48 @@
       <% end %>
     </ul>
   </div>
+  <% if @competition%>
+    <div class="competition-info tags">
+          <ul>
+        <li><h3><br/>Competition Information:</h3></li>
+        </ul>
+          <div class="comp-desc-left">
+        <p>
+
+          <img src="<%= @competition.poster %>"/>
+        </p>
+      </div>
+      <div class="comp-desc-right">
+        <p id="notice"><%= notice %></p>
+
+        <p>
+          <strong>Desc:</strong>
+          <%= @competition.desc %>
+        </p>
+
+        <p>
+          <strong>Start date:</strong>
+          <%= @competition.start_date %>
+        </p>
+
+        <p>
+          <strong>Period:</strong>
+          <%= @competition.period %>
+        </p>
+
+        <p>
+          <strong>Prize:</strong>
+          <%= @competition.prize %>
+        </p>
+
+        <p>
+          <strong>Prize num:</strong>
+          <%= @competition.prize_num %>
+        </p>
+        
+      </div>
+    </div>
+  <% end%>
   <div class="clear"> </div>
           
 </div>
