@@ -101,7 +101,7 @@ class CompetitionsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_competition
       @competition = Competition.where(id: params[:id]).first
-      if !@competition
+      if !@competition 
         redirect_to action: "index"
       end
     end
