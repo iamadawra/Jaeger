@@ -1,0 +1,13 @@
+<div class="right-content-heading">
+  <div class="right-content-heading-left">
+    <h3>Video List for Competition "<%= @competition[:title]%>"</h3>
+    <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
+  </div>
+  <div class="clear"> </div>
+</div>
+<%= link_to 'Back', competitions_admin_path %>
+<div class="content-grids">
+	<div class="video-cart">
+	  <%= render "video_cart" %>
+	</div>
+</div>

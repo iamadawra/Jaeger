@@ -46,7 +46,7 @@
         <div class="comp-desc-left">
       <p>
 
-        <%= link_to image_tag(competition.poster), "competitions/#{competition.id}" %>
+        <%= link_to image_tag(full_url(competition.poster)), "competitions/#{competition.id}" %>
       </p>
     </div>
     <div class="comp-desc-right">

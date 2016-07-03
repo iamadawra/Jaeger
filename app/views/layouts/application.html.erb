@@ -9,9 +9,6 @@
 </head>
 <body>
   <div class="header">
-    <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, :id => "flash_#{name}" %>
-    <% end %>
     <% if current_user %>
       <% if current_user.username %>
         <div class="welcome">Hi, <%= current_user.username %></div>
@@ -35,7 +32,7 @@
         <div class="top-nav">
           <ul>
             <li><a href="#">Trending</a></li>
-            <li><a href="#">Compete</a></li>
+            <li><%= link_to "Competitions", competitions_path %></li>
             <% if current_user %>
             <li><%= link_to "Upload", upload_videos_path %></li>
             <li><%= link_to "logout", logout_path %></li>
