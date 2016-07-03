@@ -1,6 +1,5 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :upvote, :downvote]
-  
   @@PER_PAGE = 12
 
   def index
