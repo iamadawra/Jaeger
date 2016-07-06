@@ -17,73 +17,41 @@
   </div> -->
   <div class="clear"> </div>
 </div>
-
-<table>
-  <thead>
-<!--     <tr>
-      <th>Title</th>
-      <th>Desc</th>
-      <th>Start date</th>
-      <th>Period</th>
-      <th>Prize</th>
-      <th>Prize num</th>
-      <th>Poster</th>
-      <th colspan="3"></th>
-    </tr> -->
-  </thead>
-
-  <tbody>
+<div class="video-index">
+  <ul>
     <% @competitions.each do |competition| %>
-      <tr>
-        <!-- <td><%= competition.title %></td>
-        <td><%= competition.desc %></td>
-        <td><%= competition.start_date %></td>
-        <td><%= competition.period %></td>
-        <td><%= competition.prize %></td>
-        <td><%= competition.prize_num %></td>
-        <td><%= competition.poster %></td> -->
-        <td>
-        <div class="comp-desc-left">
-      <p>
-
-        <%= link_to image_tag(full_url(competition.poster)), "competitions/#{competition.id}" %>
-      </p>
-    </div>
-    <div class="comp-desc-right">
-      <p id="notice"><%= notice %></p>
-      <p>
-        <strong><h1>Title:<%= link_to "#{competition.title}", "competitions/#{competition.id}" %></h1></strong>
-      </p>
-      <p>
-        <strong>Desc:</strong>
-        <%= competition.desc %>
-      </p>
-
-      <p>
-        <strong>Start date:</strong>
-        <%= competition.start_date %>
-      </p>
-
-      <p>
-        <strong>Period:</strong>
-        <%= competition.period %>
-      </p>
-
-      <p>
-        <strong>Prize:</strong>
-        <%= competition.prize %>
-      </p>
-
-      <p>
-        <strong>Prize num:</strong>
-        <%= competition.prize_num %>
-      </p>
-      
-    </div>
-    </td>
-      </tr>
+      <li>
+      <%= link_to "competitions/#{competition.id}" do %>
+        <%= link_to image_tag(full_url(competition.poster), :style=> "max-height:100px;"), "competitions/#{competition.id}" %>
+        <h3><%= link_to "#{competition.title}", "competitions/#{competition.id}" %></h3>
+        <p><%= competition.desc %></p>
+        <table>
+          <tbody>
+            <tr>
+              <td style="padding: 10px 20px 10px 0px;">
+                <a href="#" class="ph-button ph-btn-green">
+                  Prize Money: $<%= competition.prize %> 
+                </a>
+              </td>
+              <td style="padding: 10px 20px 10px 0px;">
+                <a href="#" class="ph-button ph-btn-blue">
+                  Top <%= competition.prize_num %> <%= 'Entry'.pluralize(competition.prize_num) %> win 
+                </a>
+              </td>
+              <td style="padding: 10px 20px 10px 0px;">
+                <a href="#" class="ph-button ph-btn-red">
+                  <% if Date.today.mjd - competition.start_date.mjd > competition.period %>
+                  Competition Over
+                  <% else %>
+                  <%= competition.period - (Date.today.mjd - competition.start_date.mjd) + 1 %> <%= 'day'.pluralize(competition.period - (Date.today.mjd - competition.start_date.mjd) + 1) %> left
+                  <% end %>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <% end %>
+      </li>
     <% end %>
-  </tbody>
-</table>
-
-<br>
+  </ul>
+</div>
