@@ -972,3 +972,126 @@ img{max-width:100%;}
 .pagination .next_page {
     margin-left: 1em; 
 }
+
+* {margin: 0; padding: 0;}
+
+.video-index div {
+  margin: 20px;
+}
+
+.video-index ul {
+  list-style-type: none;
+  width: 100%;
+}
+
+.video-index h3 {
+  font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+}
+
+.video-index li img {
+  float: left;
+  margin: 0 15px 0 0;
+}
+
+.video-index li p {
+  font: 200 12px/1.5 Georgia, Times New Roman, serif;
+}
+
+.video-index li {
+  padding: 10px;
+  overflow: auto;
+}
+
+.video-index li:hover {
+  background: #eee;
+  cursor: pointer;
+}
+
+
+
+
+
+
+.video-show div {
+  margin: 20px;
+  background-color: #eee;
+  margin-bottom: 50px;
+}
+
+.video-show ul {
+  list-style-type: none;
+  width: 100%;
+}
+
+.video-show h3 {
+  font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+}
+
+.video-show li img {
+  float: left;
+  margin: 0 15px 0 0;
+}
+
+.video-show li p {
+  font: 200 12px/1.5 Georgia, Times New Roman, serif;
+}
+
+.video-show li {
+  padding: 10px;
+  overflow: auto;
+}
+
+.ph-button {
+	
+    border-style: solid;
+    border-width: 0px 0px 3px;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+    color: #FFFFFF;	   
+    border-radius: 6px;
+    cursor: default;
+    display: inline-block;
+    font-style: normal;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    transition: all 200ms ease-in-out 0s;
+    white-space: nowrap;	
+    font-family: "Gotham Rounded A","Gotham Rounded B",Helvetica,Arial,sans-serif;
+    font-weight: 700;	
+    padding: 9px 11px 9px;
+    font-size: 12px;
+	
+}
+/*Green
+==========================*/
+.ph-btn-green {
+
+    border-color: #3AC162;
+	background-color: #5FCF80;
+
+}
+
+/*Blue
+==========================*/
+.ph-btn-blue {
+
+    border-color: #326E99;
+    background-color: #3F8ABF;
+}
+
+/*Grey
+==========================*/
+.ph-btn-grey {
+
+     background-color: #C6CCD2;
+     border-color: #AAB3BB;
+}
+/*Red
+==========================*/
+.ph-btn-red {
+
+    background-color: #ED5A5A !important;
+    border-color: #EA4343 !important;
+
+}

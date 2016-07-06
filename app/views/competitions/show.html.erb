@@ -20,45 +20,43 @@
   </div>
   <div class="clear"> </div>
 </div>
-<div class="content-grids">
-  <div class="comp-desc">
-    <div class="comp-desc-left">
-      <p>
 
-        <img src="<%= full_url(@competition[:poster]) %>"/>
-      </p>
-    </div>
-    <div class="comp-desc-right">
-      <p id="notice"><%= notice %></p>
-
-      <p>
-        <strong>Desc:</strong>
-        <%= @competition.desc %>
-      </p>
-
-      <p>
-        <strong>Start date:</strong>
-        <%= @competition.start_date %>
-      </p>
-
-      <p>
-        <strong>Period:</strong>
-        <%= @competition.period %>
-      </p>
-
-      <p>
-        <strong>Prize:</strong>
-        <%= @competition.prize %>
-      </p>
-
-      <p>
-        <strong>Prize num:</strong>
-        <%= @competition.prize_num %>
-      </p>
-      
-    </div>
+<div class="video-show" style="background:#eee; margin-bottom:20px;">
+  <ul>
+      <li>
+        <%= image_tag(full_url(@competition[:poster]), :style=> "max-height:100px;") %>
+        <h3><%= @competition.title.humanize %></h3>
+        <p><%= @competition.desc %></p>
+        <table>
+          <tbody>
+            <tr>
+              <td style="padding: 10px 20px 10px 0px;">
+                <a href="#" class="ph-button ph-btn-green">
+                  Prize Money: $<%= @competition.prize %> 
+                </a>
+              </td>
+              <td style="padding: 10px 20px 10px 0px;">
+                <a href="#" class="ph-button ph-btn-blue">
+                  Top <%= @competition.prize_num %> <%= 'Entry'.pluralize(@competition.prize_num) %> win 
+                </a>
+              </td>
+              <td style="padding: 10px 20px 10px 0px;">
+                <a href="#" class="ph-button ph-btn-red">
+                  <% if Date.today.mjd - @competition.start_date.mjd > @competition.period %>
+                  Competition Over
+                  <% else %>
+                  <%= @competition.period - (Date.today.mjd - @competition.start_date.mjd) + 1 %> <%= 'day'.pluralize(@competition.period - (Date.today.mjd - @competition.start_date.mjd) + 1) %> left
+                  <% end %>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+  </ul>
   </div>
 
+<div class="content-grids">
   <div>
   <ul class="video-browsing">
     <% if @videos.count == 0 %>
