@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160630171348) do
+ActiveRecord::Schema.define(version: 20160710192821) do
 
   create_table "average_caches", force: :cascade do |t|
     t.integer  "rater_id",      limit: 4
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20160630171348) do
     t.string   "poster",     limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.date     "end_date"
   end
 
   create_table "overall_averages", force: :cascade do |t|
@@ -93,8 +94,9 @@ ActiveRecord::Schema.define(version: 20160630171348) do
   create_table "vc_relations", force: :cascade do |t|
     t.integer  "video_id",       limit: 4
     t.integer  "competition_id", limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.integer  "is_approved",    limit: 4, default: 0, null: false
   end
 
   add_index "vc_relations", ["video_id", "competition_id"], name: "index_vc_relations_on_video_id_and_competition_id", unique: true, using: :btree
@@ -107,9 +109,9 @@ ActiveRecord::Schema.define(version: 20160630171348) do
     t.integer  "uploader_id",             limit: 4
     t.string   "tags",                    limit: 255
     t.datetime "uploaded_at"
-    t.datetime "created_at",                                          null: false
-    t.datetime "updated_at",                                          null: false
-    t.boolean  "is_approved",                         default: false, null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.integer  "is_approved",             limit: 4,   default: 0,   null: false
     t.string   "video_desc",              limit: 255
     t.integer  "cached_votes_total",      limit: 4,   default: 0
     t.integer  "cached_votes_score",      limit: 4,   default: 0

@@ -1,3 +1,5 @@
+require 'date'
+# require 'active_support/core_ext/string'
 class CompetitionsController < ApplicationController
   before_action :set_competition, only: [:show, :edit, :update, :destroy]
   before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
@@ -33,7 +35,11 @@ class CompetitionsController < ApplicationController
   # POST /competitions
   # POST /competitions.json
   def create
-    @competition = Competition.new(competition_params)
+    str = competition_params['start_date(1i)'] + '-' + competition_params['start_date(2i)'] + '-' + competition_params['start_date(3i)']
+    date = DateTime.parse(str)
+    date = date + competition_params[:period].to_f.days
+    formatted_date = date.strftime('%Y-%m-%d')
+    @competition = Competition.new(competition_params.merge!(:end_date => formatted_date))
 
     respond_to do |format|
       if @competition.save

@@ -72,7 +72,8 @@ $(function() {
       replaceFileInput: false,
       add: function (e, data){
         var formatIsValid = true;
-        console.log(data.originalFiles[0]['type'])
+        console.log(data.originalFiles[0]);
+        console.log("123");
         if(data.originalFiles[0]['type'].length == 0 || !acceptable.test(data.originalFiles[0]['type'])) {
             formatIsValid = false;
             alert('The file format is not acceptable.');
@@ -81,8 +82,7 @@ $(function() {
         
         submitButton.click(function (event) {
           if (formatIsValid && validate()) {
-            console.log(validate());
-            data.submit();
+            // data.submit();
           }
         });
       },
@@ -119,7 +119,7 @@ $(function() {
         var input = $("<input />", { type:'hidden', name: fileInput.attr('name'), value: url })
         form.append(input);
         if (video_uploaded == 1 && poster_uplaoded == 1){
-          form.submit();
+          // form.submit();
         }
       },
       fail: function(e, data) {

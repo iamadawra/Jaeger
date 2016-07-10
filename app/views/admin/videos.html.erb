@@ -1,0 +1,34 @@
+<div class="right-content-heading">
+	<div class="right-content-heading-left">
+		<% if @is_search %>
+		<h3>Search Results for <span class="keyword">"<%= @param%>"</span></h3>
+		<% else %>
+		<h3><%= @str%> videos</h3>
+		<% end %>
+	</div>
+	<div class="right-content-heading-right">
+		<%= link_to "Approved Videos", admin_videos_path(:approved => 1), title: "approved videos" %> | 
+		<%= link_to "Pending Videos", admin_videos_path(:approved => 0), title: "pending videos" %> | 
+		<%= link_to "Denied Videos", admin_videos_path(:approved => -1), title: "denied videos" %>
+	</div>
+	<div class="clear"> </div>
+</div>
+<div class="content-grids">
+	<ul class="video-browsing">
+		<% if @videos_not_approved.count == 0 %>
+		<div>
+			<span>There is no <%= @str%> videos.</span>
+		</div>
+		<% else %>
+		<% @videos_not_approved.each do |v| %>
+		<div class="content-grid">
+			<%= link_to image_tag(full_url(v.poster_url)), admin_review_path(:id => v.id), title: v.title, class: "video-link", data: { no_turbolink: true } %>
+			<h3><%= v.title %></h3>
+		</div>
+		<% end %>
+		<% end %>
+	</ul>
+	<div class="clear"> </div>
+	<%= will_paginate @videos_not_approved %>
+	<div class="clear"> </div>
+</div>
