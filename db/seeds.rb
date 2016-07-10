@@ -47,10 +47,11 @@ Competition.delete_all
   id = n+1
   title  = "The Funniest Videos in the world #{n+1}"
   desc = "Funny videos 2016 : try not to laugh, smile, or grin while watching this funniest video ever of stupid people doing stupid things compilation. This video is so hilarious and impossible to not laugh includes funny vines, funny pranks and funny fails"
-  start_date = "2016-06-28"
+  start_date = "2016-06-2#{n}"
   period = 7
+  end_date = "2016-06-2#{n+7}"
   prize = 1000
   prize_num = 2
   poster = "competitions/7b5b3ab9-f004-47f0-9a5e-0ec03023a7a0/poster"
-  Competition.create!(id: id, title: title, desc: desc, start_date: start_date, period: period, prize: prize, prize_num: prize_num, poster: poster)
+  Competition.create!(id: id, title: title, desc: desc, start_date: start_date, end_date: end_date, period: period, prize: prize, prize_num: prize_num, poster: poster)
 end

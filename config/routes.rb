@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   get 'admin/videos'
   get 'admin/review/:id' => 'admin#review', :as => 'admin_review'
   post 'admin/approve' => 'admin#approve'
+  get 'admin/vc_relations'
+  post 'admin/vc_relations'
+  get 'admin/vc_approve'
 
   get 'competitions/admin' => 'competitions#admin'
   get 'competitions/show_videos' => 'competitions#show_videos'

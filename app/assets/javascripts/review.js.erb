@@ -35,4 +35,20 @@ $(function() {
 			$("#review-form input[value=\"Approve\"").attr("disabled", disable);	
 		});
 	});
+
+	$(".video_actions a").each(function(i, e) {
+		var confirmed = false;
+		var title = $(e).attr("title");
+		$(e).click(function(event) {
+			confirmed = confirm("Do you want to perform this action?");
+			if(!confirmed){
+				event.preventDefault();
+			} else {
+				if(title == "Approve")
+					alert("The video is approved to participate in the competition.");
+				else
+					alert("The video is denied to participate in the competition.");
+			}
+		});
+	});
 });
