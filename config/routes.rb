@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'admin/videos'
+  get 'admin/review/:id' => 'admin#review', :as => 'admin_review'
+  post 'admin/approve' => 'admin#approve'
+
   get 'competitions/admin' => 'competitions#admin'
   get 'competitions/show_videos' => 'competitions#show_videos'
   post 'competitions/add_videos' => 'competitions#add_videos'
@@ -18,7 +22,7 @@ Rails.application.routes.draw do
   post '/rate' => 'rater#create', :as => 'rate'
 
   
-  resources :users, :sessions, :rater, :upload_videos, :videos
+  resources :users, :sessions, :rater, :upload_videos, :videos, :admin
   resources :videos do
     member do
       put "like" => "videos#upvote"
