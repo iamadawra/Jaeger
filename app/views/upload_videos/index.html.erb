@@ -1,6 +1,6 @@
 <div class="right-content-heading">
   <div class="right-content-heading-left">
-    <h3>Listing Upload Videos</h3>
+    <h3>My Uploads</h3>
   </div>
   <div class="right-content-heading-right">
     <div class="social-icons">
@@ -20,14 +20,15 @@
 <p id="notice"><%= notice %></p>
 
 <%= will_paginate @upload_videos %>
+<% if !@upload_videos.empty? %>
 <table>
   <thead>
     <tr>
       <th>Title</th>
       <th>Tags</th>
-      <th>Video desc</th>
+      <th>Description</th>
       <th>Upload time</th>
-      <th>Is approved</th>
+      <th>Approval Status</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -47,7 +48,8 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
+
 <%= will_paginate @upload_videos %>
 <br>
-
-<%= link_to 'New Upload video', new_upload_video_path %>
+<%= link_to 'Upload a New Video', new_upload_video_path, class: "ph-button ph-btn-green" %>

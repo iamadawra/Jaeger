@@ -1,0 +1,66 @@
+$(function() {
+	$("#review-form input:submit").each(function(i, e) {
+		var submit = $(e);
+		submit.click(function(event) {
+			var confirmed = false;
+			if ($(this).val() == "Deny") {
+				$("#review_action").val("-1");
+				confirmed = confirm("Do you want to deny this video to show on the website? You can review it in the \"Denied Videos\" after.");
+			} else if($(this).val() == "Approve") {
+				$("#review_action").val("1");
+				confirmed = confirm("Do you want to approve this video to show on the website?");
+			} else {
+				confirmed = confirm("Do you want to put this video in the pending list?");
+			}
+
+			if(confirmed){
+				$(this).parent().submit();
+			}
+			event.preventDefault();
+		});
+	});
+
+	$("#review-form input:checkbox").each(function(i, e) {
+		var cbk = $(e);
+		cbk.click(function(event) {
+			var disable = false;
+			$("#review-form input:checkbox").each(function(i, e) {
+				if (!$(e).is(":checked")) {
+					disable = true;
+				}
+			});
+			
+			$("#review-form input[value=\"Approve\"").attr("disabled", disable);	
+		});
+	});
+
+	$(".video_actions a").each(function(i, e) {
+		var confirmed = false;
+		var title = $(e).attr("title");
+		$(e).click(function(event) {
+			confirmed = confirm("Do you want to perform this action?");
+			if(!confirmed){
+				event.preventDefault();
+			} else {
+				if(title == "Approve")
+					alert("The video is approved to participate in the competition.");
+				else
+					alert("The video is denied to participate in the competition.");
+			}
+		});
+	});
+
+	var t = window.setInterval(function() {
+		var vid = document.getElementById("myVideo_html5_api");
+		if (vid.readyState > 0) {
+			var sec_num = parseInt(vid.duration, 10); // don't forget the second param
+			var minutes = Math.floor(sec_num / 60);
+			var seconds = sec_num - (minutes * 60);
+			if (minutes < 10) {minutes = "0"+minutes;}
+	    	if (seconds < 10) {seconds = "0"+seconds;}
+	    	var time = minutes + ":" +seconds;
+			$('#time_label').html('The length is acceptable. (The length of the video is ' + time + ')');
+			clearInterval(t);
+		}
+	}, 500);
+});

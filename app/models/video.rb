@@ -3,6 +3,7 @@ class Video < ActiveRecord::Base
   acts_as_votable
   has_many :vc_relations
   has_many :added_videos
+  has_one :user, :primary_key => :uploader_id, :foreign_key => :id
 
   validates_presence_of :title
   validates_presence_of :video_url

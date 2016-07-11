@@ -1,0 +1,46 @@
+<div class="right-content-heading">
+	<div class="right-content-heading-left">
+		<h3>review <%= @str %> videos for competition "<%= @competition.title%>"</h3>
+	</div>
+	<div class="right-content-heading-right">
+		<%= link_to "Approved Videos", admin_vc_relations_path(:approved => 1, :cid => @competition.id), title: "approved videos" %> | 
+		<%= link_to "Pending Videos", admin_vc_relations_path(:approved => 0, :cid => @competition.id), title: "pending videos" %> | 
+		<%= link_to "Denied Videos", admin_vc_relations_path(:approved => -1, :cid => @competition.id), title: "denied videos" %>
+	</div>
+	<div class="clear"> </div>
+</div>
+<div>
+	<%= form_tag({controller: 'admin', action: 'vc_relations'}, method: 'post', :id => 'competition-form') do%>
+		<%= select_tag "cid", options_from_collection_for_select(@competitions, "id", "title", @competition.id) %>
+		<%= submit_tag "select" %>
+	<% end %>
+</div>
+<div>
+		<% if @vc_relations.count == 0 %>
+			There is no <%= @str %> videos for the competition.
+		<% end %>
+
+    	<% @vc_relations.each do |v| %>
+    	<div class="video_info"> 
+			<div class="video_image">
+				<%= link_to image_tag(full_url(v.video.poster_url)), video_path(:id => v.video.id), title: v.video.title, target: "_blank", data: { no_turbolink: true } %>
+			</div>
+			<div class="video_details">
+				<div><span>Title:</span><%= v.video.title %></div>
+				<div><span>Uploader:</span><%= v.video.user.username %></div>
+				<div><span>Description:</span><%= v.video.video_desc %></div>
+			</div>
+			<div class="video_actions">
+				<% if @approved == "0" || @approved == "-1" %>
+					<%= link_to "Approve", admin_vc_approve_path(:id => v.id, :approved => 1, :ori => @approved), title: "Approve" %>
+				<% end %>
+				<% if @approved == "0" %> | <% end %>
+				<% if @approved == "0" || @approved == "1" %>
+					<%= link_to "Deny", admin_vc_approve_path(:id => v.id, :approved => -1, :ori => @approved), title: "Deny" %>
+				<% end %>
+			</div>
+			<div class="clear"> </div>
+		</div>
+		<% end %>	
+    
+</div>
