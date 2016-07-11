@@ -1,0 +1,14 @@
+<div class="right-content-heading">
+  <div class="right-content-heading-left">
+    <h3>Administration Page for CucuCity</h3>
+  </div>
+  <div class="clear"> </div>
+</div>
+
+<%= link_to 'Video Approval (To check whether videos uploaded can be shown on the website)', admin_videos_path(:approved => 0)%>
+<br>
+
+<%= link_to 'Video Approval to Participate in a Competition (To check whether videos uploaded can participate in a specific competition)', admin_vc_relations_path(:approved => 0)%>
+<br>
+
+<%= link_to 'Competition Management (To create or edit a competiton)', competitions_admin_path %>

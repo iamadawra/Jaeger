@@ -5,15 +5,18 @@
 		<% else %>
 		<h3><%= @str%> videos</h3>
 		<% end %>
-	</div>
-	<div class="right-content-heading-right">
+
 		<%= link_to "Approved Videos", admin_videos_path(:approved => 1), title: "approved videos" %> | 
 		<%= link_to "Pending Videos", admin_videos_path(:approved => 0), title: "pending videos" %> | 
 		<%= link_to "Denied Videos", admin_videos_path(:approved => -1), title: "denied videos" %>
 	</div>
+	<div class="right-content-heading-right">
+		
+	</div>
 	<div class="clear"> </div>
 </div>
 <div class="content-grids">
+<%= link_to '<< Back to upper level', admin_index_path%><br>
 	<ul class="video-browsing">
 		<% if @videos_not_approved.count == 0 %>
 		<div>

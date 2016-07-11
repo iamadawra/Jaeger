@@ -27,6 +27,10 @@
     <%= f.file_field :poster_url %>
   </div>
   <div class="field">
+    <%= f.label :tags, "Select a competition to participate:"%><br>
+    <%= select_tag "cid", options_from_collection_for_select(@competitions, "id", "title"), :include_blank => "-- Select --" %>
+  </div>
+  <div class="field">
     <%= f.label :tags, "Tags: (seperated by ,)"%><br>
     <%= f.text_field :tags %>
   </div>

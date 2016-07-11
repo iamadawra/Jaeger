@@ -18,6 +18,7 @@ class UploadVideosController < ApplicationController
 
   # GET /upload_videos/new
   def new
+    @competitions = Competition.all
     @upload_video = Video.new
   end
 
@@ -34,6 +35,10 @@ class UploadVideosController < ApplicationController
 
     respond_to do |format|
       if @upload_video.save
+        if(params[:cid] != "")
+          vcrelation = VcRelation.new(:video_id => @upload_video.id, :competition_id => params[:cid])
+          vcrelation.save
+        end
         format.html { redirect_to :controller => 'upload_videos', notice: 'Upload video was successfully created.' }
         format.json { render :show, status: :created, location: @upload_video }
       else
