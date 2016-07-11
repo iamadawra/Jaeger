@@ -31,7 +31,7 @@
         </div>
         <div class="top-nav">
           <ul>
-            <li><a href="#">Trending</a></li>
+            <li><%= link_to "Trending", root_path %></li>
             <li><%= link_to "Competitions", competitions_path %></li>
             <% if current_user %>
             <li><%= link_to "Upload", upload_videos_path %></li>

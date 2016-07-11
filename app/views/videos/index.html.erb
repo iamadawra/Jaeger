@@ -20,6 +20,15 @@
 	</div>
 	<div class="clear"> </div>
 </div>
+
+
+<% if !@is_search %>	
+	<div class="video-show" style="@import url(https://fonts.googleapis.com/css?family=Roboto:300); background:#e4e2e9; margin-bottom:20px;  font-family: 'Roboto', sans-serif; padding: 10px">
+  		<h3>Welcome to CucuCity</h3> <br>
+  		The website that makes you laugh, smile and cry in under 30 seconds! You can check out <%= link_to "videos which are trending", root_path %> or <%= link_to "participate in a competition", competitions_path %> by <%= link_to "uploading your own video", upload_videos_path %> and win prize money. You can also vote for videos that you like by exploring competitions on the left in order to determine the winner of each competition.
+	</div>
+<% end %>
+
 <div class="content-grids">
 	<ul class="video-browsing">
 		<% if @videos.count == 0 %>
