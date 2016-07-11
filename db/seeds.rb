@@ -24,7 +24,7 @@ end
   video_url = "sample#{n+1}.mp4"
   poster_url = "sample#{n+1}.jpg"
   tags = ["funny,pet", "pet,animal", "animal,funny,pet"]
-  Video.create!(id: id, title: title, video_url: video_url, poster_url: poster_url, uploader_id: "#{n%3+1}", tags: tags[n%3], video_desc: desc)
+  Video.create!(id: id, title: title, video_url: video_url, poster_url: poster_url, uploader_id: "#{n%3+1}", tags: tags[n%3], video_desc: desc, is_approved: 1)
 end
 
 VcRelation.delete_all

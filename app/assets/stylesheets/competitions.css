@@ -1,4 +1,4 @@
-.content-grids img{
+.content-grids .video-link{
 	width: 180px;
 	height: 135px;
 }
@@ -20,4 +20,16 @@
 	margin-left: 30px;
 	display: inline-block;
 	width: 50%;
+}
+
+.upvote {
+	float: left;
+	padding-left: 24px;
+	padding-right: 24px;
+}
+
+.downvote {
+	float: right;
+	padding-left: 24px;
+	padding-right: 24px;
 }

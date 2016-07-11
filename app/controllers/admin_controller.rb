@@ -1,6 +1,9 @@
 class AdminController < ApplicationController
   @@PER_PAGE = 12
 
+  def index
+  end
+
   def videos
   	@approved = "0"
   	@str = "pending"

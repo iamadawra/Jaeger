@@ -1,6 +1,3 @@
-
-
-<h1></h1>
 <div class="right-content-heading">
   <div class="right-content-heading-left">
     <h3>Listing Competitions</h3>
@@ -9,7 +6,12 @@
   <p id="notice"><%= notice %></p>
 </div>
 
-<div class="function_bar"><%= link_to 'New Competition', new_competition_path %></div>
+
+
+<div class="function_bar">
+<%= link_to '<< Back to upper level', admin_index_path%> |
+<%= link_to 'New Competition', new_competition_path %>
+</div>
 <table>
   <thead>
     <tr>

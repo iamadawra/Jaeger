@@ -40,6 +40,7 @@
 			<div class="content-grid">
 				<%= link_to image_tag(full_url(v.poster_url)), "#{videos_path}/#{v.id}", title: v.title, class: "video-link", data: { no_turbolink: true } %>
 				<h3><%= v.title %></h3>
+				
 				<%= link_to "Watch now", "#{videos_path}/#{v.id}", title: v.title, class: "button", data: { no_turbolink: true } %>
 			</div>
 			<% end %>

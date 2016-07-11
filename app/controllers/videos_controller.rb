@@ -7,10 +7,10 @@ class VideosController < ApplicationController
       @is_search = true
       param = params[:search]
       @param = param
-      sql = "SELECT * FROM videos WHERE title LIKE '%#{param}%' || video_desc LIKE '%#{param}%' || tags LIKE '%#{param}%'"
+      sql = "SELECT * FROM videos WHERE is_approved = 1 AND (title LIKE '%#{param}%' || video_desc LIKE '%#{param}%' || tags LIKE '%#{param}%')"
       @videos = Video.paginate_by_sql(sql, page: params[:page], per_page: @@PER_PAGE)
     else
-      sql = "SELECT * FROM videos"
+      sql = "SELECT * FROM videos WHERE is_approved = 1"
       @videos = Video.paginate_by_sql(sql, page: params[:page], per_page: @@PER_PAGE)
       if @videos.count == 0
         redirect_to root_path
