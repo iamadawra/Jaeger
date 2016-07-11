@@ -13,7 +13,6 @@ $(function() {
 				confirmed = confirm("Do you want to put this video in the pending list?");
 			}
 
-			console.log(confirmed)
 			if(confirmed){
 				$(this).parent().submit();
 			}
@@ -26,7 +25,6 @@ $(function() {
 		cbk.click(function(event) {
 			var disable = false;
 			$("#review-form input:checkbox").each(function(i, e) {
-				console.log($(e).is(":checked"));
 				if (!$(e).is(":checked")) {
 					disable = true;
 				}
@@ -51,4 +49,18 @@ $(function() {
 			}
 		});
 	});
+
+	var t = window.setInterval(function() {
+		var vid = document.getElementById("myVideo_html5_api");
+		if (vid.readyState > 0) {
+			var sec_num = parseInt(vid.duration, 10); // don't forget the second param
+			var minutes = Math.floor(sec_num / 60);
+			var seconds = sec_num - (minutes * 60);
+			if (minutes < 10) {minutes = "0"+minutes;}
+	    	if (seconds < 10) {seconds = "0"+seconds;}
+	    	var time = minutes + ":" +seconds;
+			$('#time_label').html('The length is acceptable. (The length of the video is ' + time + ')');
+			clearInterval(t);
+		}
+	}, 500);
 });

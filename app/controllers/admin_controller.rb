@@ -2,7 +2,7 @@ class AdminController < ApplicationController
   @@PER_PAGE = 12
 
   def videos
-  	@approved = 0
+  	@approved = "0"
   	@str = "pending"
   	if params.has_key?(:approved)
   		@approved = params[:approved]
@@ -18,7 +18,14 @@ class AdminController < ApplicationController
   end
 
   def review
+    @str = "pending"
   	@video = Video.where(:id => params[:id]).first
+    if(@video.is_approved == 1)
+      @str = "approved"
+    elsif(@video.is_approved == -1)
+      @str = "denied"
+    end
+
   	@denied_size = Video.where(:uploader_id => @video.user.id, :is_approved => -1).count
   end
 
@@ -28,7 +35,7 @@ class AdminController < ApplicationController
   end
 
   def vc_relations
-    @approved = 0
+    @approved = "0"
     @str = "pending"
 
 

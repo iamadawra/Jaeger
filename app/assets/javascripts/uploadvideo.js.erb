@@ -72,8 +72,6 @@ $(function() {
       replaceFileInput: false,
       add: function (e, data){
         var formatIsValid = true;
-        console.log(data.originalFiles[0]);
-        console.log("123");
         if(data.originalFiles[0]['type'].length == 0 || !acceptable.test(data.originalFiles[0]['type'])) {
             formatIsValid = false;
             alert('The file format is not acceptable.');
@@ -82,7 +80,7 @@ $(function() {
         
         submitButton.click(function (event) {
           if (formatIsValid && validate()) {
-            // data.submit();
+            data.submit();
           }
         });
       },
@@ -105,7 +103,6 @@ $(function() {
       },
       done: function(e, data) {
         progressBar.text("Uploading done");
-        // console.log($(this).attr('id'));
         if($(this).attr('id') == 'video_video_url'){
           video_uploaded = 1;
         } else {
@@ -119,7 +116,7 @@ $(function() {
         var input = $("<input />", { type:'hidden', name: fileInput.attr('name'), value: url })
         form.append(input);
         if (video_uploaded == 1 && poster_uplaoded == 1){
-          // form.submit();
+          form.submit();
         }
       },
       fail: function(e, data) {
@@ -131,9 +128,6 @@ $(function() {
           css("background", "red").
           text("Failed");
       }
-    }).on('fileuploadadded', function (e, data) {
-        alert("ASDF");
-        console.log(data.files.valid);
     });
   });
  
