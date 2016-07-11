@@ -1,0 +1,9 @@
+<div class="upvote">
+  <%= image_tag "like.png", size: "32x32", alt: "like" %> 
+  <span class="like-vote-<%= video.id %>"><%= video.get_upvotes(vote_scope: "competition_" + competition_id.to_s).size %></span>
+ </div>
+<div class="downvote">
+	<%= image_tag "dislike.png", size: "32x32", alt: "dislike" %> 
+  <span class="unlike-vote-<%= video.id %>"><%= video.get_downvotes(vote_scope: "competition_" + competition_id.to_s).size %></span>
+</div>
+<div class="clear"></div>

@@ -1,15 +1,19 @@
 <div class="right-content-heading">
 	<div class="right-content-heading-left">
 		<h3>review <%= @str %> videos for competition "<%= @competition.title%>"</h3>
-	</div>
-	<div class="right-content-heading-right">
+
 		<%= link_to "Approved Videos", admin_vc_relations_path(:approved => 1, :cid => @competition.id), title: "approved videos" %> | 
 		<%= link_to "Pending Videos", admin_vc_relations_path(:approved => 0, :cid => @competition.id), title: "pending videos" %> | 
 		<%= link_to "Denied Videos", admin_vc_relations_path(:approved => -1, :cid => @competition.id), title: "denied videos" %>
 	</div>
+	<div class="right-content-heading-right">
+		
+	</div>
 	<div class="clear"> </div>
 </div>
+
 <div>
+	<%= link_to '<< Back to upper level', admin_index_path%>
 	<%= form_tag({controller: 'admin', action: 'vc_relations'}, method: 'post', :id => 'competition-form') do%>
 		<%= select_tag "cid", options_from_collection_for_select(@competitions, "id", "title", @competition.id) %>
 		<%= submit_tag "select" %>
