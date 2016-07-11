@@ -9,6 +9,8 @@
 
   <div class="login-page">
     <div class="form">
+      <%= link_to image_tag('logo.png', width: '150px', style:'padding-bottom: 20px;'), root_path, title: 'CucuCity' %>
+
       <%= form_for @user, html: { class: "register-form", class: "hidden-form"} do |f| %>
       <% if @user.errors.any? %>
       <div class="error_messages">

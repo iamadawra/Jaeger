@@ -14,43 +14,52 @@
 	<h1>Video Profile: </h1>
 	<div class="video-profile">
 		<div>Title: <%= @video.title %></div> 
-		<div>Uploader: <%= @video.user.username %></div> 
+		<div>Uploader: <%= @video.user.username %></div>
+		<div>Status:  <span><%= @str %></span></div>
 	</div>
 	<%= render partial: "video_profile", locals: {video: @video} %>
 	
-
-	<h1>Checklist: </h1>
 	<%= form_tag({controller: 'admin', action: 'approve'}, method: 'post', :id => 'review-form') do%>
  
-	<ol>
-	    <li><%= label_tag '1', "The user\'s historical data is acceptable. (The user #{@video.user.username} has #{@denied_size} videos denied)" %>
-	    <%= check_box_tag 'c1', '1' %></li>
+	 <% if @video.is_approved != 1 %>
+	 	<h1>Checklist: </h1>
+		<ol>
+		    <li><%= label_tag '1', "The user\'s historical data is acceptable. (The user #{@video.user.username} has #{@denied_size} videos denied)" %>
+		    <%= check_box_tag 'c1', '1' %></li>
 
-	    <li><%= label_tag '2', 'The length is acceptable. (The length of the video is 0:32)' %>
-	    <%= check_box_tag 'c2', '1' %></li>
+		    <li><%= label_tag '2', 'The length is acceptable. (The length of the video is 00:00)', {:id => 'time_label'}%>
+		    <%= check_box_tag 'c2', '1' %></li>
+		    <br>
+		    <li><%= label_tag '3', 'The content and title of the video is acceptable:' %>
+				<ol>
 
-	    <li><%= label_tag '3', 'The content and title of the video is acceptable.' %>
-			<ol>
+				<li><%= label_tag '3a', 'The title is consistent with the video content.' %>
+			    <%= check_box_tag 'c3a', '1' %></li>
+				<li><%= label_tag '3b', 'The video content is legal and does not violate any regulation.' %>
+			    <%= check_box_tag 'c3b', '1' %></li>
+				<li><%= label_tag '3c', 'The video content is consistent with the theme of the competition.' %>
+			    <%= check_box_tag 'c3c', '1' %></li>
+				</ol>
+			</li>
 
-			<li><%= label_tag '3a', 'The title is consistent with the video content.' %>
-		    <%= check_box_tag 'c3a', '1' %></li>
-			<li><%= label_tag '3b', 'The video content is legal and does not violate any regulation.' %>
-		    <%= check_box_tag 'c3b', '1' %></li>
-			<li><%= label_tag '3c', 'The video content is consistent with the theme of the competition.' %>
-		    <%= check_box_tag 'c3c', '1' %></li>
-			</ol>
-		</li>
-
-    </ol>
+	    </ol>
+	<% end %>
 
     <%= hidden_field_tag 'review_action', '0'%>
     <%= hidden_field_tag 'vid', @video.id%>
 
+    <% if @video.is_approved != 0 %>
     <%= submit_tag 'Pending' %>
+    <% end %>
+    <% if @video.is_approved != -1 %>
     <%= submit_tag 'Deny' %>
+    <% end %>
+    <% if @video.is_approved != 1 %>
     <%= submit_tag 'Approve', disabled: true%>
+    <% end %>
 
     <% end %>
-    <div class="clear"> </div>
+    <br/>
+    <%= link_to 'Back', admin_videos_path(:approved => @video.is_approved), class: "ph-button ph-btn-grey" %>
     <div class="clear"> </div>
 </div>

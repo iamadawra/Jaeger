@@ -18,7 +18,14 @@ class AdminController < ApplicationController
   end
 
   def review
+    @str = "pending"
   	@video = Video.where(:id => params[:id]).first
+    if(@video.is_approved == 1)
+      @str = "approved"
+    elsif(@video.is_approved == -1)
+      @str = "denied"
+    end
+
   	@denied_size = Video.where(:uploader_id => @video.user.id, :is_approved => -1).count
   end
 
