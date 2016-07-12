@@ -18,8 +18,6 @@
 </div>
 
 <div class="inner-page">
-  
-  <div class="video-inner">
     <div class="video-detail">
       <video id="myVideo" class="video-js video-in-detail vjs-big-play-centered" controls preload="auto" width="700" height="350"
       poster="<%= full_url(@video.poster_url)%>" data-setup="{}">
@@ -42,9 +40,9 @@
     <% if current_user %>
     <%= hidden_field_tag(id = 'user-info', value = current_user.id, options = {}) %>
     <% end %>
-  </div>
   <div class="clear"> </div>
   <div class="video-details">
+    <h1>Video Information: </h1><hr>
     <ul>
       <li><p>Uploaded on <%= @video.created_at %> by <!--<a href="#">-->@<%= @uploader.username %><!--</a>--></p></li>
       <li><span><%= @video.video_desc %></span></li>

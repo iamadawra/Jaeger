@@ -32,7 +32,7 @@ VcRelation.delete_all
   id = n+1
   vid  = n+1
   cid = n%3+1
-  VcRelation.create!(id: id, video_id: vid, competition_id: cid)
+  VcRelation.create!(id: id, video_id: vid, competition_id: cid, is_approved: 1)
 end
 
 5.times do |n|
