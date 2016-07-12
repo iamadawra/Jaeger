@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resource :video_cart, only: [:show]
   resources :video_carts, only: [:destroy]
   resources :added_videos, only: [:create, :update, :destroy]
+  resources :password_resets
   
   get 'register' => 'users#new', :as => 'register'
   get 'login' => 'sessions#new', :as => 'login'

@@ -10,7 +10,7 @@ default: &default
   reconnect: false
   pool: 5
   username: CucuMasterDB
-  password: "12345678"
+  password: <%= ENV['DB_PWD']%>
   host: cucucity.clhjkp1nirrq.us-west-2.rds.amazonaws.com
   port: 3306
   socket: /tmp/mysql.sock
