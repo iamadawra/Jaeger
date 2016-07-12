@@ -13,15 +13,14 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    if session[:user_id]
-      @user = User.find_by_id(session[:user_id])
+    if cookies[:auth_token]
+      @user = User.find_by_auth_token(cookies[:auth_token])
       if !@user
-        session[:user_id] = nil
+        cookies[:auth_token] = nil
       else
         @current_user = @user
       end
     end
-    # @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
   def current_competition

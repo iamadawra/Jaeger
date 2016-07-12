@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  get 'admin/videos'
-  get 'admin/review/:id' => 'admin#review', :as => 'admin_review'
-  post 'admin/approve' => 'admin#approve'
-  get 'admin/vc_relations'
-  post 'admin/vc_relations'
-  get 'admin/vc_approve'
-
   get 'competitions/admin' => 'competitions#admin'
   get 'competitions/show_videos' => 'competitions#show_videos'
   post 'competitions/add_videos' => 'competitions#add_videos'
@@ -16,6 +9,7 @@ Rails.application.routes.draw do
   resource :video_cart, only: [:show]
   resources :video_carts, only: [:destroy]
   resources :added_videos, only: [:create, :update, :destroy]
+  resources :password_resets
   
   get 'register' => 'users#new', :as => 'register'
   get 'login' => 'sessions#new', :as => 'login'
@@ -25,7 +19,7 @@ Rails.application.routes.draw do
   post '/rate' => 'rater#create', :as => 'rate'
 
   
-  resources :users, :sessions, :rater, :upload_videos, :videos, :admin
+  resources :users, :sessions, :rater, :upload_videos, :videos
   resources :videos do
     member do
       put "like" => "videos#upvote"
