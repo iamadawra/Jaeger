@@ -19,7 +19,12 @@ class CompetitionsController < ApplicationController
   # GET /competitions/1
   # GET /competitions/1.json
   def show
-    sql = "SELECT * FROM videos where id in (select video_id FROM vc_relations where competition_id = #{@competition.id})"
+    sql = "SELECT *, (rs.upvotes - rs.downvotes) AS votes FROM (
+            SELECT videos.*,
+                    sum(case when vote_flag = 1 then 1 else 0 end) AS upvotes,
+                    sum(case when vote_flag = 0 then 1 else 0 end) AS downvotes
+            FROM videos LEFT JOIN votes ON videos.id = votes.votable_id GROUP BY videos.id) AS rs 
+          WHERE id IN (SELECT video_id FROM vc_relations WHERE competition_id = #{@competition.id} and is_approved = 1) ORDER BY votes DESC, upvotes DESC"
     @videos = Video.paginate_by_sql(sql, page: params[:page], per_page: @@PER_PAGE)
   end
 
