@@ -89,7 +89,14 @@ class CompetitionsController < ApplicationController
 
   def show_videos
     session[:competition_id] = params[:cid]
+    # puts params[:cid] + "----------------------"
     sql = "SELECT * FROM videos where id not in (select video_id from vc_relations where competition_id = #{params[:cid]})"
+    @param = ""
+    if params.has_key?(:search)
+      param = params[:search]
+      @param = param
+      sql = sql + " AND (title LIKE '%#{param}%' || video_desc LIKE '%#{param}%' || tags LIKE '%#{param}%')"
+    end
     @count = VcRelation.where(competition_id: params[:cid]).count('id')
     @videos = Video.paginate_by_sql(sql, page: params[:page], per_page: @@PER_PAGE)
     @competition = Competition.where(id: params[:cid]).first

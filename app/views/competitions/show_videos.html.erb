@@ -1,13 +1,27 @@
 
 <div class="right-content-heading">
 	<div class="right-content-heading-left">
-		<h3>Add videos to "<%= @competition.title %>"</h3>
+		<h3>Add videos to "<%= @competition.title %>" 
+		<% if @param != "" %>
+		<%= "(search results for \"#{@param})\"" %>
+		<% end %>
+		</h3>
 		<h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
 	</div>
 	<div class="clear"> </div>
+	<div class="search">
+          <%= form_tag competitions_show_videos_path(), :method => 'get' do %>
+          <%= hidden_field_tag :cid, params[:cid] %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search" %> 
+          <%= submit_tag "", :name => nil %>
+          <% end %>
+        </div>
 </div>
+
 <%= link_to 'Back', competitions_admin_path %>
+
 <div class="content-grids">
+
 	<ul class="video-browsing">
 		<% if @videos.count == 0 %>
 			<div>
