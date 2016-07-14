@@ -77,6 +77,11 @@ namespace :deploy do
     on roles(:app), in: :sequence, wait: 5 do
       invoke 'puma:restart'
       execute("if [ -n \"$(lsof -i:3000 | grep 'deploy'  | awk '{print $2}')\" ] ; then kill -9 \"$(lsof -i:3000 | grep 'deploy'  | awk 'NR==1{print $2}')\" ; fi")
+      execute(". ~/.shrc && cd /home/deploy/CucuCity/current && ~/.rvm/bin/rvm default do bundle exec rake db:drop")
+      execute(". ~/.shrc && cd /home/deploy/CucuCity/current && ~/.rvm/bin/rvm default do bundle exec rake db:create")
+      execute(". ~/.shrc && cd /home/deploy/CucuCity/current && ~/.rvm/bin/rvm default do bundle exec rake db:migrate")
+      execute(". ~/.shrc && cd /home/deploy/CucuCity/current && ~/.rvm/bin/rvm default do bundle exec rake db:seed")
+      execute(". ~/.shrc && cd /home/deploy/CucuCity/current && ~/.rvm/bin/rvm default do bundle exec rake db:test:prepare")
       execute(". ~/.shrc && cd /home/deploy/CucuCity/current && ~/.rvm/bin/rvm default do bundle exec rake assets:precompile")
       execute(". ~/.shrc && cd /home/deploy/CucuCity/current && ~/.rvm/bin/rvm default do rails s -b 0.0.0.0 > /dev/null 2>&1 &")
     end
