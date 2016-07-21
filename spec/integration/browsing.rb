@@ -75,6 +75,11 @@ describe "Test video detail page" do
   end
 
   it "Voting a video" do
-    
+    @driver.navigate.to("http://52.10.113.111:3000/videos/1?cid=1")
+    elems = @driver.find_elements(:css, ".rate-and-vote > .video-vote")
+    vote = elems[1].find_elements(:css, "span")[0]
+    votes = vote.text
+    elems[1].find_element(:css, "a").click
   end
 end
+
