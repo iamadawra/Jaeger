@@ -3,7 +3,6 @@
 # role :app, "52.10.113.111", :primary => true
 # role :db, "cucucity.clhjkp1nirrq.us-west-2.rds.amazonaws.com", :primary => true
 
-# set :repo_url,        'https://github.com/deepfly/CucuCity.git'
 set :application,     'CucuCity'
 set :user,            'deploy'
 set :password,        ''
