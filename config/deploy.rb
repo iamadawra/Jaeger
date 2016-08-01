@@ -3,16 +3,14 @@
 # role :app, "52.10.113.111", :primary => true
 # role :db, "cucucity.clhjkp1nirrq.us-west-2.rds.amazonaws.com", :primary => true
 
-# set :repo_url,        'https://github.com/deepfly/CucuCity.git'
 set :application,     'CucuCity'
 set :user,            'deploy'
 set :password,        ''
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
 set :scm, :git
-set :repo_url,  'http://deepfly:zzp123567@github.com/iamadawra/Jaeger.git'
-# set :scm_username, "deepfly"
-# set :scm_password, "zzp123567"
+# e.g set :repo_url,  'http://<username>:<password>@github.com/<repo_username>/<repo_name>.git'
+set :repo_url, "http://#{ENV['GITHUB_USERNAME']}:#{ENV['GITHUB_PASSWORD']}@github.com/#{ENV['GITHUB_REPOSITORY']}"
 
 # Don't change these unless you know what you're doing
 set :pty,             false

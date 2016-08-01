@@ -3,7 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  @@CDN_DNS = "http://d3bowxm1hun7br.cloudfront.net/"
+  # @@CDN_DNS = "http://d3bowxm1hun7br.cloudfront.net/"
+  @@CDN_DNS = ENV['CDN_DNS']
   helper_method :current_user, :all_competitions, :current_competition, :full_url
 
   private
