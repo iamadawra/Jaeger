@@ -42,4 +42,8 @@ Rails.application.configure do
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   config.assets.css_compressor = :sass
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { host: ENV['DNS'], port: 3000 }
+  config.action_mailer.smtp_settings = config_for(:email).symbolize_keys
 end

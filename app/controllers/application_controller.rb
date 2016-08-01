@@ -3,7 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  @@CDN_DNS = "http://d3bowxm1hun7br.cloudfront.net/"
+  # @@CDN_DNS = "http://d3bowxm1hun7br.cloudfront.net/"
+  @@CDN_DNS = ENV['CDN_DNS']
   helper_method :current_user, :all_competitions, :current_competition, :full_url
 
   private
@@ -13,15 +14,14 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    if session[:user_id]
-      @user = User.find_by_id(session[:user_id])
+    if cookies[:auth_token]
+      @user = User.find_by_auth_token(cookies[:auth_token])
       if !@user
-        session[:user_id] = nil
+        cookies[:auth_token] = nil
       else
         @current_user = @user
       end
     end
-    # @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
   def current_competition

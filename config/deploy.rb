@@ -3,16 +3,14 @@
 # role :app, "52.10.113.111", :primary => true
 # role :db, "cucucity.clhjkp1nirrq.us-west-2.rds.amazonaws.com", :primary => true
 
-# set :repo_url,        'https://github.com/deepfly/CucuCity.git'
 set :application,     'CucuCity'
 set :user,            'deploy'
 set :password,        ''
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
 set :scm, :git
-set :repo_url,  'http://deepfly:zzp123567@github.com/iamadawra/Jaeger.git'
-# set :scm_username, "deepfly"
-# set :scm_password, "zzp123567"
+# e.g set :repo_url,  'http://<username>:<password>@github.com/<repo_username>/<repo_name>.git'
+set :repo_url, "http://#{ENV['GITHUB_USERNAME']}:#{ENV['GITHUB_PASSWORD']}@github.com/#{ENV['GITHUB_REPOSITORY']}"
 
 # Don't change these unless you know what you're doing
 set :pty,             false
@@ -77,6 +75,11 @@ namespace :deploy do
     on roles(:app), in: :sequence, wait: 5 do
       invoke 'puma:restart'
       execute("if [ -n \"$(lsof -i:3000 | grep 'deploy'  | awk '{print $2}')\" ] ; then kill -9 \"$(lsof -i:3000 | grep 'deploy'  | awk 'NR==1{print $2}')\" ; fi")
+      execute(". ~/.shrc && cd /home/deploy/CucuCity/current && ~/.rvm/bin/rvm default do bundle exec rake db:drop")
+      execute(". ~/.shrc && cd /home/deploy/CucuCity/current && ~/.rvm/bin/rvm default do bundle exec rake db:create")
+      execute(". ~/.shrc && cd /home/deploy/CucuCity/current && ~/.rvm/bin/rvm default do bundle exec rake db:migrate")
+      execute(". ~/.shrc && cd /home/deploy/CucuCity/current && ~/.rvm/bin/rvm default do bundle exec rake db:seed")
+      execute(". ~/.shrc && cd /home/deploy/CucuCity/current && ~/.rvm/bin/rvm default do bundle exec rake db:test:prepare")
       execute(". ~/.shrc && cd /home/deploy/CucuCity/current && ~/.rvm/bin/rvm default do bundle exec rake assets:precompile")
       execute(". ~/.shrc && cd /home/deploy/CucuCity/current && ~/.rvm/bin/rvm default do rails s -b 0.0.0.0 > /dev/null 2>&1 &")
     end

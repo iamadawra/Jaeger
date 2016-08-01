@@ -45,4 +45,7 @@ exclude_paths:
 - "test/"
 - "vendor/"
 - "app/assets/javascripts/*"
+- "app/assets/stylesheets/video-js.css"
+- "app/helpers/rating_for_helper.rb"
+- "public/"
 
