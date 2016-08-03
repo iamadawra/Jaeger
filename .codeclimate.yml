@@ -50,4 +50,5 @@ exclude_paths:
 - "public/"
 - "app/controllers/videos_controller.rb"
 - "app/controllers/competitions_controller.rb"
+- "app/controllers/admin_controller.rb"
 
