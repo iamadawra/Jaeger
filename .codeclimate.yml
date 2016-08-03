@@ -49,4 +49,5 @@ exclude_paths:
 - "app/helpers/rating_for_helper.rb"
 - "public/"
 - "app/controllers/videos_controller.rb"
+- "app/controllers/competitions_controller.rb"
 
