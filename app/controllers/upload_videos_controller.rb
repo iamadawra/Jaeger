@@ -42,8 +42,7 @@ class UploadVideosController < ApplicationController
         format.html { redirect_to :controller => 'upload_videos', notice: 'Upload video was successfully created.' }
         format.json { render :show, status: :created, location: @upload_video }
       else
-        format.html { render :new }
-        format.json { render json: @upload_video.errors, status: :unprocessable_entity }
+        error_render format, :new
       end
     end
   end
@@ -56,8 +55,7 @@ class UploadVideosController < ApplicationController
         format.html { redirect_to :controller => 'upload_videos', notice: 'Upload video was successfully updated.' }
         format.json { render :show, status: :ok, location: @upload_video }
       else
-        format.html { render :edit }
-        format.json { render json: @upload_video.errors, status: :unprocessable_entity }
+        error_render format, :edit
       end
     end
   end
@@ -96,5 +94,10 @@ class UploadVideosController < ApplicationController
       if !current_user
         redirect_to login_path
       end
+    end
+
+    def error_render (format, viewPage)
+      format.html { render viewPage }
+      format.json { render json: @upload_video.errors, status: :unprocessable_entity }
     end
 end
